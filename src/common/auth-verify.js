@@ -26,6 +26,6 @@ const AuthVerify = () => {
   });
 
   return <div></div>;
-}
+};
 
 export default AuthVerify;

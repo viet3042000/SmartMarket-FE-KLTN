@@ -19,7 +19,7 @@
     "react"
   ],
   "rules": {
-    "indent": ["error", 2],
+    "indent": ["off", 2],
     "no-unused-vars": [
       "warn",
       {
@@ -48,7 +48,9 @@
     "linebreak-style": ["off", "unix"],
     "max-len": ["off", { "code": 180 }],
     "arrow-parens": ["off", "always"],
-    "comma-dangle": ["error", "never"],
-    "quotes": ["off", "single"]
+    "comma-dangle": ["off", "never"],
+    "quotes": ["off", "single"],
+    "operator-linebreak": ["off", "after"],
+    "react/prop-types": "off"
   }
 }

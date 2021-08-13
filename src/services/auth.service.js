@@ -4,28 +4,27 @@ const API_URL = "http://103.9.0.239:31441/oauth/token?grant_type=password";
 
 class AuthService {
   login(username, password) {
-
     return axios
       .post(
-        API_URL,{}, {
+        API_URL, {}, {
           headers: { 'Authorization': 'Basic Y2xpZW50MzpjbGllbnQz' },
-          params:{
+          params: {
             username: username,
             password: password
           }
-        }
+      }
       )
       .then((response) => {
         console.log(response.data);
         if (response.data.access_token) {
           localStorage.setItem("user", JSON.stringify(response.data));
-          
+
         }
 
         return response.data;
       })
       .catch(err => {
-        console.log('Error when calling Backend:', {err});
+        console.log('Error when calling Backend:', { err });
       });
   }
 
