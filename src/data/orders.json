@@ -1,0 +1,85 @@
+{
+  "responseTime": "18/08/2021 14:58:37",
+  "resultCode": "000",
+  "resultMessage": "Transaction successful",
+  "detail": {
+    "content": [
+      {
+        "id": 327,
+        "orderId": "23efb3bc-7e3d-4e27-805d-3ac0bc0fdab5",
+        "payload": "{\"requestTime\":\"090720216\",\"targetId\":\"BIC\",\"requestId\":\"bda53175-a77f\",\"detail\":{\"trvDetails\":[{\"gender\":0,\"fullName\":\"Dam Quoc Duong\",\"dateOfBirth\":\"1990-12-20\",\"passportCard\":\"123\"}],\"trv\":{\"fromDate\":\"2021-06-26T00:00:00\",\"amountDays\":2,\"toDate\":\"2021-06-27T00:00:00\",\"amountPersons\":1,\"promotionAddress\":\"\",\"promotion\":0},\"orders\":{\"ordStatus\":1,\"ordDate\":\"2020-02-17T10:37:22\",\"ordDiscountAmount\":0,\"ordPaidMoney\":10000,\"ordTotalQty\":4,\"orderReference\":\"23efb3bc-7e3d-4e27-805d-3ac0bc0fdab5\",\"orderPaymentMethod\":11,\"ordSource\":\"DSVN\",\"ordBillMobile\":\"097453686312\",\"ordBillFirstName\":\"12\",\"ordBillStreet1\":\"TTP, Đan Phượng, Hà nội\",\"ordbillemail\":\"nghiemxuanhop98@gmail.com\"}}}",
+        "payloadUpdate": null,
+        "payloadGet": null,
+        "type": "createTravelInsuranceBIC",
+        "state": "Success",
+        "createAt": "2021-08-18T07:57:40.000+00:00",
+        "createFinish": "2021-08-18T07:57:45.000+00:00",
+        "userName": "hung"
+      },
+      {
+        "id": 328,
+        "orderId": "f98571b4-cc11-4302-8016-fdd1d95957a0",
+        "payload": "{\"requestTime\":\"090720216\",\"targetId\":\"BIC\",\"requestId\":\"bda53175-a77f\",\"detail\":{\"trvDetails\":[{\"gender\":0,\"fullName\":\"Dam Quoc Duong\",\"dateOfBirth\":\"1990-12-20\",\"passportCard\":\"123\"}],\"trv\":{\"fromDate\":\"2021-06-26T00:00:00\",\"amountDays\":2,\"toDate\":\"2021-06-27T00:00:00\",\"amountPersons\":1,\"promotionAddress\":\"\",\"promotion\":0},\"orders\":{\"ordStatus\":1,\"ordDate\":\"2020-02-17T10:37:22\",\"ordDiscountAmount\":0,\"ordPaidMoney\":10000,\"ordTotalQty\":4,\"orderReference\":\"f98571b4-cc11-4302-8016-fdd1d95957a0\",\"orderPaymentMethod\":11,\"ordSource\":\"DSVN\",\"ordBillMobile\":\"097453686312\",\"ordBillFirstName\":\"12\",\"ordBillStreet1\":\"TTP, Đan Phượng, Hà nội\",\"ordbillemail\":\"nghiemxuanhop98@gmail.com\"}}}",
+        "payloadUpdate": null,
+        "payloadGet": null,
+        "type": "createTravelInsuranceBIC",
+        "state": "Success",
+        "createAt": "2021-08-18T07:57:53.000+00:00",
+        "createFinish": "2021-08-18T07:57:54.000+00:00",
+        "userName": "hung"
+      },
+      {
+        "id": 329,
+        "orderId": "a2725928-ac33-4491-8fb0-ebf5f29b84b8",
+        "payload": "{\"requestTime\":\"090720216\",\"targetId\":\"BIC\",\"requestId\":\"bda53175-a77f\",\"detail\":{\"trvDetails\":[{\"gender\":0,\"fullName\":\"Dam Quoc Duong\",\"dateOfBirth\":\"1990-12-20\",\"passportCard\":\"123\"}],\"trv\":{\"fromDate\":\"2021-06-26T00:00:00\",\"amountDays\":2,\"toDate\":\"2021-06-27T00:00:00\",\"amountPersons\":1,\"promotionAddress\":\"\",\"promotion\":0},\"orders\":{\"ordStatus\":1,\"ordDate\":\"2020-02-17T10:37:22\",\"ordDiscountAmount\":0,\"ordPaidMoney\":10000,\"ordTotalQty\":4,\"orderReference\":\"a2725928-ac33-4491-8fb0-ebf5f29b84b8\",\"orderPaymentMethod\":11,\"ordSource\":\"DSVN\",\"ordBillMobile\":\"097453686312\",\"ordBillFirstName\":\"12\",\"ordBillStreet1\":\"TTP, Đan Phượng, Hà nội\",\"ordbillemail\":\"nghiemxuanhop98@gmail.com\"}}}",
+        "payloadUpdate": null,
+        "payloadGet": null,
+        "type": "createTravelInsuranceBIC",
+        "state": "Success",
+        "createAt": "2021-08-18T07:58:04.000+00:00",
+        "createFinish": "2021-08-18T07:58:06.000+00:00",
+        "userName": "hung"
+      },
+      {
+        "id": 330,
+        "orderId": "84f6f38b-ced9-4f55-b87e-c9a94173ba79",
+        "payload": "{\"requestTime\":\"090720216\",\"targetId\":\"BIC\",\"requestId\":\"bda53175-a77f\",\"detail\":{\"trvDetails\":[{\"gender\":0,\"fullName\":\"Dam Quoc Duong\",\"dateOfBirth\":\"1990-12-20\",\"passportCard\":\"123\"}],\"trv\":{\"fromDate\":\"2021-06-26T00:00:00\",\"amountDays\":2,\"toDate\":\"2021-06-27T00:00:00\",\"amountPersons\":1,\"promotionAddress\":\"\",\"promotion\":0},\"orders\":{\"ordStatus\":1,\"ordDate\":\"2020-02-17T10:37:22\",\"ordDiscountAmount\":0,\"ordPaidMoney\":10000,\"ordTotalQty\":4,\"orderReference\":\"84f6f38b-ced9-4f55-b87e-c9a94173ba79\",\"orderPaymentMethod\":11,\"ordSource\":\"DSVN\",\"ordBillMobile\":\"097453686312\",\"ordBillFirstName\":\"12\",\"ordBillStreet1\":\"TTP, Đan Phượng, Hà nội\",\"ordbillemail\":\"nghiemxuanhop98@gmail.com\"}}}",
+        "payloadUpdate": null,
+        "payloadGet": null,
+        "type": "createTravelInsuranceBIC",
+        "state": "Success",
+        "createAt": "2021-08-18T07:58:11.000+00:00",
+        "createFinish": "2021-08-18T07:58:12.000+00:00",
+        "userName": "hung"
+      }
+    ],
+    "pageable": {
+      "sort": {
+        "sorted": false,
+        "unsorted": true,
+        "empty": true
+      },
+      "offset": 0,
+      "pageNumber": 0,
+      "pageSize": 4,
+      "paged": true,
+      "unpaged": false
+    },
+    "last": false,
+    "totalElements": 9,
+    "totalPages": 3,
+    "size": 4,
+    "number": 0,
+    "sort": {
+      "sorted": false,
+      "unsorted": true,
+      "empty": true
+    },
+    "numberOfElements": 4,
+    "first": true,
+    "empty": false
+  },
+  "page": 1,
+  "totalPage": 3,
+  "total": 9
+}

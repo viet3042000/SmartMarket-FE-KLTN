@@ -40,7 +40,7 @@ export const register = (username, email, password) => (dispatch) => {
         payload: message
       });
 
-      return Promise.reject();
+      return Promise.reject(new Error("register error"));
     }
   );
 };
@@ -72,7 +72,7 @@ export const login = (username, password) => (dispatch) => {
         payload: message
       });
 
-      return Promise.reject();
+      return Promise.reject(new Error("login error"));
     }
   );
 };

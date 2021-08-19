@@ -3,17 +3,20 @@ const loggedReducer = (state = {}, action) => {
     case 'SIGN_IN':
       return {
         name: 'hung',
-        logged: true
+        logged: true,
+        ...state
       };
     case 'LOG_OUT':
       return {
         name: 'hung',
-        logged: false
+        logged: false,
+        ...state
       };
     default:
       return {
         name: '',
-        logged: false
+        logged: false,
+        ...state
       };
   }
 };
