@@ -50,22 +50,7 @@ export function Order() {
             </nav>
 
             <div className="w-full md:w-full p-6 flex flex-col items-center space-y-5">
-              {/* <div className="w-5/6 p-6 bg-white border-black">
-                all i want to do is to spend my time
-              </div>
-              <div className="w-5/6 border-2 p-6 bg-white border-black">
-                with you
-              </div>
-              <div className="w-5/6 border-2 p-6 bg-white border-black">
-                you, yooouuu, yoouuu
-              </div>
-              <div className="w-5/6 border-2 p-6 bg-white border-black">
-                you are really different baby
-              </div>
-              <details>
-              <summary>This is what you want to show before expanding</summary>
-              <p>This is where you put the details that are shown once expanded</p>
-              </details> */}
+
               {orders.detail.content.map((obj, index) => <OrderData key={index} {...obj} />)}
 
             </div>
