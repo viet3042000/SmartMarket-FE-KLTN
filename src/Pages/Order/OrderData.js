@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import orderData from "../../data/orders.json";
-import { BsCaretLeftFill, BsCaretDownFill } from "react-icons/bs";
+import OrderDataBrief from "./OrderDataBrief.js";
+import OrderDataDetail from "./OrderDataDetail.js";
 
-export default function OrderData({id=null, state=null}) {
+export default function OrderData({type=null, state=null, createAt=null, payload=null}) {
   const [show, setShow] = useState(false);
 
   // useEffect(() => {
@@ -10,35 +10,9 @@ export default function OrderData({id=null, state=null}) {
   // }, [clicked]);
   //  onClick={()=>{setShow(!show);}}
   return (
-    <div className="flex flex-col w-5/6 p-4 bg-white border-2 rounded-xl shadow-md border-gray-200">
-      <div name="orderBrief" className="flex">
-        <span name="id" className="order-1 flex-1">
-          Id: {id}
-        </span>
-        <span name="status" className="order-2 flex-1 bg-yellow-500 text-white">
-          {state}
-        </span>
-        {show?
-          <span name="expand" className="order-3 flex-auto w-10/12 ml-auto">
-            <button onClick={()=>{setShow(!show);}}>
-              <BsCaretDownFill></BsCaretDownFill>
-            </button>
-          </span>
-          :
-          <span name="expand" className="order-3 flex-auto w-10/12 ml-auto">
-            <button onClick={()=>{setShow(!show);}}>
-              <BsCaretLeftFill></BsCaretLeftFill>
-            </button>
-          </span>
-        }
-      </div>
-      {show?
-        <div name="orderDetail">
-          Aliquyam lorem rebum erat ipsum
-        </div>
-        :
-        <div></div>
-      }
+    <div className="flex flex-col w-5/6 p-6 bg-white border-2 rounded-xl shadow-md border-gray-200 gap-y-6">
+      <OrderDataBrief type={type} state={state} createAt={createAt} show={show} setShow={setShow}/>
+      <OrderDataDetail show={show} payload={payload}/>
     </div>
   );
   //   show?
