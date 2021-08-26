@@ -13,17 +13,17 @@ export default function OrderDataBrief({type=null, state=null, createAt=null, sh
       <BsCaretLeftFill></BsCaretLeftFill>
     </button>
   );
-  const stateDisp = (state === 'Success') ? (
-    <p className="bg-green-100 border-1 rounded-lg p-1 text-green-500">
+  const stateDisp = (state==='Success') ? (
+    <p className="border-1 rounded-lg p-1 text-green-500 bg-gray-400 bg-opacity-20">
       {state}
     </p>
   ) : (
-    <p className="bg-red-100 border-1 rounded-lg p-1 text-red-500">
+    <p className="border-1 rounded-lg p-1 text-red-500 bg-gray-400 bg-opacity-20">
       {state}
     </p>
   );
   return (
-    <div name="orderBrief" className="flex relative">
+    <div name="orderBrief" className="flex relative mb-6">
       <span name="type" className="order-1 mr-7">
         <h6 className="font-medium">Product Name</h6>
         <p className="text-gray-500 text-opacity-75">{type}</p>
