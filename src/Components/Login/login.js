@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-const login2 = () => {
+const login = () => {
    return (
        <div className="w-full max-w-sm p-6 m-auto bg-white rounded-md shadow-md dark:bg-gray-800">
         <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">S-Market</h1>
@@ -67,4 +67,4 @@ const login2 = () => {
    );
 };
 
-export default login2;
+export default login;

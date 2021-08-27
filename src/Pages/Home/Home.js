@@ -1,12 +1,12 @@
 import React from 'react';
-import TravelInsuranceItems from '../../Components/RecommendInsurance/TravelInsuranceRecommend';
+import InsuranceItems from '../../Components/ListInsurance/ListInsurance';
 import Slider from '../../Components/Slider/Slider';
-import Login from '../../Components/Login/login2';
+import Login from '../../Components/Login/login';
 const Home = ({ handleLogged }) => {
   return (
     <div >
       <Slider />
-      <TravelInsuranceItems />
+      <InsuranceItems />
       {/* <Login /> */}
       {/* <AdvertiseList /> */}
       {/* <Switch>

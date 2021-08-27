@@ -5,7 +5,7 @@ import PopoverContainer from "@material-tailwind/react/PopoverContainer";
 import PopoverHeader from "@material-tailwind/react/PopoverHeader";
 import PopoverBody from "@material-tailwind/react/PopoverBody";
 import {Link} from "react-router-dom";
-import products from './itemsData';
+import products from './InsuranceData';
 // const products = [
 //     {
 //       id: 1,
@@ -45,7 +45,7 @@ import products from './itemsData';
 // // }
 //     // More products...
 //   ];
-const TravelInsuranceRecommend = () => {
+const ListInsurance = () => {
     const buttonRef = useRef();
     return (
       <div className="bg-gray-200 mx-auto">
@@ -293,4 +293,4 @@ const TravelInsuranceRecommend = () => {
     );
 };
 
-export default TravelInsuranceRecommend;
+export default ListInsurance;
