@@ -56,7 +56,7 @@ export default function Slider() {
             </div>
 
             </div>
-        </div>    */}
+        </div> */}
 
       {/* <div class="flex absolute w-screen inset-y-1">
             <button
