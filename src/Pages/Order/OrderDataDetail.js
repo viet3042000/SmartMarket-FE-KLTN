@@ -5,7 +5,7 @@ import {useOrderEditForm} from '../../hooks/Order/useOrderEditForm.js';
 const textGrayStyle = 'text-gray-500 text-opacity-75';
 const dataStyle = 'font-normal';
 
-export default function OrderDataDetail({ show=null, payload=null, onChangeOrder=f=>f }) {
+export default function OrderDataDetail({ show=null, payload=null }) {
   if (!show) {
     return (<></>);
   }

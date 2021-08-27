@@ -8,12 +8,6 @@ import OrderData from "./OrderData.js";
 
 export function Order() {
   const [orders, setOrders] = useState(orderData);
-  const onChangeOrder = (orderId, payload) => {
-    const newContentElement = orders.detail.content.find(element => element.orderId === orderId);
-    newContentElement.payload = payload;
-    orders.detail.content.filter(element => element.orderId !== orderId);
-    setOrders(...orders, newContentElement);
-  };
   return (
   <div>
       <div className="bg-yellow-50 w-screen h-screen ">
@@ -24,7 +18,7 @@ export function Order() {
               Your Order
             </a>
             <div className="w-full md:w-full p-6 flex flex-col items-center space-y-5">
-              {orders.detail.content.map((obj, index) => <OrderData key={index} {...obj} onChangeOrder={onChangeOrder} />)}
+              {orders.detail.content.map((obj, index) => <OrderData key={index} {...obj} />)}
             </div>
           </div>
         </section>
