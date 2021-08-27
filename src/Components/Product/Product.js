@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Products({ title, price, category, image }) {
   return (
-    <div className="flex bg-white w-full mb-5 shadow-sm rounded-lg">
+    <div className="flex bg-red-800 w-full mb-5 shadow-sm rounded-lg">
       <div className="w-5/12 p-2">
         <div style={{ backgroundImage: `url(${image})` }} className="bg-contain bg-no-repeat bg-center w-full h-full"></div>
       </div>
