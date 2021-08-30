@@ -26,7 +26,7 @@ export default function Slider() {
   };
 
   return (
-    <div className="relative bg-gray-200 w-screen max-h-70 mx-auto overflow-hidden">
+    <div className="relative bg-gray-200 w-70 h-100 mx-auto overflow-hidden">
       {dataSlider.map((obj, index) => {
         return (
           <div
@@ -35,12 +35,12 @@ export default function Slider() {
               : "absolute opacity-0"}
           >
             <img
-              className="relative object-cover w-screen max-h-64"
+              className="relative object-cover mx-auto max-h-96 w-screen"
               src={obj.url}
             />
             <div className="block absolute bottom-0.5 ml-40 w-full top-1/4">
-              <p className="text-black text-2xl my-4">{obj.title}</p>
-              <Link to={"/products/" + obj.name} className="cursor-pointer">view products</Link>
+              <p className="text-gray-900 text-2xl my-2 font-bold ">{obj.title}</p>
+              <Link to={"/products/" + obj.name} className="cursor-pointer font-medium hover:text-gray-800">view products</Link>
             </div>
           </div>
 
