@@ -10,19 +10,23 @@ const ProductPriceForm = ({ match=null }) => {
   const [toDate, setToDate] = useState("");
   const [prodPriceDisp, setProdPriceDisp] = useState("");
   const prodImgLink = products.find((item) => item.name === match.params.productName).imageSrc;
+  
   const formatter = new Intl.NumberFormat(undefined, {
     style: 'currency',
     currency: 'VND',
   });
+
   useEffect(() => {
     setProdPriceDisp(formatter.format(calcPrice(amountDaysProps.value, amountPersonsProps.value)));
   }, [amountPersonsProps, amountDaysProps]);
+
   useEffect(() => {
     if (fromDateProps.value === '') return;
     const calcDate = new Date(fromDateProps.value);
     calcDate.setDate(calcDate.getDate() + Number(amountDaysProps.value));
     setToDate(calcDate.toISOString().split('T')[0]);
   }, [fromDateProps, amountDaysProps]);
+
   const submit = event => {
     event.preventDefault();
     resetAmountPersons();
