@@ -10,7 +10,7 @@ import OrderData from "./OrderData.js";
 //   const [orders, setOrders] = useState(orderData);
 //   return (
 //   <div>
-//       <div className="bg-yellow-50 w-screen h-screen ">
+//       <div className="bg-white w-screen h-screen ">
 //         <section className="bg-white py-8 mt-0">
 //           <div className="container mx-auto flex items-center flex-wrap pt-4 pb-12">
 
