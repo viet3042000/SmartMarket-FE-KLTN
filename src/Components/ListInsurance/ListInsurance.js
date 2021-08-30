@@ -5,7 +5,7 @@ import PopoverContainer from "@material-tailwind/react/PopoverContainer";
 import PopoverHeader from "@material-tailwind/react/PopoverHeader";
 import PopoverBody from "@material-tailwind/react/PopoverBody";
 import {Link} from "react-router-dom";
-import products from './InsuranceData';
+import products from '../../data/InsuranceData';
 // const products = [
 //     {
 //       id: 1,
@@ -60,7 +60,7 @@ const ListInsurance = () => {
               {products.map((product) => (
                 <div key={product.id} className="group relative">
                   <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <Link to={`../products/TravelInsurance`}>
+                    <Link to={`../products/${product.name}`}>
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
@@ -71,7 +71,7 @@ const ListInsurance = () => {
                   <div className="mt-4 flex justify-between ">
                     <div className="mx-auto">
                       <h3 className="text-md text-gray-700 font-bold ">
-                        <Link to={`../products/TravelInsurance`}>
+                        <Link to={`../products/${product.name}`}>
                           <span aria-hidden="true" className=" inset-0 " />
                           {product.name}
                         </Link>
@@ -99,7 +99,7 @@ const ListInsurance = () => {
               {products.map((product) => (
                 <div key={product.id} className="group relative">
                   <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <Link to={`../products/HealthInsurance`}>
+                    <Link to={`../products/${product.name}`}>
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
@@ -110,7 +110,7 @@ const ListInsurance = () => {
                   <div className="mt-4 flex justify-between ">
                     <div className="mx-auto">
                       <h3 className="text-md text-gray-700 font-bold ">
-                        <Link to={`../products/HealthInsurance`}>
+                        <Link to={`../products/${product.name}`}>
                           <span aria-hidden="true" className=" inset-0 " />
                           {product.name}
                         </Link>
@@ -138,7 +138,7 @@ const ListInsurance = () => {
               {products.map((product) => (
                 <div key={product.id} className="group relative">
                   <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <Link to={`../products/CarInsurance`}>
+                    <Link to={`../products/${product.name}`}>
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
@@ -149,7 +149,7 @@ const ListInsurance = () => {
                   <div className="mt-4 flex justify-between ">
                     <div className="mx-auto">
                       <h3 className="text-md text-gray-700 font-bold ">
-                        <Link to={`../products/CarInsurance`}>
+                        <Link to={`../products/${product.name}`}>
                           <span aria-hidden="true" className=" inset-0 " />
                           {product.name}
                         </Link>
