@@ -40,7 +40,7 @@ export default function Slider() {
             />
             <div className="block absolute bottom-0.5 ml-40 w-full top-1/4">
               <p className="text-gray-900 text-2xl my-2 font-bold ">{obj.title}</p>
-              <Link to={"/products/" + obj.name} className="cursor-pointer font-medium hover:text-gray-800">view products</Link>
+              <Link to={"/products/" + obj.name} className="cursor-pointer font-medium hover:text-gray-600">view products</Link>
             </div>
           </div>
 
