@@ -34,22 +34,17 @@ export function Order() {
 //   const [data, setData] = useState();
 //   const [error, setError] = useState();
 //   const [loading, setLoading] = useState(true);
-//   useEffect(()=>{
-//     state.user ?
-//         (
 //             fetch("http://103.9.0.239:31441/dev/order/order-service/v1/create-order", {
 //             method: "POST",
 //             body: JSON.stringify(
 //               {
-//                 // "requestId": "{{$guid}}",
-//                 // "requestTime": "{{$timestamp}}",
 //                 "requestId": v4(),
 //                 "requestTime": Date.now(),
 //                 "targetId": "BIC",
 //                 "type": "BICTravelInsurance",
 //                 "detail": {
 //                   "orders": {
-//                         "ordBillFirstName": "12",
+//                         "ordBillFirstName": "Nguyen Anh Chin",
 //                         "ordBillMobile": "097453686312",
 //                         "ordBillStreet1": "TTP, Đn Phượng, Hà Nội",
 //                         "ordBillEmail": "nghiemxuanhop98@gmail.com",
@@ -83,53 +78,36 @@ export function Order() {
 //             ),
 //             headers: {
 //               'Content-Type': 'application/json',
-//                 'Authorization': `Bearer ` + state.user.access_token
+//               'Authorization': `Bearer ` + state.user.access_token
 //             }
 //             })
 //       .then(response => response.text())
-//       .then(result => console.log(result))
+//       .then(result => setLoading(false))
 //             .catch(
 //                 error => {
 //                     console.log(error);
 //                     setLoading(false);
 //                     setError(error);
 //                 }
-//             )
-//         )
-//         :
-//         console.log('');
-//   }, []);
-
-//   if (state.user) {
+//             );
 //     if (loading) {
 //     return (
-//         <div className="bg-yellow-50 text-center h-screen">
+//         <div className="text-center">
 //             <p>Loading</p>
 //         </div>
 //     );
 //     }
 //     if (error) {
 //     return (
-//         <div className="bg-yellow-50 text-center h-screen">
+//         <div className="text-center">
 //             <p>Fetching failed</p>
 //         </div>
 //     );
 //     }
 //     if (!data) return null;
-//   }
 //   return (
-//     <div>
-//         { state.user ?
-//         <div>
-//             {data.map(oder => (
-//                 <div key={0} className="bg-yellow-50 ">
-//                     <h1>{oder.name}</h1>
-//                 </div>
-//             ))}
-//         </div>
-//         :
-//         <Login />
-//         }
+//     <div className="text-center">
+//       Sent Successfully. data
 //     </div>
 //   );
 // }
