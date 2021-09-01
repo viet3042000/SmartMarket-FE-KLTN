@@ -4,31 +4,12 @@ import { useSelector } from 'react-redux';
 import Login from '../Login/Login';
 import orderData from "../../data/orders.json";
 import OrderData from "./OrderData.js";
-
-
-// export function Order() {
-//   const [orders, setOrders] = useState(orderData);
-//   return (
-//   <div>
-//       <div className="bg-white w-screen h-screen ">
-//         <section className="bg-white py-8 mt-0">
-//           <div className="container mx-auto flex items-center flex-wrap pt-4 pb-12">
-
-//             <a className="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
-//               Your Order
-//             </a>
-//             <div className="w-full md:w-full p-6 flex flex-col items-center space-y-5">
-//               {orders.detail.content.map((obj, index) => <OrderData key={index} {...obj} />)}
-//             </div>
-//           </div>
-//         </section>
-//       </div>
-//     </div>
-// );
-// }
+import { v4 } from "uuid";
 
 export function Order() {
   const [orders, setOrders] = useState(orderData);
+  const state = useSelector(state=>state.auth);
+  if (!state.user) return (<Login />);
   return (
   <div>
       <div className="w-screen h-screen ">
@@ -56,16 +37,57 @@ export function Order() {
 //   useEffect(()=>{
 //     state.user ?
 //         (
-//             fetch("http://10.14.101.202/insurance/travel-insurance-service/v1/inquire-bic-travel-insurance", {
+//             fetch("http://103.9.0.239:31441/dev/order/order-service/v1/create-order", {
 //             method: "POST",
+//             body: JSON.stringify(
+//               {
+//                 // "requestId": "{{$guid}}",
+//                 // "requestTime": "{{$timestamp}}",
+//                 "requestId": v4(),
+//                 "requestTime": Date.now(),
+//                 "targetId": "BIC",
+//                 "type": "BICTravelInsurance",
+//                 "detail": {
+//                   "orders": {
+//                         "ordBillFirstName": "12",
+//                         "ordBillMobile": "097453686312",
+//                         "ordBillStreet1": "TTP, Đn Phượng, Hà Nội",
+//                         "ordBillEmail": "nghiemxuanhop98@gmail.com",
+//                         "ordDate": "2020-02-17T10:37:22",
+//                         "ordStatus": "1",
+//                         "ordTotalQty": 4,
+//                         "orderPaymentMethod": 11,
+//                         "ordPaidMoney": 10000,
+//                         "ordDiscountAmount": 0,
+//                         "ordSource": "DSVN"
+//                     },
+//                     "trv": {
+//                         "amountPersons": 1,
+//                         "amountDays": 2,
+//                         "promotion": 0,
+//                         "promotionAddress": "",
+//                         "fromDate": "2021-06-26T00:00:00",
+//                         "toDate": "2021-06-27T00:00:00",
+//                         "issueDate": null
+//                     },
+//                     "trvDetails": [
+//                         {
+//                           "fullName": "Dam Quoc Duong",
+//                           "gender": 0,
+//                           "dateOfBirth": "1990-12-20",
+//                           "passportCard": "123"
+//                        }
+//                     ]
+//                   }
+//                 }
+//             ),
 //             headers: {
-//                 Authorization: `Bearer` + state.user.access_token
+//               'Content-Type': 'application/json',
+//                 'Authorization': `Bearer ` + state.user.access_token
 //             }
-//             }).then(
-//                 (response) => (
-//                     console.log(response)
-//                 )
-//             )
+//             })
+//       .then(response => response.text())
+//       .then(result => console.log(result))
 //             .catch(
 //                 error => {
 //                     console.log(error);

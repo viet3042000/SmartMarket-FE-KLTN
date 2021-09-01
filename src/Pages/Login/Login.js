@@ -59,10 +59,12 @@ const Login = () => {
     <div className="w-full max-w-sm p-6 m-auto bg-white rounded-md shadow-md dark:bg-gray-800">
     <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">Brand</h1>
 
-    <form className="mt-6">
+    <form onSubmit={handleLogin} className="mt-6">
         <div>
             <label htmlFor="username" className="block text-sm text-gray-800 dark:text-gray-200">Username</label>
             <input type="text"
+                value={userName}
+                onChange={event => setUserName(event.target.value)}
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"/>
 
         </div>
@@ -73,6 +75,8 @@ const Login = () => {
             </div>
 
             <input type="password"
+                value={password}
+                onChange={event => setPassword(event.target.value)}
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"/>
         </div>
 

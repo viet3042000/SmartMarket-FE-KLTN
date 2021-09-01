@@ -52,6 +52,7 @@
     "quotes": ["off", "single"],
     "operator-linebreak": ["off", "after"],
     "react/prop-types": "off",
-    "brace-style": "off"
+    "brace-style": "off",
+    "no-trailing-spaces": "off"
   }
 }
