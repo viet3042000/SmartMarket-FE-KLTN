@@ -5,6 +5,9 @@ import './header.css';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { logout } from '../../actions/auth';
+import Dropdown from "@material-tailwind/react/Dropdown";
+import DropdownItem from "@material-tailwind/react/DropdownItem";
+import DropdownLink from "@material-tailwind/react/DropdownLink";
 
 
 const Header = () => {
@@ -186,10 +189,10 @@ const Header = () => {
                 </div>
               </Link>
               {/* <!-- Mobile menu button --> */}
-              <div className="flex md:h">
+              <div className="flex lg:h">
                 <button
                   type="button"
-                  className="md:hidden text-gray-800  dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400 "
+                  className="md:hidden menu-list text-gray-800  dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400 "
                   aria-label="toggle menu"
                 >
                   <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
@@ -207,8 +210,8 @@ const Header = () => {
               <div className="flex flex-col md:flex-row md:items-center md:mx-8  ">
                 <div className=" lg:block hidden">
                   <a
-                    href="#"
-                    className="px-2 py-1 mx-2 mt-2 text-md font-medium text-gray-800 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 "
+                    href="/home"
+                    className=" px-2 py-1 mx-2 mt-2 text-md font-medium text-gray-800 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 "
                   >
                     Home
                   </a>
@@ -237,17 +240,33 @@ const Header = () => {
                     Contact
                   </a>
                 </div>
-                <div className=" flex ">
-                        <span className=" inset-y-0 left-0 flex items-center pl-3 ">
-                            <svg className="w-4 h-4 text-gray-700 dark:text-gray-300 hover:text-black" viewBox="0 0 24 24" fill="none" >
-                                <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
-                            </svg>
-                        </span>
-                        <input type="text" className=" py-1 pl-5 pr-4 text-gray-700 placeholder-gray-600 bg-white border-b border-gray-600 dark:placeholder-gray-300 dark:focus:border-gray-300 lg:w-56 lg:border-transparent dark:bg-gray-800 dark:text-gray-300 focus:outline-none focus:border-gray-600" placeholder="Search" />
-                  </div>
+                {/* Search box */}
+                <div className=" hidden lg:flex ">
+                  <span className=" inset-y-0 left-0 flex items-center pl-3 ">
+                    <svg
+                      className="w-4 h-4 text-gray-700 dark:text-gray-300 hover:text-black"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      ></path>
+                    </svg>
+                  </span>
+                  <input
+                    type="text"
+                    className=" py-1 pl-5 pr-4 text-gray-700 placeholder-gray-600 bg-white border-b border-gray-600 dark:placeholder-gray-300 dark:focus:border-gray-300 lg:w-56 lg:border-transparent dark:bg-gray-800 dark:text-gray-300 focus:outline-none focus:border-gray-600"
+                    placeholder="Search"
+                  />
+                </div>
               </div>
 
-              <div className=" md:block flex">
+              {/* Order Icon */}
+              <div className=" hidden lg:flex">
                 <button
                   className=" mx-4 text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
                   aria-label="show notifications"
@@ -267,8 +286,9 @@ const Header = () => {
                   </Link>
                 </button>
 
-                <div className="p-3 text-gray-700 ">
-                  <Link to="/login">
+                {/* User icon */}
+                <div className="hidden lg:flex p-3 text-gray-700 ">
+                  <Link to="/user">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-6 w-6 hover:text-black "

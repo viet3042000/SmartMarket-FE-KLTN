@@ -15,7 +15,7 @@ function App() {
   return (
     <div>
       <div>
-        <Header />
+        <Header/>
         <Switch>
           <Route path='/products/:productName' component={ProductDetail} />
           {/* <Route path='/products' component={Product} /> */}
