@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import PopupEdit from './PopUp.js';
-import {useOrderEditForm} from '../../hooks/Order/useOrderEditForm.js';
+import useFormObj from '../../hooks/Form/useFormObj.js';
 
 const textGrayStyle = 'text-gray-500 text-opacity-75';
 const dataStyle = 'font-normal';
@@ -14,10 +14,10 @@ export default function OrderDataDetail({ show=null, payload=null }) {
   const [currentTab, setCurrentTab] = useState('detail');
   const obj = JSON.parse(payload);
   // onChangeOrder(payload);
-  const [orderEditFormValues, setOrderEditFormValues] = useOrderEditForm(obj.detail.trv);
+  const [trvForm, changeTrvForm, resetTrvForm] = useFormObj(obj.detail.trv);
   return (
     <>
-    <PopupEdit popupEdit={popupEdit} setPopupEdit={setPopupEdit} formValues={orderEditFormValues} changeFormValues={setOrderEditFormValues}/>
+    <PopupEdit popupEdit={popupEdit} setPopupEdit={setPopupEdit} formValues={trvForm} changeFormValues={changeTrvForm}/>
     <Buttons currentTab={currentTab} setCurrentTab={setCurrentTab} setPopupEdit={setPopupEdit}/>
     <DetailTab obj={obj} currentTab={currentTab} />
     <PaymentTab obj={obj} currentTab={currentTab} />
@@ -59,14 +59,14 @@ function Buttons({ currentTab=null, setCurrentTab=f=>f, setPopupEdit=f=>f }) {
   return (
     <div className=" border-b-2 flex relative mb-6 mt-6">
       {tabDisplay}
-      <span className="absolute right-14 bottom-1">
+      <span className="absolute right-24 bottom-1">
         <button className="inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none" onClick={() => setPopupEdit(true)}>
           Thay đổi
         </button>
       </span>
       <span className="absolute right-0 bottom-1">
         <button className="inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none">
-          Xoá
+          Huỷ đơn
         </button>
       </span>
     </div>

@@ -1,15 +1,24 @@
 import React, {useState, useEffect} from 'react';
 import products from '../../data/InsuranceData';
-import useInput from '../../hooks/useInput';
+import useFormObj from '../../hooks/Form/useFormObj';
 import calcPrice from '../../common/calcPrice';
 import { v4 } from "uuid";
 import { useSelector } from 'react-redux';
 
+const initialObj = {
+  "amountPersons": 1,
+  "amountDays": 1,
+  "promotion": 0,
+  "promotionAddress": "",
+  "fromDate": "",
+  "toDate": "",
+  "issueDate": null
+};
+
 const ProductPriceForm = ({ match=null, setSuccessDisp=f=>f }) => {
   const state = useSelector(state=>state.auth);
-  const [amountPersonsProps, resetAmountPersons] = useInput(1);
-  const [amountDaysProps, resetAmountDays] = useInput(1);
-  const [fromDateProps, resetFromDate] = useInput("");
+
+  const [trvForm, changeTrvForm, resetTrvForm] = useFormObj(initialObj);
   const [toDate, setToDate] = useState("");
   const [prodPriceDisp, setProdPriceDisp] = useState("");
   const prodImgLink = products.find((item) => item.name === match.params.productName).imageSrc;
@@ -20,15 +29,15 @@ const ProductPriceForm = ({ match=null, setSuccessDisp=f=>f }) => {
   });
 
   useEffect(() => {
-    setProdPriceDisp(formatter.format(calcPrice(amountDaysProps.value, amountPersonsProps.value)));
-  }, [amountPersonsProps, amountDaysProps]);
+    setProdPriceDisp(formatter.format(calcPrice(trvForm.amountDays, trvForm.amountPersons)));
+  }, [trvForm.amountPersons, trvForm.amountDays]);
 
   useEffect(() => {
-    if (fromDateProps.value === '') return;
-    const calcDate = new Date(fromDateProps.value);
-    calcDate.setDate(calcDate.getDate() + Number(amountDaysProps.value));
+    if (trvForm.fromDate === '') return;
+    const calcDate = new Date(trvForm.fromDate);
+    calcDate.setDate(calcDate.getDate() + Number(trvForm.amountDays));
     setToDate(calcDate.toISOString().split('T')[0]);
-  }, [fromDateProps, amountDaysProps]);
+  }, [trvForm.fromDate, trvForm.amountDays]);
 
   const postProductDetail = () => {
         fetch("http://103.9.0.239:31441/dev/order/order-service/v1/create-order", {
@@ -54,16 +63,16 @@ const ProductPriceForm = ({ match=null, setSuccessDisp=f=>f }) => {
                       "ordSource": "DSVN"
                   },
                   "trv": {
-                      "amountPersons": amountPersonsProps.value,
-                      "amountDays": amountDaysProps.value,
+                      "amountPersons": trvForm.amountPersons,
+                      "amountDays": trvForm.amountDays,
                       "promotion": 0,
                       "promotionAddress": "",
-                      "fromDate": (new Date(fromDateProps.value)).toISOString().replace(".000Z", ""),
+                      "fromDate": (new Date(trvForm.fromDate)).toISOString().replace(".000Z", ""),
                       "toDate": (new Date(toDate)).toISOString().replace(".000Z", ""),
                       "issueDate": null
                   },
                   "trvDetails": [
-                      {
+                    {
                         "fullName": "Dam Quoc Duong",
                         "gender": 0,
                         "dateOfBirth": "1990-12-20",
@@ -78,8 +87,6 @@ const ProductPriceForm = ({ match=null, setSuccessDisp=f=>f }) => {
             'Authorization': `Bearer ` + state.user.access_token
           }
           })
-
-
     .then(data => data.json())
     .then(dataJson => console.log(dataJson));
     setSuccessDisp(true);
@@ -89,9 +96,7 @@ const ProductPriceForm = ({ match=null, setSuccessDisp=f=>f }) => {
   const submit = event => {
     event.preventDefault();
     postProductDetail();
-    resetAmountPersons();
-    resetAmountDays();
-    resetFromDate();
+    resetTrvForm();
     setToDate("");
   };
   return (
@@ -106,15 +111,15 @@ const ProductPriceForm = ({ match=null, setSuccessDisp=f=>f }) => {
         <div className="flex flex-col gap-y-3">
           <div>
             <label className="font-normal" htmlFor="amountPersons">Số người mua bảo hiểm</label>
-            <input {...amountPersonsProps} id="amountPersons" type="number" min="0" max="10" required className="block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" />
+            <input value={trvForm.amountPersons} onChange={changeTrvForm} name="amountPersons" id="amountPersons" type="number" min="0" max="10" required className="block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" />
           </div>
           <div>
             <label className="font-normal" htmlFor="amountDays">Số ngày bảo hiểm</label>
-            <input {...amountDaysProps} id="amountDays" type="number" min="0" max="90" required className="block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" />
+            <input value={trvForm.amountDays} onChange={changeTrvForm} name="amountDays" id="amountDays" type="number" min="0" max="90" required className="block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" />
           </div>
           <div>
             <label className="font-normal" htmlFor="fromDate">Ngày bắt đầu</label>
-            <input {...fromDateProps} id="fromDate" type="date" required className="block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" />
+            <input value={trvForm.fromDate} onChange={changeTrvForm} name="fromDate" id="fromDate" type="date" required className="block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" />
           </div>
           <div>
             <label className="font-normal" htmlFor="toDate">Ngày kết thúc</label>

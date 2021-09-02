@@ -2,16 +2,27 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Login from '../Login/Login';
 import OrderData from "./OrderData.js";
-import FetchOrder from '../../hooks/Fetch/FetchOrder';
+import FetchPost from '../../hooks/Fetch/FetchPost';
 
 export function Order() {
   // const [orders, setOrders] = useState(orderData);
   const state = useSelector(state=>state.auth);
   if (!state.user) return (<Login />);
   return (
-    <FetchOrder uri="http://103.9.0.239:31441/dev/order/order-service/v1/get-all-orders" renderSuccess={OrderRender} />
+    <FetchPost uri="http://103.9.0.239:31441/dev/order/order-service/v1/get-all-orders" renderSuccess={OrderRender} requestBody={requestBody} />
   );
 }
+
+const requestBody= {
+  "requestId": "requestId",
+  "requestTime": "requestTime",
+  "targetId": "BIC",
+    "type": "BICTravelInsurance",
+  "detail": {
+    "page": 1, 
+    "size": "4"
+  }
+};
 
 function OrderRender({data=null}) {
   return (
