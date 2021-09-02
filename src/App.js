@@ -5,7 +5,7 @@ import Header from './Components/Header/Header';
 import ProductDetail from './Components/Products/ProductDetail';
 import AuthVerify from './common/auth-verify';
 import { Order } from './Components/Order/Order';
-import User from './Pages/User/User';
+import User from './Components/User/User';
 import Login from './Components/Login/Login';
 import {Footer} from './Components/Footer/Footer';
 import "@material-tailwind/react/tailwind.css";
