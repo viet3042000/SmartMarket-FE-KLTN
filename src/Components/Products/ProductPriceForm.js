@@ -2,8 +2,11 @@ import React, {useState, useEffect} from 'react';
 import products from '../../data/InsuranceData';
 import useInput from '../../hooks/useInput';
 import calcPrice from '../../common/calcPrice';
+import { v4 } from "uuid";
+import { useSelector } from 'react-redux';
 
-const ProductPriceForm = ({ match=null }) => {
+const ProductPriceForm = ({ match=null, setSuccessDisp=f=>f }) => {
+  const state = useSelector(state=>state.auth);
   const [amountPersonsProps, resetAmountPersons] = useInput(1);
   const [amountDaysProps, resetAmountDays] = useInput(1);
   const [fromDateProps, resetFromDate] = useInput("");
@@ -27,8 +30,65 @@ const ProductPriceForm = ({ match=null }) => {
     setToDate(calcDate.toISOString().split('T')[0]);
   }, [fromDateProps, amountDaysProps]);
 
+  const postProductDetail = () => {
+        fetch("http://103.9.0.239:31441/dev/order/order-service/v1/create-order", {
+          method: "POST",
+          body: JSON.stringify(
+            {
+              "requestId": v4(),
+              "requestTime": Date.now(),
+              "targetId": "BIC",
+              "type": "BICTravelInsurance",
+              "detail": {
+                "orders": {
+                      "ordBillFirstName": "Nguyen Anh Chin",
+                      "ordBillMobile": "097453686312",
+                      "ordBillStreet1": "TTP, Đn Phượng, Hà Nội",
+                      "ordBillEmail": "nghiemxuanhop98@gmail.com",
+                      "ordDate": "2020-02-17T10:37:22",
+                      "ordStatus": "1",
+                      "ordTotalQty": 4,
+                      "orderPaymentMethod": 11,
+                      "ordPaidMoney": 10000,
+                      "ordDiscountAmount": 0,
+                      "ordSource": "DSVN"
+                  },
+                  "trv": {
+                      "amountPersons": amountPersonsProps.value,
+                      "amountDays": amountDaysProps.value,
+                      "promotion": 0,
+                      "promotionAddress": "",
+                      "fromDate": (new Date(fromDateProps.value)).toISOString().replace(".000Z", ""),
+                      "toDate": (new Date(toDate)).toISOString().replace(".000Z", ""),
+                      "issueDate": null
+                  },
+                  "trvDetails": [
+                      {
+                        "fullName": "Dam Quoc Duong",
+                        "gender": 0,
+                        "dateOfBirth": "1990-12-20",
+                        "passportCard": "123"
+                    }
+                  ]
+                }
+              }
+          ),
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ` + state.user.access_token
+          }
+          })
+
+
+    .then(data => data.json())
+    .then(dataJson => console.log(dataJson));
+    setSuccessDisp(true);
+    setTimeout(() => setSuccessDisp(false), 1500);
+  };
+
   const submit = event => {
     event.preventDefault();
+    postProductDetail();
     resetAmountPersons();
     resetAmountDays();
     resetFromDate();

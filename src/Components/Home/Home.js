@@ -1,7 +1,6 @@
 import React from 'react';
-import InsuranceItems from '../../Components/ListInsurance/ListInsurance';
-import Slider from '../../Components/Slider/Slider';
-import Login from '../../Components/Login/login';
+import InsuranceItems from '../ListInsurance/ListInsurance';
+import Slider from '../Slider/Slider';
 const Home = ({ handleLogged }) => {
   return (
     <div >
