@@ -1,28 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductPriceForm from './ProductPriceForm';
+import FetchStatus from './FetchStatus';
 // rface
 
 const contentTextStyle = "text-sm text-gray-900";
 
 const ProductDetail = ({ match }) => {
+  const [successDisp, setSuccessDisp] = useState(false);
   useEffect(() => {
     console.log(match.params.productName);
   }, []);
   return (
     <>
-    <div className="fixed transition duration-500 transform hover:translate-x-20 right-0 top-12 flex w-full max-w-xs mx-auto overflow-hidden bg-gray-200 rounded-lg shadow-md dark:bg-gray-800">
-      <div className="flex items-center justify-center w-12 bg-green-500">
-          <svg className="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z"/>
-          </svg>
-      </div>
-      <div className="px-4 py-2 -mx-3">
-          <div className="mx-3">
-              <span className="font-semibold text-green-500 dark:text-green-400">Success</span>
-              <p className="text-sm text-gray-600 dark:text-gray-200">Your order was registered!</p>
-          </div>
-      </div>
-    </div>
+    <FetchStatus successDisp={successDisp}/>
     <div className="h-screen px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="grid gap-12 row-gap-8 lg:grid-cols-6">
         <div name="leftCard" className="flex flex-col lg:col-span-4">
@@ -142,7 +132,7 @@ const ProductDetail = ({ match }) => {
           </div>
         </div>
         <div className="lg:col-span-2">
-          <ProductPriceForm match={match}/>
+          <ProductPriceForm match={match} setSuccessDisp={setSuccessDisp}/>
         </div>
       </div>
     </div>
