@@ -35,7 +35,7 @@ function OrderRender({data=null}) {
                 Your Order
               </a>
               <div className="w-full md:w-full p-6 flex flex-col items-center space-y-5">
-                {data.detail.content.map((obj, index) => <OrderData key={index} {...obj} />)}
+                {data.detail.map((obj, index) => <OrderData key={index} {...obj} />)}
               </div>
             </div>
           </section>
