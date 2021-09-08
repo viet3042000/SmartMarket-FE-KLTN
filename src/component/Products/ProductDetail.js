@@ -8,7 +8,7 @@ const contentTextStyle = "text-sm text-gray-900";
 const ProductDetail = ({ match }) => {
   const [successDisp, setSuccessDisp] = useState(false);
   useEffect(() => {
-    console.log(match.params.productName);
+    // console.log(match.params.productName);
   }, []);
   return (
     <>

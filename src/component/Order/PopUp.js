@@ -9,7 +9,7 @@ export default function PopupEdit({ popupEdit=null, setPopupEdit=f=>f, formValue
       <div className="z-10 fixed left-0 top-0 h-screen w-screen bg-black opacity-60">
       </div>
       <div className="z-10 fixed left-0 top-0 h-screen w-screen flex justify-center items-center">
-        <div className="fixed w-2/3 xl:w-1/3 h-3/4 bg-white rounded-lg">
+        <div className="w-2/3 xl:w-1/3 h-3/4 bg-white rounded-lg">
           <div className="relative w-full h-full">
             <div className="h-12 border-b-2 py-3 px-6 flex justify-between">
               <span className="font-medium text-lg">Chỉnh sửa thông tin Order</span>
