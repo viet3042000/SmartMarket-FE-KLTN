@@ -3,11 +3,12 @@ import products from '../../data/InsuranceData';
 import useFormObj from '../../hooks/Form/useFormObj';
 import calcPrice from '../../common/calcPrice';
 import {createOrder, updateTrv} from '../../api/Product/createOrder';
+import { Link } from 'react-router-dom';
 
 const formValues = {
   "amountPersons": 1,
   "amountDays": 1,
-  "fromDate": ""
+  "fromDate": "" // yyyy-mm-dd
 };
 
 const ProductPriceForm = ({ match=null, setSuccessDisp=f=>f }) => {
@@ -75,21 +76,23 @@ const ProductPriceForm = ({ match=null, setSuccessDisp=f=>f }) => {
           </div>
         </div>
       </form>
-      <div className="self-center mt-4">
+      <div className="self-center mt-4 w-full">
         <button
           type="submit"
           form="orderForm"
-          className="inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+          className="inline-flex items-center justify-center h-10 w-full px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
         >
-          Mua hàng
+          <Link to={`/purchase/${match.params.productName}?amountPersons=${trvForm.amountPersons}&amountDays=${trvForm.amountDays}&fromDate=${trvForm.fromDate}&toDate=${toDate}`}>
+            Mua hàng
+          </Link>
         </button>
-        <button
+        {/* <button
           type="submit"
           form="orderForm"
           className="ml-3 inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-white hover:bg-gray-200 focus:shadow-outline focus:outline-none"
         >
           Thêm vào giỏ
-        </button>
+        </button> */}
       </div>
     </div>
   );

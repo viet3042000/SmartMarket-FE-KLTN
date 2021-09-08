@@ -7,6 +7,7 @@ import AuthVerify from './common/auth-verify';
 import { Order } from './component/Order/Order';
 import User from './component/User/User';
 import Login from './component/Login/Login';
+import Purchase from './component/Purchase/Purchase';
 import {Footer} from './component/Footer/Footer';
 import "@material-tailwind/react/tailwind.css";
 
@@ -17,6 +18,7 @@ function App() {
         <Header />
         <Switch>
           <Route path='/products/:productName' component={ProductDetail} />
+          <Route path='/purchase/:productName' component={Purchase} />
           <Route path='/orders' component={Order} />
           <Route path='/user' component={User} />
           <Route path='/login' component={Login} />

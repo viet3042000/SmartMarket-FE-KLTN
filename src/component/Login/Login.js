@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../actions/auth';
-import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 
