@@ -20,7 +20,7 @@ const Login = () => {
 
   return (
     <div className="w-full max-w-sm p-6 m-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-    <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">Brand</h1>
+    <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">S-Market</h1>
 
     <form onSubmit={handleLogin} className="mt-6">
         <div>
@@ -51,7 +51,7 @@ const Login = () => {
         </div>
     </form>
 
-    <div className="flex items-center justify-between mt-4">
+    {/* <div className="flex items-center justify-between mt-4">
         <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
 
         <a href="#" className="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">or login with Social Media</a>
@@ -79,7 +79,7 @@ const Login = () => {
                 </path>
             </svg>
         </a>
-    </div>
+    </div> */}
         <p className="mt-8 text-xs font-light text-center text-gray-400"> Do not have an account? <a href="#"
         className="font-medium text-gray-800 dark:text-gray-200 hover:underline">Create One</a></p>
 </div>

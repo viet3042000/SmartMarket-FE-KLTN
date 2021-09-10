@@ -66,18 +66,18 @@ const ListInsurance = () => {
             <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
               {TravelInsuranceProduct.map((product) => (
                 <div key={product.id} className="group relative">
-                  <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                <div className="w-10/12 min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
                     <Link to={`../products/${product.name}`}>
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
-                        className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                        className="object-center pl-16 object-cover lg:w-full lg:h-full"
                       />
                     </Link>
                   </div>
                   <div className="mt-4 flex justify-between ">
                     <div className="mx-auto">
-                      <h3 className="text-md text-gray-700 font-bold ">
+                      <h3 className="text-lg text-gray-700 font-bold ">
                         <Link to={`../products/${product.name}`}>
                           <span aria-hidden="true" className=" inset-0 " />
                           {product.name}
@@ -96,6 +96,7 @@ const ListInsurance = () => {
             </div>
           </div>
         </section>
+        <br/>
         <section>
           {/* Health insurance products */}
           <div className="justify-between">
@@ -105,18 +106,18 @@ const ListInsurance = () => {
             <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
               {HealthInsuranceProduct.map((product) => (
                 <div key={product.id} className="group relative">
-                  <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                <div className="w-10/12 min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
                     <Link to={`../products/${product.name}`}>
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
-                        className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                        className=" object-center pl-16 object-cover lg:w-full lg:h-full"
                       />
                     </Link>
                   </div>
                   <div className="mt-4 flex justify-between ">
                     <div className="mx-auto">
-                      <h3 className="text-md text-gray-700 font-bold ">
+                      <h3 className="text-lg text-gray-700 font-bold ">
                         <Link to={`../products/${product.name}`}>
                           <span aria-hidden="true" className=" inset-0 " />
                           {product.name}
@@ -135,6 +136,7 @@ const ListInsurance = () => {
             </div>
           </div>
         </section>
+        <br/>
         <section>
           {/* Car insurance products */}
           <div className="justify-between">
@@ -144,18 +146,18 @@ const ListInsurance = () => {
             <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
               {CarInsuranceProduct.map((product) => (
                 <div key={product.id} className="group relative">
-                  <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                <div className="w-10/12 min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
                     <Link to={`../products/${product.name}`}>
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
-                        className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                        className=" object-center pl-16 object-cover lg:w-full lg:h-full"
                       />
                     </Link>
                   </div>
                   <div className="mt-4 flex justify-between ">
                     <div className="mx-auto">
-                      <h3 className="text-md text-gray-700 font-bold ">
+                      <h3 className="text-lg text-gray-700 font-bold ">
                         <Link to={`../products/${product.name}`}>
                           <span aria-hidden="true" className=" inset-0 " />
                           {product.name}
@@ -174,7 +176,7 @@ const ListInsurance = () => {
             </div>
           </div>
         </section>
-
+        <br/>
         {/* content */}
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
           <div className="grid  gap-10 lg:grid-cols-2">
