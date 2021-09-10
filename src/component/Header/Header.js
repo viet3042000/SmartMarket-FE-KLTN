@@ -15,10 +15,10 @@ const Header = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const handleLogout = e => {
-    e.preventDefault();
-    dispatch(logout());
-  };
+  // const handleLogout = e => {
+  //   e.preventDefault();
+  //   dispatch(logout());
+  // };
   return (
     <div className="bg-white ">
       {/* <nav id="header" className=" w-full z-30 top-0 py-1 h-20">
@@ -209,12 +209,12 @@ const Header = () => {
             <div className="flex-1 md:flex md:items-center md:justify-between md:float-none">
               <div className="flex flex-col md:flex-row md:items-center md:mx-8  ">
                 <div className=" lg:block hidden">
-                  <a
+                  {/* <a
                     href="/home"
                     className=" px-2 py-1 mx-2 mt-2 text-md font-medium text-gray-800 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 "
                   >
                     Home
-                  </a>
+                  </a> */}
                   <a
                     href="#"
                     className="px-2 py-1 mx-2 mt-2 text-md font-medium text-gray-800 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 "
@@ -305,13 +305,35 @@ const Header = () => {
                     </svg>
                   </Link>
                 </div>
-                <button
+
+                 {/* logout icon */}
+{/* 
+                 <div className="p-3 text-gray-700">
+                  <Link to="">
+                    <svg
+                      onClick={handleLogout}
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 hover:text-black"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                      />
+                    </svg>
+                  </Link>
+                  </div> */}
+                {/* <button
                   className=" mx-4 text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
                   aria-label="show notifications"
                   onClick={handleLogout}
                 >
                   Logout
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
