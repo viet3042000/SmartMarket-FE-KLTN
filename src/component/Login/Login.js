@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../actions/auth';
-import { useHistory } from 'react-router-dom';
-
+import { Redirect, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Login = () => {
+  const search = useLocation().search;
+  const state = useSelector(state => state.auth);
+  const successPage = new URLSearchParams(search).get('success');
+  const prodName = new URLSearchParams(search).get('product');
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const handleLogin = e => {
     e.preventDefault();
@@ -18,6 +21,16 @@ const Login = () => {
       );
   };
 
+  if (state.user) {
+    switch (successPage) {
+      case 'order':
+        return <Redirect to="/orders" />;
+      case 'purchase':
+        return <Redirect to={`purchase/${prodName}`} />;
+      default:
+        return <Redirect to="/" />;
+    }
+  }
   return (
     <div className="w-full max-w-sm p-6 m-auto bg-white rounded-md shadow-md dark:bg-gray-800">
     <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">Brand</h1>

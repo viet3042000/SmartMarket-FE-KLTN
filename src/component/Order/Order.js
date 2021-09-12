@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import Login from '../Login/Login';
 import OrderData from "./OrderData.js";
 import FetchPost from '../../hooks/Fetch/FetchPost';
 import getAllOrder from '../../api/Order/getAllOrder';
 
 export function Order() {
-  const state = useSelector(state=>state.auth);
   const [orders, setOrders] = useState();
   useEffect(() => {
     getAllOrder().then((data) => setOrders(data)).catch(error => console.log(error));
+    console.log(orders);
   }, []);
-  if (!state.user) return (<Login />);
   // return (
   //   <FetchPost uri="http://103.9.0.239:31441/dev/order/order-service/v1/get-all-orders" renderSuccess={OrderRender} requestBody={requestBody} />
   // );
