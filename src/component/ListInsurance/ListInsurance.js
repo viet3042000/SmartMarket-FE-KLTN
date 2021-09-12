@@ -63,19 +63,19 @@ const ListInsurance = () => {
             <h2 className="text-2xl mx-auto font-bold tracking-tight text-gray-800">
               Travel Insurance
             </h2>
-            <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+            <div className="lg:pl-20 pl-14 mt-6 grid grid-cols-1 gap-y-24 gap-x-6 lg:grid-cols-3 xl:gap-x-8 ">
               {TravelInsuranceProduct.map((product) => (
                 <div key={product.id} className="group relative">
-                <div className="w-10/12 min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
+                <div className="w-72 min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none shadow-xl transform hover:scale-110 hover:opacity-50 transition ease-out duration-300 ">
                     <Link to={`../products/${product.name}`}>
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
-                        className="object-center pl-16 object-cover lg:w-full lg:h-full"
+                        className="object-center object-cover lg:w-full lg:h-full "
                       />
                     </Link>
                   </div>
-                  <div className="mt-4 flex justify-between ">
+                  <div className="mt-4 flex justify-between w-72 transform hover:scale-110 hover:opacity-50 transition ease-out duration-300">
                     <div className="mx-auto">
                       <h3 className="text-lg text-gray-700 font-bold ">
                         <Link to={`../products/${product.name}`}>
@@ -103,19 +103,19 @@ const ListInsurance = () => {
             <h2 className="text-2xl mx-auto font-bold tracking-tight text-gray-800">
               Health Insurance
             </h2>
-            <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+            <div className="lg:pl-20 pl-14 mt-6 grid grid-cols-1 gap-y-24 gap-x-6 lg:grid-cols-3 xl:gap-x-8 ">
               {HealthInsuranceProduct.map((product) => (
                 <div key={product.id} className="group relative">
-                <div className="w-10/12 min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
+                <div className="w-72 min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none shadow-xl transform hover:scale-110 hover:opacity-50 transition ease-out duration-300">
                     <Link to={`../products/${product.name}`}>
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
-                        className=" object-center pl-16 object-cover lg:w-full lg:h-full"
+                        className=" object-center object-cover lg:w-full lg:h-full"
                       />
                     </Link>
                   </div>
-                  <div className="mt-4 flex justify-between ">
+                  <div className="mt-4 flex justify-between w-72 transform hover:scale-110 hover:opacity-50 transition ease-out duration-300">
                     <div className="mx-auto">
                       <h3 className="text-lg text-gray-700 font-bold ">
                         <Link to={`../products/${product.name}`}>
@@ -143,19 +143,19 @@ const ListInsurance = () => {
             <h2 className="text-2xl mx-auto font-bold tracking-tight text-gray-800">
               Car Insurance
             </h2>
-            <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+            <div className="lg:pl-20 pl-14 mt-6 grid grid-cols-1 gap-y-24 gap-x-6 lg:grid-cols-3 xl:gap-x-8 ">
               {CarInsuranceProduct.map((product) => (
                 <div key={product.id} className="group relative">
-                <div className="w-10/12 min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
+                <div className="w-72 min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none shadow-xl transform hover:scale-110 hover:opacity-50 transition ease-out duration-300">
                     <Link to={`../products/${product.name}`}>
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
-                        className=" object-center pl-16 object-cover lg:w-full lg:h-full"
+                        className=" object-center object-cover lg:w-full lg:h-full"
                       />
                     </Link>
                   </div>
-                  <div className="mt-4 flex justify-between ">
+                  <div className="mt-4 flex justify-between w-72 transform hover:scale-110 hover:opacity-50 transition ease-out duration-300 ">
                     <div className="mx-auto">
                       <h3 className="text-lg text-gray-700 font-bold ">
                         <Link to={`../products/${product.name}`}>
