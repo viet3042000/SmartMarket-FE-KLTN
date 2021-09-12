@@ -73,9 +73,9 @@ export default function Slider() {
             </button>
         </div>     */}
       <div className="flex absolute bottom-0.5 left-1/2 transform -translate-x-1/2">
-        <button onClick={() => moveDot(1)} className="animate-pulse cursor-pointer block text-4xl text-gray-400 hover:text-gray-900">•</button>
-        <button onClick={() => moveDot(2)} className="animate-pulse cursor-pointer block text-4xl text-gray-400 hover:text-gray-900">•</button>
-        <button onClick={() => moveDot(3)} className="animate-pulse cursor-pointer block text-4xl text-gray-400 hover:text-gray-900">•</button>
+        <button onClick={() => moveDot(1)} className="animate-pulse cursor-pointer block text-4xl text-gray-400 hover:text-gray-900 focus:outline-none">•</button>
+        <button onClick={() => moveDot(2)} className="animate-pulse cursor-pointer block text-4xl text-gray-400 hover:text-gray-900 focus:outline-none">•</button>
+        <button onClick={() => moveDot(3)} className="animate-pulse cursor-pointer block text-4xl text-gray-400 hover:text-gray-900 focus:outline-none">•</button>
       </div>
     </div>
   );

@@ -15,10 +15,10 @@ const Header = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const handleLogout = e => {
-    e.preventDefault();
-    dispatch(logout());
-  };
+  // const handleLogout = e => {
+  //   e.preventDefault();
+  //   dispatch(logout());
+  // };
   return (
     <div className="bg-white ">
       {/* <nav id="header" className=" w-full z-30 top-0 py-1 h-20">
@@ -209,12 +209,12 @@ const Header = () => {
             <div className="flex-1 md:flex md:items-center md:justify-between md:float-none">
               <div className="flex flex-col md:flex-row md:items-center md:mx-8  ">
                 <div className=" lg:block hidden">
-                  <a
+                  {/* <a
                     href="/home"
                     className=" px-2 py-1 mx-2 mt-2 text-md font-medium text-gray-800 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 "
                   >
                     Home
-                  </a>
+                  </a> */}
                   <a
                     href="#"
                     className="px-2 py-1 mx-2 mt-2 text-md font-medium text-gray-800 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 "

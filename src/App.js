@@ -6,6 +6,7 @@ import ProductDetail from './component/Products/ProductDetail';
 import AuthVerify from './common/auth-verify';
 import { Order } from './component/Order/Order';
 import User from './component/User/User';
+import UserInformation from './component/UserInfomation/UserInfomation';
 import Login from './component/Login/Login';
 import Purchase from './component/Purchase/Purchase';
 import {Footer} from './component/Footer/Footer';
@@ -27,6 +28,7 @@ function App() {
             {state.user ? <Order /> : <Redirect to="/login?success=order" />}
           </Route>
           <Route path='/user' component={User} />
+          <Route path='/userinfor' component={UserInformation} />
           <Route path='/login' component={Login} />
           <Route path='/' component={Home} />
         </Switch>
