@@ -15,10 +15,10 @@ const Header = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // const handleLogout = e => {
-  //   e.preventDefault();
-  //   dispatch(logout());
-  // };
+  const handleLogout = e => {
+    e.preventDefault();
+    dispatch(logout());
+  };
   return (
     <div className="bg-white ">
       {/* <nav id="header" className=" w-full z-30 top-0 py-1 h-20">
