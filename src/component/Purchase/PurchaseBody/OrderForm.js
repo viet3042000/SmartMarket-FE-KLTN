@@ -37,7 +37,7 @@ const OrderForm = ({ currentStep=null, orderForm=null, changeOrderForm=f=>f, toD
           form="orderForm"
           className="inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
         >
-          Thông tin hành khách
+          Tiếp theo
         </button>
       </div>
     </>

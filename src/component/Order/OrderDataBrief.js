@@ -2,7 +2,11 @@ import React from 'react';
 import { BsCaretLeftFill, BsCaretDownFill } from "react-icons/bs";
 
 
-export default function OrderDataBrief({type=null, state=null, createAt=null, show=null, setShow=f=>f}) {
+export default function OrderDataBrief({type=null, state=null, createAt=null, paidAmount=null, show=null, setShow=f=>f}) {
+  const formatter = new Intl.NumberFormat(undefined, {
+    style: 'currency',
+    currency: 'VND',
+  });
   const createDate = createAt.split('T')[0];
   const expandButton = show ? (
     <button className="focus:outline-none" onClick={()=>{setShow(!show);}}>
@@ -25,12 +29,16 @@ export default function OrderDataBrief({type=null, state=null, createAt=null, sh
   return (
     <div name="orderBrief" className="flex relative">
       <span name="type" className="order-1 mr-7">
-        <h6 className="font-medium">Loại sản phẩm</h6>
+        <h6 className="font-medium">Tên sản phẩm</h6>
         <p className="text-gray-500 text-opacity-75">{type}</p>
       </span>
-      <span name="createDate" className="order-2">
+      <span name="createDate" className="order-2 mr-7">
         <h6 className="font-medium">Ngày đặt</h6>
         <p className="text-gray-500 text-opacity-75">{createDate}</p>
+      </span>
+      <span name="createDate" className="order-3">
+        <h6 className="font-medium">Tổng tiền</h6>
+        <p className="text-gray-500 text-opacity-75">{formatter.format(paidAmount)}</p>
       </span>
       <span name="status" className="absolute order-3 right-8 self-center">
         {stateDisp}

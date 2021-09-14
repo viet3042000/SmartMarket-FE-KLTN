@@ -20,7 +20,7 @@ const useOrderForm = (setCurrentStep) => {
   });
 
   useEffect(() => {
-    setProdPriceDisp(formatter.format(calcPrice(orderForm.amountDays, orderForm.amountPersons)));
+    setProdPriceDisp(formatter.format(calcPrice(Number(orderForm.amountDays), Number(orderForm.amountPersons))));
   }, [orderForm.amountPersons, orderForm.amountDays]);
 
   useEffect(() => {

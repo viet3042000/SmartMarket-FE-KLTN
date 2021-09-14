@@ -22,7 +22,7 @@ const PeopleForm = ({ currentStep = null, setCurrentStep=f=>f, peopleForm = null
           form="peopleForm"
           className="inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
         >
-          Thanh toán
+          Tiếp theo
         </button>
       </div>
     </>

@@ -1,4 +1,10 @@
 import React from 'react';
+import momo from './img/icon-payment-MoMo.png';
+import napas from './img/icon-payment-napas.png';
+import paypal from './img/icon-payment-paypal.png';
+import visa from './img/icon-payment-visa.png';
+import mastercard from './img/icon-payment-mastercard.png';
+import vnpay from './img/icon-payment-vnpay.png';
 
 const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, submit = f => f }) => {
   if (currentStep !== 3) return (<></>);
@@ -11,14 +17,28 @@ const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, submit = f =
           <div className="mt-8 mb-6 flex -mx-2">
             <div className="px-2">
               <label htmlFor="type1" className="flex items-center cursor-pointer">
-                <input type="radio" className="form-radio h-5 w-5 text-indigo-500" name="type" id="type1" checked />
-                <img src="https://leadershipmemphis.org/wp-content/uploads/2020/08/780370.png" className="h-8 ml-3" />
+                <input type="radio" className="form-radio h-5 w-5 text-indigo-500" name="type" id="type1" value="type1" required/>
+                <img src={visa} className="h-8 ml-3" />
+                <img src={mastercard} className="h-8 ml-1" />
+                <img src={napas} className="h-8 ml-1" />
               </label>
             </div>
             <div className="px-2">
               <label htmlFor="type2" className="flex items-center cursor-pointer">
-                <input type="radio" className="form-radio h-5 w-5 text-indigo-500" name="type" id="type2" />
-                <img src="https://www.sketchappsources.com/resources/source-image/PayPalCard.png" className="h-8 ml-3" />
+                <input type="radio" className="form-radio h-5 w-5 text-indigo-500" name="type" id="type2" value="type2" />
+                <img src={paypal} className="h-8 ml-3" />
+              </label>
+            </div>
+            <div className="px-2">
+              <label htmlFor="type3" className="flex items-center cursor-pointer">
+                <input type="radio" className="form-radio h-5 w-5 text-indigo-500" name="type" id="type3" value="type3" />
+                <img src={momo} className="h-8 ml-3" />
+              </label>
+            </div>
+            <div className="px-2">
+              <label htmlFor="type4" className="flex items-center cursor-pointer">
+                <input type="radio" className="form-radio h-5 w-5 text-indigo-500" name="type" id="type4" value="type4" />
+                <img src={vnpay} className="h-8 ml-3" />
               </label>
             </div>
           </div>
