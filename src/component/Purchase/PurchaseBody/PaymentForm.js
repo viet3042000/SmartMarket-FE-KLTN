@@ -46,12 +46,12 @@ const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, submit = f =
           <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 mb-6">
             <div>
               <label className="text-gray-900 font-medium" htmlFor="fullName">Họ tên trên thẻ</label>
-              <input placeholder="Nguyen Van A" name="fullName" id="fullName" type="text" required className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" />
+              <input placeholder="Nguyen Van A" name="fullName" id="fullName" type="text" required className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring placeholder-gray-600 placeholder-opacity-30 focus:placeholder-opacity-0" />
             </div>
 
             <div>
               <label className="text-gray-900 font-medium" htmlFor="cardNumber">Số thẻ</label>
-              <input placeholder="0000 0000 0000 0000" name="cardNumber" id="cardNumber" type="text" required className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" />
+              <input placeholder="0000 0000 0000 0000" name="cardNumber" id="cardNumber" type="text" required className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring placeholder-gray-600 placeholder-opacity-30 focus:placeholder-opacity-0" />
             </div>
 
             <div>
@@ -88,7 +88,7 @@ const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, submit = f =
 
             <div>
               <label className="text-gray-900 font-medium" htmlFor="security">Mã thẻ</label>
-              <input placeholder="000" name="security" id="security" type="text" required className="block w-1/4 px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" />
+              <input placeholder="000" name="security" id="security" type="text" required className="block w-1/4 px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring placeholder-gray-600 placeholder-opacity-30 focus:placeholder-opacity-0" />
             </div>
 
           </div>

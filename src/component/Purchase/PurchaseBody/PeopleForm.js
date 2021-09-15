@@ -36,7 +36,7 @@ const FormInput = ({ obj = null, index = null, changePeopleForm = f=>f }) => {
       <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 mb-6">
         <div>
           <label className="text-gray-900 font-medium" htmlFor="fullName">Tên đầy đủ</label>
-          <input value={obj.fullName} onChange={e => changePeopleForm(e, index)} placeholder="Nguyễn Văn A" name="fullName" id="fullName" type="text" required className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" />
+          <input value={obj.fullName} onChange={e => changePeopleForm(e, index)} placeholder="Nguyễn Văn A" name="fullName" id="fullName" type="text" required className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring placeholder-gray-600 placeholder-opacity-30 focus:placeholder-opacity-0" />
         </div>
 
         <div>
@@ -54,7 +54,7 @@ const FormInput = ({ obj = null, index = null, changePeopleForm = f=>f }) => {
 
         <div>
           <label className="text-gray-900 font-medium" htmlFor="passportCard">Số hộ chiếu</label>
-          <input value={obj.passportCard} onChange={e => changePeopleForm(e, index)} placeholder="1234567890" name="passportCard" id="passportCard" type="tel" required className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" />
+          <input value={obj.passportCard} onChange={e => changePeopleForm(e, index)} placeholder="1234567890" name="passportCard" id="passportCard" type="tel" required className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring placeholder-gray-600 placeholder-opacity-30 focus:placeholder-opacity-0" />
         </div>
       </div>
     </>
