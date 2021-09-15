@@ -10,7 +10,7 @@ const orderFormInitial = {
 };
 
 const useOrderForm = (setCurrentStep) => {
-  const [orderForm, changeOrderForm, resetOrderForm] = useFormObj(orderFormInitial);
+  const [orderForm, changeForm, resetOrderForm] = useFormObj(orderFormInitial);
   const [toDate, setToDate] = useState("");
   const [prodPriceDisp, setProdPriceDisp] = useState("");
 
@@ -18,6 +18,16 @@ const useOrderForm = (setCurrentStep) => {
     style: 'currency',
     currency: 'VND',
   });
+
+  const changeOrderForm = e => {
+    const { name, value } = e.target;
+    if (name==='amountPersons' && value > 10) {
+      e.target.value = 10;
+    } else if (name==='amountDays' && value > 90) {
+      e.target.value = 90;
+    }
+    changeForm(e);
+  };
 
   useEffect(() => {
     setProdPriceDisp(formatter.format(calcPrice(Number(orderForm.amountDays), Number(orderForm.amountPersons))));

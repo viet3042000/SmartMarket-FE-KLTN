@@ -27,11 +27,11 @@ export default function PopupSuccess({ popupSuccess = null, setPopupSuccess = f 
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <div className="h-36 w-full bg-gray-100 flex flex-col justify-between items-center">
+            <div className="h-36 w-full flex flex-col justify-between items-center">
               <p className="text-4xl font-thin text-green-600">Đặt hàng thành công</p>
               <p className="">{`orderId: ${popupSuccess.orderId}`}</p>
             </div>
-            <div className="text-xl h-36 w-full bg-gray-100 flex justify-between items-end">
+            <div className="text-xl h-36 w-3/4 flex justify-between items-end">
             <Link to={`/`}>
               <button
                 className="m-6 inline-flex items-center justify-center px-8 py-2 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none"

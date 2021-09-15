@@ -30,11 +30,6 @@ const PurchaseBody = ({ prodName = null }) => {
     .catch(error => console.log(error));
   };
 
-  useEffect(() => {
-    console.log('pop up success is');
-    console.log(popupSuccess);
-  }, [popupSuccess, setPopupSuccess]);
-
   return (
     <>
     <div className="px-8">

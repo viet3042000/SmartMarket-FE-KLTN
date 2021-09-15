@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './header.css';
@@ -8,12 +8,16 @@ import { logout } from '../../actions/auth';
 import Dropdown from "@material-tailwind/react/Dropdown";
 import DropdownItem from "@material-tailwind/react/DropdownItem";
 import DropdownLink from "@material-tailwind/react/DropdownLink";
+import Tooltips from "@material-tailwind/react/Tooltips";
+import TooltipsContent from "@material-tailwind/react/TooltipsContent";
 
 
 const Header = () => {
   const state = useSelector(state => state.auth);
   const dispatch = useDispatch();
   const history = useHistory();
+  const orderRef = useRef();
+  const userRef = useRef();
 
   const handleLogout = e => {
     e.preventDefault();
@@ -241,7 +245,7 @@ const Header = () => {
                   </a> */}
                 </div>
                 {/* Search box */}
-                <div className=" hidden lg:flex border border-gray-400">
+                <div className=" hidden lg:flex border-b border-gray-400">
                   <span className=" inset-y-0 left-0 flex items-center pl-3 ">
                     <svg
                       className="w-4 h-4 text-gray-700 dark:text-gray-300 hover:text-black"
@@ -266,20 +270,26 @@ const Header = () => {
               </div>
 
               {/* Order Icon */}
-              <div className=" hidden lg:flex ">
+              <div className=" hidden lg:flex text-gray-700 p-3">
                 <button
                   className=" mx-4 text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
+                  ref={orderRef}
                   aria-label="show notifications"
                 >
                   <Link to="/orders">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                    </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
                   </Link>
                 </button>
 
                 {/* User icon */}
-                <div className="hidden lg:flex p-3 text-gray-700 ">
+                <div className=" mx-3 hidden lg:flex text-gray-700 ">
+                <button
+                  className=" text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
+                  ref={userRef}
+                  aria-label="show notifications"
+                >
                   <Link to="/user">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -296,8 +306,15 @@ const Header = () => {
                       />
                     </svg>
                   </Link>
+                </button>
                 </div>
                 <LogInOut state={state} handleLogout={handleLogout} />
+                <Tooltips placement="bottom" ref={orderRef}>
+                  <TooltipsContent>Lịch sử đơn hàng</TooltipsContent>
+                </Tooltips>
+                <Tooltips placement="bottom" ref={userRef}>
+                  <TooltipsContent>Thông tin tài khoản</TooltipsContent>
+                </Tooltips>
               </div>
             </div>
           </div>
@@ -314,7 +331,7 @@ const LogInOut = ({ state = null, handleLogout = f => f }) => {
       <Link to="/login">
 
         <button
-          className=" mx-4 text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
+          className=" mx-4 text-gray-700 hover:text-black md:block dark:text-gray-200 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
           aria-label="show notifications"
         >
           Login
@@ -325,7 +342,7 @@ const LogInOut = ({ state = null, handleLogout = f => f }) => {
   }
   return (
     <button
-      className=" mx-4 text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
+      className=" mx-4 text-gray-700 hover:text-black md:block dark:text-gray-200 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
       aria-label="show notifications"
       onClick={handleLogout}
     >

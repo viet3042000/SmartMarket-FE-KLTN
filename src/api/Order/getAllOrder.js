@@ -1,19 +1,16 @@
 import ApiClient from "../ApiClient";
 
-export const getAllOrder = async () => {
+export const getAllOrder = async (page=null, size=null) => {
+  requestBody = {...requestBody, detail: {page, size}};
   const response = await ApiClient.post('order/order-service/v1/get-all-orders', null, requestBody);
   return response.data;
 };
 
-const requestBody= {
+let requestBody= {
   "requestId": "requestId",
   "requestTime": "requestTime",
   "targetId": "BIC",
-    "type": "BICTravelInsurance",
-  "detail": {
-    "page": 1, 
-    "size": "4"
-  }
+    "type": "BICTravelInsurance"
 };
 
 export default getAllOrder;
