@@ -9,20 +9,23 @@ const size = 4;
 export function Order() {
   const [orders, setOrders] = useState();
   const [pages, setPages] = useState();
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     getPage(1);
   }, []);
 
   const getPage = async (page) => {
-    getAllOrder(page, size)
+    setLoading(true);
+    await getAllOrder(page, size)
     .then((data) => {setOrders(data); setPages({ page: data.page, totalPage: data.totalPage, total: data.total });})
     .catch(error => console.log(error));
+    setLoading(false);
   };
 
   // return (
   //   <FetchPost uri="http://103.9.0.239:31441/dev/order/order-service/v1/get-all-orders" renderSuccess={OrderRender} requestBody={requestBody} />
   // );
-  if (!orders || !pages) return (<div className="w-screen h-screen flex justify-center"> <p>loading...</p> </div>);
+  if (loading) return (<div className="w-screen h-screen flex justify-center"> <p>loading...</p> </div>);
   return (
     <div >
       <div className="w-screen " >
@@ -51,13 +54,6 @@ export function Order() {
 
 const ChevLeft = ({page = null, getPage=f=>f}) => {
   if (page < 5) {
-    // return (
-    //   <button className="flex items-center px-4 py-2 mx-1 text-gray-500 bg-white rounded-md cursor-not-allowed dark:bg-gray-800 dark:text-gray-600 focus:outline-none">
-    //     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    //       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-    //     </svg>
-    //   </button>
-    // );
     return null;
   }
   return (
@@ -72,13 +68,6 @@ const ChevLeft = ({page = null, getPage=f=>f}) => {
 
 const ChevRight = ({page = null, totalPage = null, getPage=f=>f}) => {
   if (page >= 4 * (Math.ceil(totalPage / 4) - 1) + 1) {
-  // return (
-  //   <button className="flex items-center px-4 py-2 mx-1 text-gray-500 bg-white rounded-md cursor-not-allowed dark:bg-gray-800 dark:text-gray-600 focus:outline-none">
-  //     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  //       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-  //     </svg>
-  //   </button>
-  // );
   return null;
 }
 return (

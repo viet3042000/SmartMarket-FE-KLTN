@@ -6,6 +6,7 @@ import OrderForm from './OrderForm';
 import PeopleForm from './PeopleForm';
 import usePeopleForm from './hooks/usePeopleForm';
 import PaymentForm from './PaymentForm';
+import usePaymentForm from './hooks/usePaymentForm';
 import CreateOrder from '../../../api/Product/createOrder';
 import PopupSuccess from './PopupSuccess';
 
@@ -13,10 +14,12 @@ const PurchaseBody = ({ prodName = null }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [popupSuccess, setPopupSuccess] = useState();
   const { orderForm, changeOrderForm, toDate, prodPriceDisp, orderSubmit } = useOrderForm(setCurrentStep);
-  const { peopleForm, changePeopleForm, peopleSubmit } = usePeopleForm(orderForm.amountPersons, setCurrentStep);
+  const { peopleForm, changePeopleForm, peopleErrors, peopleSubmit } = usePeopleForm(orderForm.amountPersons, setCurrentStep);
+  const { paymentForm, changePaymentForm, paymentError, validatePaymentForm } = usePaymentForm();
   
   const paymentSubmit = event => {
     event.preventDefault();
+    if (!validatePaymentForm()) return;
     const order = new CreateOrder();
     order.updateTrv(orderForm.amountPersons, orderForm.amountDays, orderForm.fromDate, toDate);
     order.updateTrvDetails(peopleForm);
@@ -37,8 +40,8 @@ const PurchaseBody = ({ prodName = null }) => {
       <div className="grid gap-4 grid-cols-9">
         <div className="col-span-6">
           <OrderForm currentStep={currentStep} orderForm={orderForm} changeOrderForm={changeOrderForm} toDate={toDate} submit={orderSubmit} />
-          <PeopleForm currentStep={currentStep} setCurrentStep={setCurrentStep} peopleForm={peopleForm} changePeopleForm={changePeopleForm} submit={peopleSubmit} />
-          <PaymentForm currentStep={currentStep} setCurrentStep={setCurrentStep} submit={paymentSubmit}/>
+          <PeopleForm currentStep={currentStep} setCurrentStep={setCurrentStep} peopleForm={peopleForm} changePeopleForm={changePeopleForm} peopleErrors={peopleErrors} submit={peopleSubmit} />
+          <PaymentForm currentStep={currentStep} setCurrentStep={setCurrentStep} paymentForm={paymentForm} changePaymentForm={changePaymentForm} paymentError={paymentError} submit={paymentSubmit}/>
         </div>
         <div className="col-span-3">
           <SummaryForm prodName={prodName} orderForm={orderForm} toDate={toDate} prodPriceDisp={prodPriceDisp} />

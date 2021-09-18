@@ -6,7 +6,7 @@ import visa from './img/icon-payment-visa.png';
 import mastercard from './img/icon-payment-mastercard.png';
 import vnpay from './img/icon-payment-vnpay.png';
 
-const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, submit = f => f }) => {
+const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, paymentForm = null, changePaymentForm = f => f, paymentError = null, submit = f => f }) => {
   if (currentStep !== 3) return (<></>);
   return (
     <>
@@ -16,28 +16,49 @@ const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, submit = f =
 
           <div className="mt-8 mb-6 flex -mx-2">
             <div className="px-2">
-              <label htmlFor="type1" className="flex items-center cursor-pointer">
-                <input type="radio" className="form-radio h-5 w-5 text-indigo-500" name="type" id="type1" value="type1" required/>
-                <img src={visa} className="h-8 ml-3" />
-                <img src={mastercard} className="h-8 ml-1" />
-                <img src={napas} className="h-8 ml-1" />
+              <label htmlFor="payment-method1" className="flex items-center cursor-pointer">
+                <input type="radio" className="form-radio h-5 w-5 text-indigo-500"
+                  name="payment-method"
+                  id="payment-method1"
+                  value="napas"
+                  checked={paymentForm['payment-method'] === 'napas'}
+                  onChange={changePaymentForm}
+                  required />
+                {/* <img src={visa} className="h-8 ml-3" />
+                <img src={mastercard} className="h-8 ml-1" /> */}
+                <img src={napas} className="h-8 ml-3" />
               </label>
             </div>
             <div className="px-2">
-              <label htmlFor="type2" className="flex items-center cursor-pointer">
-                <input type="radio" className="form-radio h-5 w-5 text-indigo-500" name="type" id="type2" value="type2" />
+              <label htmlFor="payment-method2" className="flex items-center cursor-pointer">
+                <input type="radio" className="form-radio h-5 w-5 text-indigo-500"
+                  name="payment-method"
+                  id="payment-method2"
+                  value="paypal"
+                  checked={paymentForm['payment-method'] === 'paypal'}
+                  onChange={changePaymentForm} />
                 <img src={paypal} className="h-8 ml-3" />
               </label>
             </div>
             <div className="px-2">
-              <label htmlFor="type3" className="flex items-center cursor-pointer">
-                <input type="radio" className="form-radio h-5 w-5 text-indigo-500" name="type" id="type3" value="type3" />
+              <label htmlFor="payment-method3" className="flex items-center cursor-pointer">
+                <input type="radio" className="form-radio h-5 w-5 text-indigo-500"
+                  name="payment-method"
+                  id="payment-method3"
+                  value="momo"
+                  checked={paymentForm['payment-method'] === 'momo'}
+                  onChange={changePaymentForm} />
                 <img src={momo} className="h-8 ml-3" />
               </label>
             </div>
             <div className="px-2">
-              <label htmlFor="type4" className="flex items-center cursor-pointer">
-                <input type="radio" className="form-radio h-5 w-5 text-indigo-500" name="type" id="type4" value="type4" />
+              <label htmlFor="payment-method4" className="flex items-center cursor-pointer">
+                <input type="radio" className="form-radio h-5 w-5 text-indigo-500"
+                  name="payment-method"
+                  id="payment-method4"
+                  value="vnpay"
+                  checked={paymentForm['payment-method'] === 'vnpay'}
+                  onChange={changePaymentForm} />
                 <img src={vnpay} className="h-8 ml-3" />
               </label>
             </div>
@@ -46,17 +67,28 @@ const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, submit = f =
           <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 mb-6">
             <div>
               <label className="text-gray-900 font-medium" htmlFor="fullName">Họ tên trên thẻ</label>
-              <input placeholder="Nguyen Van A" name="fullName" id="fullName" type="text" required className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring placeholder-gray-600 placeholder-opacity-30 focus:placeholder-opacity-0" />
+              <input placeholder="Nguyen Van A" name="fullName" id="fullName" type="text" required
+                value={paymentForm.fullName}
+                onChange={changePaymentForm}
+                className={`block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring placeholder-gray-600 placeholder-opacity-30 focus:placeholder-opacity-0 ${paymentError && paymentError.fullName && 'border-red-500'}`} />
+              {paymentError && paymentError.fullName && <ErrorMessage message={paymentError.fullName}/>}
             </div>
 
             <div>
               <label className="text-gray-900 font-medium" htmlFor="cardNumber">Số thẻ</label>
-              <input placeholder="0000 0000 0000 0000" name="cardNumber" id="cardNumber" type="text" required className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring placeholder-gray-600 placeholder-opacity-30 focus:placeholder-opacity-0" />
+              <input placeholder="0000 0000 0000 0000" name="cardNumber" id="cardNumber" type="text" required
+                value={paymentForm.cardNumber}
+                onChange={changePaymentForm}
+                className={`block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring placeholder-gray-600 placeholder-opacity-30 focus:placeholder-opacity-0 ${paymentError && paymentError.cardNumber && 'border-red-500'}`} />
+              {paymentError && paymentError.cardNumber && <ErrorMessage message={paymentError.cardNumber}/>}
             </div>
 
             <div>
               <label className="text-gray-900 font-medium" htmlFor="month">Tháng hết hạn</label>
-              <select name="month" id="month" required className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+              <select name="month" id="month" required
+                value={paymentForm.month}
+                onChange={changePaymentForm}
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
                 <option value="01">Tháng 1</option>
                 <option value="02">Tháng 2</option>
                 <option value="03">Tháng 3</option>
@@ -74,7 +106,10 @@ const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, submit = f =
 
             <div>
               <label className="text-gray-900 font-medium" htmlFor="month">Năm</label>
-              <select name="year" id="year" required className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+              <select name="year" id="year" required
+                value={paymentForm.year}
+                onChange={changePaymentForm}
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
@@ -88,7 +123,11 @@ const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, submit = f =
 
             <div>
               <label className="text-gray-900 font-medium" htmlFor="security">Mã thẻ</label>
-              <input placeholder="000" name="security" id="security" type="text" required className="block w-1/4 px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring placeholder-gray-600 placeholder-opacity-30 focus:placeholder-opacity-0" />
+              <input placeholder="000" name="security" id="security" type="text" required
+                value={paymentForm.security}
+                onChange={changePaymentForm}
+                className={`block w-1/4 px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring placeholder-gray-600 placeholder-opacity-30 focus:placeholder-opacity-0 ${paymentError && paymentError.security && 'border-red-500'}`}/>
+              {paymentError && paymentError.security && <ErrorMessage message={paymentError.security} />}
             </div>
 
           </div>
@@ -109,6 +148,22 @@ const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, submit = f =
         </button>
       </div>
     </>
+  );
+};
+
+const ErrorMessage = ({message=null}) => {
+  return (
+    <div className="flex">
+      <div className="mt-1 mr-1 relative flex h-4 w-4">
+        <span className="absolute rounded-full h-full w-full text-red-500">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+        </span>
+        <span className="absolute animate-ping rounded-full h-full w-full border border-red-500"></span>
+      </div>
+      <p className="mt-1 text-red-500 text-sm">{message}</p>
+    </div>
   );
 };
 

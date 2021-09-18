@@ -23,8 +23,12 @@ const useOrderForm = (setCurrentStep) => {
     const { name, value } = e.target;
     if (name==='amountPersons' && value > 10) {
       e.target.value = 10;
+    } else if (name==='amountPersons' && value < 0) {
+      e.target.value = 1;
     } else if (name==='amountDays' && value > 90) {
       e.target.value = 90;
+    } else if (name==='amountDays' && value < 0) {
+      e.target.value = 1;
     }
     changeForm(e);
   };
