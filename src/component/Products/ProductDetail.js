@@ -11,24 +11,24 @@ const ProductDetail = ({ match }) => {
     // console.log(match.params.productName);
   }, []);
   return (
-    <div className = "bg-no-repeat bg-left-top bg-fixed bg-origin-content h-screen" style={{
+    <div className="bg-no-repeat bg-left-top bg-fixed bg-origin-content h-screen" style={{
       backgroundImage:
         "url(" +
-        "https://image.freepik.com/free-vector/online-app-tourism-traveler-with-mobile-phone-passport-booking-buying-plane-ticket_74855-10966.jpg"+
+        "https://image.freepik.com/free-vector/online-app-tourism-traveler-with-mobile-phone-passport-booking-buying-plane-ticket_74855-10966.jpg" +
         ")",
     }} >
       <FetchStatus successDisp={successDisp} />
       <div className=" relative bg-no-repeat bg-right-bottom bg-fixed bg-origin-content w-screen h-screen px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
-    style={{
-      backgroundImage:
-        "url(" +
-        "https://image.freepik.com/free-vector/hand-drawn-flat-tourists-illustration_23-2149051160.jpg"+
-        ")",
-    }} 
-       
+        style={{
+          backgroundImage:
+            "url(" +
+            "https://image.freepik.com/free-vector/hand-drawn-flat-tourists-illustration_23-2149051160.jpg" +
+            ")",
+        }}
+
       >
-        <div className=" grid gap-12 row-gap-8 lg:grid-cols-6 " 
-        
+        <div className=" grid gap-12 row-gap-8 lg:grid-cols-6 "
+
         >
           <div name="leftCard" className="flex flex-col lg:col-span-4 ">
             <div className="bg-white border rounded p-4">
@@ -57,15 +57,15 @@ const ProductDetail = ({ match }) => {
                       />
                     </svg>
                   </div>
-                  <div className="border-gray-200 shadow-xl bg-gray-200 bg-opacity-30 rounded-lg">
-                  <h6 className="mb-2 font-semibold leading-5">
-                    Miễn phí đổi giờ, huỷ chuyến
-                  </h6>
-                  <p className={contentTextStyle}>
-                    Miễn phí đổi giờ, huỷ chuyến trong vòng 48 tiếng thông báo
-                    với hãng. Chúng tôi cam kết chi trả các loại phí phát sinh
-                    cho vấn đề này
-                  </p>
+                  <div className="">
+                    <h6 className="mb-2 font-semibold leading-5">
+                      Miễn phí đổi giờ, huỷ chuyến
+                    </h6>
+                    <p className={contentTextStyle}>
+                      Miễn phí đổi giờ, huỷ chuyến trong vòng 48 tiếng thông báo
+                      với hãng. Chúng tôi cam kết chi trả các loại phí phát sinh
+                      cho vấn đề này
+                    </p>
                   </div>
                 </div>
                 <div className="bg-white rounded-lg">
@@ -84,15 +84,15 @@ const ProductDetail = ({ match }) => {
                       />
                     </svg>
                   </div>
-                  <div className="border-gray-200 shadow-xl bg-gray-200 bg-opacity-50 rounded-lg">
-                  <h6 className="mb-2 font-semibold leading-5">
-                    Hỗ trợ phí hành lý khi check-in
-                  </h6>
-                  <p className={contentTextStyle}>
-                    Chúng tôi sẽ chi trả phí phát sinh khi hành lý của bạn quá
-                    tải trong quá trình check-in. Hãy yên tâm sắp xếp hành lý,
-                    việc tính phí cứ để chúng tôi lo!
-                  </p>
+                  <div className="">
+                    <h6 className="mb-2 font-semibold leading-5">
+                      Hỗ trợ phí hành lý khi check-in
+                    </h6>
+                    <p className={contentTextStyle}>
+                      Chúng tôi sẽ chi trả phí phát sinh khi hành lý của bạn quá
+                      tải trong quá trình check-in. Hãy yên tâm sắp xếp hành lý,
+                      việc tính phí cứ để chúng tôi lo!
+                    </p>
                   </div>
                 </div>
                 <div className="bg-white rounded-lg">
@@ -111,18 +111,18 @@ const ProductDetail = ({ match }) => {
                       />
                     </svg>
                   </div>
-                  <div className = "border-gray-200 shadow-xl bg-gray-200 bg-opacity-50 rounded-lg">
-                  <h6 className="mb-2 font-semibold leading-5">
-                    Chi trả 100% phí khám chữa bệnh khi tai nạn
-                  </h6>
-                  <p className={contentTextStyle}>
-                    Hãy yên tâm khởi hành. Nếu không may gặp phải bất kỳ tai nạn nào trong suốt hành trình, chúng tôi sẽ luôn ở bên bạn và 
-                    thực hiện chi trả phí khám chữa bệnh theo đúng quy định
-                  
-                  </p>
+                  <div className="">
+                    <h6 className="mb-2 font-semibold leading-5">
+                      Chi trả 100% phí khám chữa bệnh khi tai nạn
+                    </h6>
+                    <p className={contentTextStyle}>
+                      Hãy yên tâm khởi hành. Nếu không may gặp phải bất kỳ tai nạn nào trong suốt hành trình, chúng tôi sẽ luôn ở bên bạn và
+                      thực hiện chi trả phí khám chữa bệnh theo đúng quy định
+
+                    </p>
                   </div>
                 </div>
-                <div className = "bg-white rounded-lg">
+                <div className="bg-white rounded-lg">
                   <div className="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-50">
                     <svg
                       className="w-10 h-10 text-deep-purple-accent-400"
@@ -138,44 +138,44 @@ const ProductDetail = ({ match }) => {
                       />
                     </svg>
                   </div>
-                  <div className="border-gray-200 shadow-xl bg-gray-200 bg-opacity-50 rounded-lg">
-                  <h6 className="mb-2 font-semibold leading-5">
-                    Chi trả 100% phí pháp lý
-                  </h6>
-                  <p className={contentTextStyle}>
-                    Gặp phải vấn đề về pháp lý khi va chạm ngoài đường? Không
-                    cần lo lắng, chúng tôi sẽ đảm bảo cho bạn về mặt pháp lý.
-                   </p>
+                  <div className="">
+                    <h6 className="mb-2 font-semibold leading-5">
+                      Chi trả 100% phí pháp lý
+                    </h6>
+                    <p className={contentTextStyle}>
+                      Gặp phải vấn đề về pháp lý khi va chạm ngoài đường? Không
+                      cần lo lắng, chúng tôi sẽ đảm bảo cho bạn về mặt pháp lý.
+                    </p>
                   </div>
                 </div>
               </div>
-               <div name="text-no-border">
-              <h4 className="text-2xl mt-6 mb-6 font-bold">Yêu cầu giấy tờ</h4>
-              <ul className="list-disc list-inside leading-relaxed bg-white rounded-lg w-1/5">
-                <li>
-                  <p className={`inline pl-3 ${contentTextStyle}`}>CMND/CCCD</p>
-                </li>
-                <li>
-                  <p className={`inline pl-3 ${contentTextStyle}`}>
-                    Lịch trình chuyến đi
-                  </p>
-                </li>
-                <li>
-                  <p className={`inline pl-3 ${contentTextStyle}`}>Vé tàu xe</p>
-                </li>
-              </ul>
+              <div name="text-no-border">
+                <h4 className="text-2xl mt-6 mb-6 font-bold">Yêu cầu giấy tờ</h4>
+                <ul className="list-disc list-inside leading-relaxed bg-white rounded-lg w-1/5">
+                  <li>
+                    <p className={`inline pl-3 ${contentTextStyle}`}>CMND/CCCD</p>
+                  </li>
+                  <li>
+                    <p className={`inline pl-3 ${contentTextStyle}`}>
+                      Lịch trình chuyến đi
+                    </p>
+                  </li>
+                  <li>
+                    <p className={`inline pl-3 ${contentTextStyle}`}>Vé tàu xe</p>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div> 
           </div>
-          
+
           <div className="lg:col-span-2">
             <ProductPriceForm match={match} setSuccessDisp={setSuccessDisp} />
           </div>
-          
+
         </div>
-     
+
       </div>
-      
+
     </div>
   );
 };

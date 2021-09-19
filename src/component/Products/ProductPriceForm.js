@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import products from '../../data/InsuranceData';
+import products from '../ListInsurance/InsuranceData';
 import useFormObj from '../../hooks/Form/useFormObj';
 import calcPrice from '../../common/calcPrice';
 import {createOrder, updateTrv} from '../../api/Product/createOrder';
 import { Link} from 'react-router-dom';
 
 const ProductPriceForm = ({ match = null, setSuccessDisp = f => f }) => {
-  const prodImgLink = products.find((item) => item.name === match.params.productName);
+  const prodImgLink = products.find((item) => item.name === match.params.productName).imageSrc;
 
   return (
     <div className="bg-white flex flex-col shadow-lg rounded w-3/4 gap-y-3 p-4 ">
