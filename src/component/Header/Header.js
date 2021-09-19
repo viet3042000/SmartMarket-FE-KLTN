@@ -5,19 +5,11 @@ import './header.css';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { logout } from '../../actions/auth';
-import Dropdown from "@material-tailwind/react/Dropdown";
-import DropdownItem from "@material-tailwind/react/DropdownItem";
-import DropdownLink from "@material-tailwind/react/DropdownLink";
-import Tooltips from "@material-tailwind/react/Tooltips";
-import TooltipsContent from "@material-tailwind/react/TooltipsContent";
-
 
 const Header = () => {
   const state = useSelector(state => state.auth);
   const dispatch = useDispatch();
   const history = useHistory();
-  const orderRef = useRef();
-  const userRef = useRef();
 
   const handleLogout = e => {
     e.preventDefault();
@@ -170,7 +162,7 @@ const Header = () => {
         </div>
       </nav> */}
       <div className="bg-white h-16">
-        <div className="container px-6 py-2 mx-auto">
+        <div className="container px-6 mx-auto">
           <div className="md:flex md:items-center md:justify-between">
             <div className="flex items-center justify-between">
               <Link to="/home">
@@ -210,40 +202,8 @@ const Header = () => {
             </div>
 
             {/* <!-- Mobile Menu open: "block", Menu closed: "hidden" --> */}
-            <div className="flex-1 md:flex md:items-center md:justify-between md:float-none">
+            <div className="flex-1 md:flex md:items-center md:justify-between md:float-none relative h-16">
               <div className="flex flex-col md:flex-row md:items-center md:mx-8  ">
-                <div className=" lg:block hidden">
-                  {/* <a
-                    href="/home"
-                    className=" px-2 py-1 mx-2 mt-2 text-md font-medium text-gray-800 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 "
-                  >
-                    Home
-                  </a> */}
-                  {/* <a
-                    href="#"
-                    className="px-2 py-1 mx-2 mt-2 text-md font-medium text-gray-800 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 "
-                  >
-                    About us
-                  </a>
-                  <a
-                    href="#"
-                    className="px-2 py-1 mx-2 mt-2 text-md font-medium text-gray-800 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 "
-                  >
-                    Product
-                  </a>
-                  <a
-                    href="#"
-                    className="px-2 py-1 mx-2 mt-2 text-md font-medium text-gray-800 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 "
-                  >
-                    Service
-                  </a>
-                  <a
-                    href="#"
-                    className="px-2 py-1 mx-2 mt-2 text-md font-medium text-gray-800 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 "
-                  >
-                    Contact
-                  </a> */}
-                </div>
                 {/* Search box */}
                 <div className=" hidden lg:flex border-b border-gray-400">
                   <span className=" inset-y-0 left-0 flex items-center pl-3 ">
@@ -268,54 +228,7 @@ const Header = () => {
                   />
                 </div>
               </div>
-
-              {/* Order Icon */}
-              <div className=" hidden lg:flex text-gray-700 p-3">
-                <button
-                  className=" mx-4 text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
-                  ref={orderRef}
-                  aria-label="show notifications"
-                >
-                  <Link to="/orders">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  </Link>
-                </button>
-
-                {/* User icon */}
-                <div className=" mx-3 hidden lg:flex text-gray-700 ">
-                <button
-                  className=" text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
-                  ref={userRef}
-                  aria-label="show notifications"
-                >
-                  <Link to="/user">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 hover:text-black "
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </Link>
-                </button>
-                </div>
-                <LogInOut state={state} handleLogout={handleLogout} />
-                <Tooltips placement="bottom" ref={orderRef}>
-                  <TooltipsContent>Lịch sử đơn hàng</TooltipsContent>
-                </Tooltips>
-                <Tooltips placement="bottom" ref={userRef}>
-                  <TooltipsContent>Thông tin tài khoản</TooltipsContent>
-                </Tooltips>
-              </div>
+              <RightDisp state={state} handleLogout={handleLogout} />
             </div>
           </div>
         </div>
@@ -324,30 +237,69 @@ const Header = () => {
   );
 };
 
-const LogInOut = ({ state = null, handleLogout = f => f }) => {
+const RightDisp = ({ state = null, handleLogout = f => f }) => {
   if (!state.user) {
     return (
-      <div className="flex justify-center items-center">
-      <Link to="/login">
+      <div className="absolute right-0 hidden lg:flex text-gray-700 py-3 opacity-70" >
+        <div className="flex justify-center items-center">
+          <Link to="/login">
 
-        <button
-          className=" mx-4 text-gray-700 hover:text-black md:block dark:text-gray-200 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
-          aria-label="show notifications"
-        >
-          Login
-        </button>
-      </Link>
+            <button
+              className="px-6 py-1 rounded-md border border-black text-lg font-semibold text-black md:block dark:text-gray-200 dark:hover:text-gray-400 hover:text-gray-700 hover:bg-gray-50 dark:focus:text-gray-400 focus:outline-none"
+              aria-label="show notifications"
+            >
+              Đăng nhập
+            </button>
+          </Link>
+        </div>
       </div>
     );
   }
   return (
-    <button
-      className=" mx-4 text-gray-700 hover:text-black md:block dark:text-gray-200 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
-      aria-label="show notifications"
-      onClick={handleLogout}
-    >
-      Logout
-    </button>
+    <div className=" hidden lg:flex text-gray-700 p-3" >
+      <button
+        className=" mx-4 text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
+        aria-label="show notifications"
+      >
+        <Link to="/orders">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+        </Link>
+      </button>
+
+      {/* User icon */}
+      <div className=" mx-3 hidden lg:flex text-gray-700 ">
+        <button
+          className=" text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
+          aria-label="show notifications"
+        >
+          <Link to="/user">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 hover:text-black "
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </Link>
+        </button>
+      </div>
+      <button
+        className=" mx-4 text-gray-700 hover:text-black md:block dark:text-gray-200 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
+        aria-label="show notifications"
+        onClick={handleLogout}
+      >
+        Logout
+      </button>
+    </div >
   );
 };
 
