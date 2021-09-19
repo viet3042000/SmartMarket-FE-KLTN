@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './header.css';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { logout } from '../../actions/auth';
-
 
 const Header = () => {
   const state = useSelector(state => state.auth);
@@ -162,8 +161,8 @@ const Header = () => {
           </div>
         </div>
       </nav> */}
-      <nav className="bg-white h-16">
-        <div className="container px-6 py-2 mx-auto">
+      <div className="bg-white h-16">
+        <div className="container px-6 mx-auto">
           <div className="md:flex md:items-center md:justify-between">
             <div className="flex items-center justify-between">
               <Link to="/home">
@@ -203,42 +202,10 @@ const Header = () => {
             </div>
 
             {/* <!-- Mobile Menu open: "block", Menu closed: "hidden" --> */}
-            <div className="flex-1 md:flex md:items-center md:justify-between md:float-none">
+            <div className="flex-1 md:flex md:items-center md:justify-between md:float-none relative h-16">
               <div className="flex flex-col md:flex-row md:items-center md:mx-8  ">
-                <div className=" lg:block hidden">
-                  {/* <a
-                    href="/home"
-                    className=" px-2 py-1 mx-2 mt-2 text-md font-medium text-gray-800 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 "
-                  >
-                    Home
-                  </a> */}
-                  <a
-                    href="#"
-                    className="px-2 py-1 mx-2 mt-2 text-md font-medium text-gray-800 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:opacity-70"
-                  >
-                    About us
-                  </a>
-                  <a
-                    href="#"
-                    className="px-2 py-1 mx-2 mt-2 text-md font-medium text-gray-800 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:opacity-70"
-                  >
-                    Product
-                  </a>
-                  <a
-                    href="#"
-                    className="px-2 py-1 mx-2 mt-2 text-md font-medium text-gray-800 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:opacity-70"
-                  >
-                    Service
-                  </a>
-                  <a
-                    href="#"
-                    className="px-2 py-1 mx-2 mt-2 text-md font-medium text-gray-800 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:opacity-70"
-                  >
-                    Contact
-                  </a>
-                </div>
                 {/* Search box */}
-                <div className=" hidden lg:flex ">
+                <div className=" hidden lg:flex border-b border-gray-400">
                   <span className=" inset-y-0 left-0 flex items-center pl-3 ">
                     <svg
                       className="w-4 h-4 text-gray-700 dark:text-gray-300 hover:text-black"
@@ -256,86 +223,83 @@ const Header = () => {
                   </span>
                   <input
                     type="text"
-                    className=" py-1 pl-5 pr-4 text-gray-700 placeholder-gray-600 bg-white border-b border-gray-600 dark:placeholder-gray-300 dark:focus:border-gray-300 lg:w-56 lg:border-transparent dark:bg-gray-800 dark:text-gray-300 focus:outline-none focus:border-gray-600"
-                    placeholder="Search"
+                    className=" py-1 pl-5 pr-4 text-gray-700 placeholder-gray-600 placeholder-opacity-30 bg-white lg:w-56 focus:outline-none focus:placeholder-opacity-0"
+                    placeholder="Tìm kiếm sản phẩm"
                   />
                 </div>
               </div>
-
-              {/* Order Icon */}
-              <div className=" hidden lg:flex">
-                <button
-                  className=" mx-4 text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
-                  aria-label="show notifications"
-                >
-                  <Link to="/orders">
-                    <svg
-                      className="fill-current hover:text-black "
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M21,7H7.462L5.91,3.586C5.748,3.229,5.392,3,5,3H2v2h2.356L9.09,15.414C9.252,15.771,9.608,16,10,16h8 c0.4,0,0.762-0.238,0.919-0.606l3-7c0.133-0.309,0.101-0.663-0.084-0.944C21.649,7.169,21.336,7,21,7z M17.341,14h-6.697L8.371,9 h11.112L17.341,14z" />
-                      <circle cx="10.5" cy="18.5" r="1.5" />
-                      <circle cx="17.5" cy="18.5" r="1.5" />
-                    </svg>
-                  </Link>
-                </button>
-
-                {/* User icon */}
-                <div className="hidden lg:flex p-3 text-gray-700 ">
-                  <Link to="/user">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 hover:text-black "
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </Link>
-                </div>
-                <LogInOut state={state} handleLogout={handleLogout} />
-              </div>
+              <RightDisp state={state} handleLogout={handleLogout} />
             </div>
           </div>
         </div>
-      </nav>
+      </div>
     </div>
   );
 };
 
-const LogInOut = ({ state = null, handleLogout = f => f }) => {
+const RightDisp = ({ state = null, handleLogout = f => f }) => {
   if (!state.user) {
     return (
-      <div className="flex justify-center items-center">
-      <Link to="/login">
+      <div className="absolute right-0 hidden lg:flex text-gray-700 py-3 opacity-70" >
+        <div className="flex justify-center items-center">
+          <Link to="/login">
 
-        <button
-          className=" mx-4 text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
-          aria-label="show notifications"
-        >
-          Login
-        </button>
-      </Link>
+            <button
+              className="px-6 py-1 rounded-md border border-black text-lg font-semibold text-black md:block dark:text-gray-200 dark:hover:text-gray-400 hover:text-gray-700 hover:bg-gray-50 dark:focus:text-gray-400 focus:outline-none"
+              aria-label="show notifications"
+            >
+              Đăng nhập
+            </button>
+          </Link>
+        </div>
       </div>
     );
   }
   return (
-    <button
-      className=" mx-4 text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
-      aria-label="show notifications"
-      onClick={handleLogout}
-    >
-      Logout
-    </button>
+    <div className=" hidden lg:flex text-gray-700 p-3" >
+      <button
+        className=" mx-4 text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
+        aria-label="show notifications"
+      >
+        <Link to="/orders">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+        </Link>
+      </button>
+
+      {/* User icon */}
+      <div className=" mx-3 hidden lg:flex text-gray-700 ">
+        <button
+          className=" text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
+          aria-label="show notifications"
+        >
+          <Link to="/user">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 hover:text-black "
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </Link>
+        </button>
+      </div>
+      <button
+        className=" mx-4 text-gray-700 hover:text-black md:block dark:text-gray-200 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
+        aria-label="show notifications"
+        onClick={handleLogout}
+      >
+        Logout
+      </button>
+    </div >
   );
 };
 

@@ -5,14 +5,13 @@ import useFormObj from '../../hooks/Form/useFormObj.js';
 const textGrayStyle = 'text-gray-500 text-opacity-75';
 const dataStyle = 'font-normal';
 
-export default function OrderDataDetail({ show=null, payload=null }) {
+export default function OrderDataDetail({ show=null, obj=null }) {
   if (!show) {
     return (<></>);
   }
   const [popupEdit, setPopupEdit] = useState(false);
   const [popupDelete, setPopupDelete] = useState(false);
   const [currentTab, setCurrentTab] = useState('detail');
-  const obj = JSON.parse(payload);
   // onChangeOrder(payload);
   const [trvForm, changeTrvForm, resetTrvForm] = useFormObj(obj.detail.trv);
   return (
@@ -114,6 +113,10 @@ function PaymentTab({ obj=null, currentTab=null }) {
   if (currentTab !== 'payment') {
     return (<></>);
   }
+  const formatter = new Intl.NumberFormat(undefined, {
+    style: 'currency',
+    currency: 'VND',
+  });
   return (
     <>
     <div className="grid grid-cols-2 gap-6">
@@ -131,7 +134,7 @@ function PaymentTab({ obj=null, currentTab=null }) {
       </span>
       <span>
         <p className={textGrayStyle}>Đã trả</p>
-        <p className={dataStyle}>{obj.detail.orders.ordPaidMoney}</p>
+        <p className={dataStyle}>{formatter.format(obj.detail.orders.ordPaidMoney)}</p>
       </span>
       <span>
         <p className={textGrayStyle}>Tổng tiền</p>
