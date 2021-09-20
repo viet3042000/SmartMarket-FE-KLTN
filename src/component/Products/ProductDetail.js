@@ -11,25 +11,10 @@ const ProductDetail = ({ match }) => {
     // console.log(match.params.productName);
   }, []);
   return (
-    <div className="bg-no-repeat bg-left-top bg-fixed bg-origin-content h-screen" style={{
-      backgroundImage:
-        "url(" +
-        "https://image.freepik.com/free-vector/online-app-tourism-traveler-with-mobile-phone-passport-booking-buying-plane-ticket_74855-10966.jpg" +
-        ")",
-    }} >
+    <div className=" h-screen" >
       <FetchStatus successDisp={successDisp} />
-      <div className=" relative bg-no-repeat bg-right-bottom bg-fixed bg-origin-content w-screen h-screen px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
-        style={{
-          backgroundImage:
-            "url(" +
-            "https://image.freepik.com/free-vector/hand-drawn-flat-tourists-illustration_23-2149051160.jpg" +
-            ")",
-        }}
-
-      >
-        <div className=" grid gap-12 row-gap-8 lg:grid-cols-6 "
-
-        >
+      <div className=" w-screen h-screen px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <div className=" grid gap-12 row-gap-8 lg:grid-cols-6 ">
           <div name="leftCard" className="flex flex-col lg:col-span-4 ">
             <div className="bg-white border rounded p-4">
               <div className="max-w-2xl mb-6 bg-white rounded-lg w-3/5">
@@ -149,33 +134,29 @@ const ProductDetail = ({ match }) => {
                   </div>
                 </div>
               </div>
-              <div name="text-no-border">
-                <h4 className="text-2xl mt-6 mb-6 font-bold">Yêu cầu giấy tờ</h4>
-                <ul className="list-disc list-inside leading-relaxed bg-white rounded-lg w-1/5">
-                  <li>
-                    <p className={`inline pl-3 ${contentTextStyle}`}>CMND/CCCD</p>
-                  </li>
-                  <li>
-                    <p className={`inline pl-3 ${contentTextStyle}`}>
-                      Lịch trình chuyến đi
-                    </p>
-                  </li>
-                  <li>
-                    <p className={`inline pl-3 ${contentTextStyle}`}>Vé tàu xe</p>
-                  </li>
-                </ul>
-              </div>
+            </div>
+            <div name="text-no-border">
+              <h4 className="text-2xl mt-6 mb-6 font-bold">Yêu cầu giấy tờ</h4>
+              <ul className="list-disc list-inside leading-relaxed bg-white rounded-lg w-1/5">
+                <li>
+                  <p className={`inline pl-3 ${contentTextStyle}`}>CMND/CCCD</p>
+                </li>
+                <li>
+                  <p className={`inline pl-3 ${contentTextStyle}`}>
+                    Lịch trình chuyến đi
+                  </p>
+                </li>
+                <li>
+                  <p className={`inline pl-3 ${contentTextStyle}`}>Vé tàu xe</p>
+                </li>
+              </ul>
             </div>
           </div>
-
           <div className="lg:col-span-2">
             <ProductPriceForm match={match} setSuccessDisp={setSuccessDisp} />
           </div>
-
         </div>
-
       </div>
-
     </div>
   );
 };

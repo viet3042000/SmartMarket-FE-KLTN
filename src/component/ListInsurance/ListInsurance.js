@@ -52,7 +52,7 @@ const ListInsurance = () => {
   const buttonRef = useRef();
   return (
     <div className="bg-white mx-auto ">
-      <div className="max-w-xl mx-auto py-8  px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="max-w-xl mx-auto py-8 mt-10  px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <section>
         {/* <iframe className= "mx-auto" width="560" height="315" src="https://www.youtube.com/embed/IAuRoAUV19o" title="YouTube video player" border="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen ="true" ></iframe> */}
           {/* travel insurance products */}

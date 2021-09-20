@@ -26,7 +26,8 @@ export default function Slider() {
   };
 
   return (
-    <div className="relative bg-gray-200 w-70 h-80 mx-auto overflow-hidden">
+    <div className="relative bg-gray-200 w-70 mx-auto"
+    style={{height: "80vh"}}>
       {dataSlider.map((obj, index) => {
         return (
           <div
@@ -35,13 +36,15 @@ export default function Slider() {
               : "absolute opacity-0"}
           >
             <img
-              className="relative object-cover mx-auto max-h-80 w-screen"
+              className="absolute -top-16 object-cover mx-auto w-screen"
+              // eslint-disable-next-line
+              style={{height: "87vh"}}
               src={obj.url}
             />
-            <div className="block absolute bottom-0.5 ml-40 w-full top-1/4">
+            {/* <div className="block absolute bottom-0.5 ml-40 w-full top-1/4">
               <p className="text-gray-900 text-2xl my-2 font-bold ">{obj.title}</p>
               <Link to={"/products/" + obj.name} className="cursor-pointer font-medium hover:text-gray-600">view products</Link>
-            </div>
+            </div> */}
           </div>
 
         );

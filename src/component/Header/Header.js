@@ -163,7 +163,7 @@ const Header = () => {
       </nav> */}
       <div className="bg-white h-16">
         <div className="container px-6 mx-auto">
-          <div className="md:flex md:items-center md:justify-between">
+          <div className="relative md:flex md:items-center md:justify-between z-20">
             <div className="flex items-center justify-between">
               <Link to="/home">
                 <div className="text-xl font-semibold text-gray-700 flex flex-wrap order-1 mx-auto md:order-2">
@@ -223,7 +223,7 @@ const Header = () => {
                   </span>
                   <input
                     type="text"
-                    className=" py-1 pl-5 pr-4 text-gray-700 placeholder-gray-600 placeholder-opacity-30 bg-white lg:w-56 focus:outline-none focus:placeholder-opacity-0"
+                    className=" py-1 pl-5 pr-4 text-gray-700 placeholder-gray-600 bg-transparent placeholder-opacity-30 lg:w-56 focus:outline-none focus:placeholder-opacity-0"
                     placeholder="Tìm kiếm sản phẩm"
                   />
                 </div>
