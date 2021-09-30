@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { VscLoading } from 'react-icons/vsc';
 import Login from '../Login/Login';
 import OrderData from "./OrderData.js";
 import FetchPost from '../../hooks/Fetch/FetchPost';
@@ -25,7 +26,15 @@ export function Order() {
   // return (
   //   <FetchPost uri="http://103.9.0.239:31441/dev/order/order-service/v1/get-all-orders" renderSuccess={OrderRender} requestBody={requestBody} />
   // );
-  if (loading) return (<div className="w-screen h-screen flex justify-center"> <p>loading...</p> </div>);
+  if (loading) { 
+    return (
+      <div className="w-screen h-screen flex justify-center items-center">
+        <div className="animate-spin w-24 h-24 text-gray-600 opacity-40 -mt-40">
+          <VscLoading size={100} />
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="w-screen" >
       <section className=" py-8 mt-0">

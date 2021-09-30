@@ -9,6 +9,7 @@ import allReducers from './reducers';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from "redux-devtools-extension";
+import ScrollToTop from './common/ScrollToTop';
 const middleware = [thunk];
 // const store = createStore(allReducers, applyMiddleware(thunk)
 // +window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
@@ -21,6 +22,7 @@ export const store = createStore(
 render(
   <Provider store={store}>
     <Router>
+      <ScrollToTop />
       <React.StrictMode>
         <App />
       </React.StrictMode>

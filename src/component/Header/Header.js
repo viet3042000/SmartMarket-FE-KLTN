@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './header.css';
@@ -238,6 +238,8 @@ const Header = () => {
 };
 
 const RightDisp = ({ state = null, handleLogout = f => f }) => {
+  const [hover, setHover] = useState(false);
+  const wrapperRef = useRef(null);
   if (!state.user) {
     return (
       <div className="absolute right-0 hidden lg:flex text-gray-700 py-3 opacity-70" >
@@ -256,50 +258,89 @@ const RightDisp = ({ state = null, handleLogout = f => f }) => {
     );
   }
   return (
-    <div className=" hidden lg:flex text-gray-700 p-3" >
-      <button
-        className=" mx-4 text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
-        aria-label="show notifications"
-      >
-        <Link to="/orders">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
-        </Link>
-      </button>
+    <div className=" hidden lg:flex text-black font-medium p-3" >
 
-      {/* User icon */}
-      <div className=" mx-3 hidden lg:flex text-gray-700 ">
+      <div ref={wrapperRef} className="mr-2 hidden lg:flex text-gray-700 relative">
         <button
           className=" text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
+          onClick={() => setHover(prev => !prev)}
           aria-label="show notifications"
         >
-          <Link to="/user">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 hover:text-black "
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </Link>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6 hover:text-black "
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
         </button>
+
+        {hover && <DropdownItem hover={hover} setHover={setHover} wrapperRef={wrapperRef} handleLogout={handleLogout} />}
+
+      </div>
+      <p>
+        nxlong42
+      </p>
+    </div >
+  );
+};
+
+const DropdownItem = ({ hover = null, setHover = f => f, wrapperRef = null, handleLogout = f => f }) => {
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setHover(prev => !prev);
+      }
+    }
+
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [wrapperRef]);
+  return (
+    <div className="absolute top-7 right-0 bg-white w-44 text-black font-black p-1 shadow-md rounded-md flex flex-col items-start">
+      <div className="w-full">
+
+        <Link to="/user">
+          <button
+            className="py-3 w-full md:block hover:text-gray-700 hover:bg-gray-100 focus:text-gray-700 focus:outline-none"
+            aria-label="show notifications"
+            onClick={() => setHover(prev => !prev)}
+          >
+            Tài khoản của tôi
+          </button>
+        </Link>
+      </div>
+      <div className="w-full">
+
+        <Link to="/orders">
+          <button
+            className="py-3 w-full md:block hover:text-gray-700 hover:bg-gray-100 focus:text-gray-700 focus:outline-none"
+            aria-label="show notifications"
+            onClick={() => setHover(prev => !prev)}
+          >
+            Đơn mua
+          </button>
+        </Link>
       </div>
       <button
-        className=" mx-4 text-gray-700 hover:text-black md:block dark:text-gray-200 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
+        className="py-3 w-full md:block hover:text-gray-700 hover:bg-gray-100 focus:text-gray-700 focus:outline-none"
         aria-label="show notifications"
-        onClick={handleLogout}
+        onClick={(e) => {setHover(prev => !prev); handleLogout(e);}}
       >
-        Logout
+        Đăng xuất
       </button>
-    </div >
+    </div>
   );
 };
 

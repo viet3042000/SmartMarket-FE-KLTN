@@ -34,7 +34,6 @@ function App() {
         </Switch>
         <Footer />
       </div>
-
       <AuthVerify >
       </AuthVerify>
     </div>

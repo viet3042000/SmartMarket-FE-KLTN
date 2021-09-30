@@ -5,11 +5,15 @@ import paypal from './img/icon-payment-paypal.png';
 import visa from './img/icon-payment-visa.png';
 import mastercard from './img/icon-payment-mastercard.png';
 import vnpay from './img/icon-payment-vnpay.png';
+import { BiLoaderAlt } from "react-icons/bi";
+import ErrorPopup from '../../Login/ErrorPopup';
 
-const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, paymentForm = null, changePaymentForm = f => f, paymentError = null, submit = f => f }) => {
+
+const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, paymentForm = null, changePaymentForm = f => f, paymentError = null, submit = f => f, posting = null, errorDisp = null }) => {
   if (currentStep !== 3) return (<></>);
   return (
     <>
+      {errorDisp && <ErrorPopup />}
       <section className="mt-6 p-6 bg-white rounded-md border-2 border-gray-200">
         <form id="paymentForm" onSubmit={submit}>
           <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Thanh toán</h2>
@@ -71,7 +75,7 @@ const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, paymentForm 
                 value={paymentForm.fullName}
                 onChange={changePaymentForm}
                 className={`block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring placeholder-gray-600 placeholder-opacity-30 focus:placeholder-opacity-0 ${paymentError && paymentError.fullName && 'border-red-500'}`} />
-              {paymentError && paymentError.fullName && <ErrorMessage message={paymentError.fullName}/>}
+              {paymentError && paymentError.fullName && <ErrorMessage message={paymentError.fullName} />}
             </div>
 
             <div>
@@ -80,7 +84,7 @@ const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, paymentForm 
                 value={paymentForm.cardNumber}
                 onChange={changePaymentForm}
                 className={`block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring placeholder-gray-600 placeholder-opacity-30 focus:placeholder-opacity-0 ${paymentError && paymentError.cardNumber && 'border-red-500'}`} />
-              {paymentError && paymentError.cardNumber && <ErrorMessage message={paymentError.cardNumber}/>}
+              {paymentError && paymentError.cardNumber && <ErrorMessage message={paymentError.cardNumber} />}
             </div>
 
             <div>
@@ -126,7 +130,7 @@ const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, paymentForm 
               <input placeholder="000" name="security" id="security" type="text" required
                 value={paymentForm.security}
                 onChange={changePaymentForm}
-                className={`block w-1/4 px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring placeholder-gray-600 placeholder-opacity-30 focus:placeholder-opacity-0 ${paymentError && paymentError.security && 'border-red-500'}`}/>
+                className={`block w-1/4 px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring placeholder-gray-600 placeholder-opacity-30 focus:placeholder-opacity-0 ${paymentError && paymentError.security && 'border-red-500'}`} />
               {paymentError && paymentError.security && <ErrorMessage message={paymentError.security} />}
             </div>
 
@@ -140,18 +144,25 @@ const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, paymentForm 
           </svg>
         </button>
         <button
-          type="submit"
+          type={`${posting || errorDisp ? 'button' : 'submit'}`}
           form="paymentForm"
-          className="inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+          className={`w-28 h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none ${posting || errorDisp ? 'cursor-not-allowed' : 'cursor-pointer'}`}
         >
-          Mua hàng
+          {
+            posting ?
+              <div className="w-6 h-6 animate-spin m-auto">
+                <BiLoaderAlt size={24} />
+              </div>
+              :
+              'Mua hàng'
+          }
         </button>
       </div>
     </>
   );
 };
 
-const ErrorMessage = ({message=null}) => {
+const ErrorMessage = ({ message = null }) => {
   return (
     <div className="flex">
       <div className="mt-1 mr-1 relative flex h-4 w-4">

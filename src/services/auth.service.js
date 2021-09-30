@@ -24,6 +24,7 @@ class AuthService {
       })
       .catch(err => {
         console.log('Error when calling Backend:', { err });
+        throw err;
       });
   }
 

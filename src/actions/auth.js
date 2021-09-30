@@ -54,8 +54,7 @@ export const login = (username, password) => (dispatch) => {
       });
 
       return Promise.resolve();
-    },
-    (error) => {
+    }).catch((error) => {
       const message =
         (error.response &&
           error.response.data &&

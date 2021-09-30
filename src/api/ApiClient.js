@@ -5,7 +5,7 @@ import { store } from "..";
 const domainUrl = 'http://103.9.0.239:31441/dev/';
 
 export default class ApiClient {
-  static async get(requestUrl=null, queryParams=null) {
+  static async get(requestUrl = null, queryParams = null) {
     const response = await axios.get(domainUrl + requestUrl, {
       params: queryParams,
       headers: this.getHeaders()
@@ -14,7 +14,7 @@ export default class ApiClient {
     return response;
   }
 
-  static async post(requestUrl=null, queryParams=null, body=null) {
+  static async post(requestUrl = null, queryParams = null, body = null) {
     const response = await axios.post(domainUrl + requestUrl, body, {
       params: queryParams,
       headers: this.getHeaders()
@@ -22,7 +22,7 @@ export default class ApiClient {
     return response;
   }
 
-  static getHeaders(contentType='application/json') {
+  static getHeaders(contentType = 'application/json') {
     return {
       'Content-Type': contentType,
       'authorization': `Bearer ` + store.getState().auth.user.access_token,

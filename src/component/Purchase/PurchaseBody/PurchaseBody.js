@@ -13,6 +13,8 @@ import PopupSuccess from './PopupSuccess';
 const PurchaseBody = ({ prodName = null }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [popupSuccess, setPopupSuccess] = useState();
+  const [errorDisp, setErrorDisp] = useState(false);
+  const [posting, setPosting] = useState(false);
   const { orderForm, changeOrderForm, toDate, prodPriceDisp, orderSubmit } = useOrderForm(setCurrentStep);
   const { peopleForm, changePeopleForm, peopleErrors, peopleSubmit } = usePeopleForm(orderForm.amountPersons, setCurrentStep);
   const { paymentForm, changePaymentForm, paymentError, validatePaymentForm } = usePaymentForm();
@@ -27,10 +29,17 @@ const PurchaseBody = ({ prodName = null }) => {
   };
 
   const postProductDetail = async (order) => {
-    order.postOrder()
-    // .then(data => console.log(data))
-    .then((data) => setPopupSuccess(data))
-    .catch(error => console.log(error));
+    setPosting(true);
+    try {
+      const data = await order.postOrder();
+      setPosting(false);
+      setPopupSuccess(data);
+    } catch (err) {
+      setErrorDisp(true);
+      setPosting(false);
+      console.log(err);
+      setTimeout(() => setErrorDisp(false), 5000);
+    }
   };
 
   return (
@@ -41,10 +50,10 @@ const PurchaseBody = ({ prodName = null }) => {
         <div className="col-span-6">
           <OrderForm currentStep={currentStep} orderForm={orderForm} changeOrderForm={changeOrderForm} toDate={toDate} submit={orderSubmit} />
           <PeopleForm currentStep={currentStep} setCurrentStep={setCurrentStep} peopleForm={peopleForm} changePeopleForm={changePeopleForm} peopleErrors={peopleErrors} submit={peopleSubmit} />
-          <PaymentForm currentStep={currentStep} setCurrentStep={setCurrentStep} paymentForm={paymentForm} changePaymentForm={changePaymentForm} paymentError={paymentError} submit={paymentSubmit}/>
+          <PaymentForm currentStep={currentStep} setCurrentStep={setCurrentStep} paymentForm={paymentForm} changePaymentForm={changePaymentForm} paymentError={paymentError} submit={paymentSubmit} posting={posting} errorDisp={errorDisp}/>
         </div>
         <div className="col-span-3">
-          <SummaryForm prodName={prodName} orderForm={orderForm} toDate={toDate} prodPriceDisp={prodPriceDisp} />
+          <SummaryForm prodName={prodName} orderForm={orderForm} toDate={toDate} prodPriceDisp={prodPriceDisp}/>
         </div>
       </div>
     </div>
