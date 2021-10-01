@@ -26,7 +26,7 @@ export default function Slider() {
   };
 
   return (
-    <div className="relative bg-gray-200 w-70 mx-auto"
+    <div className="relative bg-gray-200 w-full mx-auto"
     style={{height: "80vh"}}>
       {dataSlider.map((obj, index) => {
         return (

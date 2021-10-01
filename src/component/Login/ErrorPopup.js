@@ -14,7 +14,7 @@ const ErrorPopup = () => {
 
         <div className="px-4 py-2 -mx-3">
           <div className="mx-3">
-            <span className="font-semibold text-red-500 dark:text-red-400">Lỗi</span>
+            <span className="font-semibold text-red-500 dark:text-red-400">Lỗi đăng nhập</span>
             <p className="text-sm text-gray-600 dark:text-gray-200">Sai tên đăng nhập hoặc mật khẩu!</p>
           </div>
         </div>
