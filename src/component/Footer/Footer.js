@@ -3,7 +3,7 @@ import React from 'react';
 export const Footer = () => {
     return (
       <div className="bg-gray-200">
-      <div className=" px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+      <div className=" px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="sm:col-span-2">
             <a
@@ -33,21 +33,19 @@ export const Footer = () => {
             </a>
             <div className="mt-6 lg:max-w-sm">
               <p className="text-sm text-gray-800">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam.
+                Sàn thương mại điện tử thông minh duy nhất với chức năng mua bảo hiểm theo ngày.
               </p>
               <p className="mt-4 text-sm text-gray-800">
-                Eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                beatae vitae dicta sunt explicabo.
+                Với phương thức B2B, S-market cũng là kênh tích hợp giúp các bạn đưa sản phẩm của mình tới ngừoi tiêu dùng.
               </p>
             </div>
           </div>
           <div className="space-y-2 text-sm">
             <p className="text-base font-bold tracking-wide text-gray-900">
-              Contacts
+              Liên hệ
             </p>
             <div className="flex">
-              <p className="mr-1 text-gray-800">Phone:</p>
+              <p className="mr-1 text-gray-800">SĐT Sales:</p>
               <a
                 href="tel:850-123-5021"
                 aria-label="Our phone"
@@ -69,7 +67,7 @@ export const Footer = () => {
               </a>
             </div>
             <div className="flex">
-              <p className="mr-1 text-gray-800">Address:</p>
+              <p className="mr-1 text-gray-800">Địa chỉ:</p>
               <a
                 href="https://www.google.com/maps"
                 target="_blank"
@@ -84,7 +82,7 @@ export const Footer = () => {
           </div>
           <div>
             <span className="text-base font-bold tracking-wide text-gray-900">
-              Social
+              Media
             </span>
             <div className="flex items-center mt-1 space-x-3">
               <a
@@ -114,14 +112,13 @@ export const Footer = () => {
               </a>
             </div>
             <p className="mt-4 text-sm text-gray-500">
-              Bacon ipsum dolor amet short ribs pig sausage prosciutto chicken
-              spare ribs salami.
+              Hãy ghé thăm page S-market trên Facebook để biết được những thông tin mới nhất nhé!
             </p>
           </div>
         </div>
-        <div className=" flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
+        <div className=" flex flex-col-reverse justify-between pt-2 pb-8 border-t lg:flex-row">
           <p className="text-sm text-gray-600">
-            © Copyright 2021 Fis Inc. All rights reserved.
+            © Copyright 2021 FPT Information System
           </p>
           <ul className="flex mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
             <li>

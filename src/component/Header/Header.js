@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './header.css';
+import styles from './style.module.css';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { logout } from '../../actions/auth';
@@ -240,6 +241,22 @@ const Header = () => {
 const RightDisp = ({ state = null, handleLogout = f => f }) => {
   const [hover, setHover] = useState(false);
   const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setHover(false);
+      }
+    }
+
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [wrapperRef]);
+
   if (!state.user) {
     return (
       <div className="absolute right-0 hidden lg:flex text-gray-700 py-3 opacity-70" >
@@ -282,7 +299,7 @@ const RightDisp = ({ state = null, handleLogout = f => f }) => {
           </svg>
         </button>
 
-        {hover && <DropdownItem hover={hover} setHover={setHover} wrapperRef={wrapperRef} handleLogout={handleLogout} />}
+        <DropdownItem hover={hover} setHover={setHover} handleLogout={handleLogout} />
 
       </div>
       <p>
@@ -292,23 +309,19 @@ const RightDisp = ({ state = null, handleLogout = f => f }) => {
   );
 };
 
-const DropdownItem = ({ hover = null, setHover = f => f, wrapperRef = null, handleLogout = f => f }) => {
+const DropdownItem = ({ hover = null, setHover = f => f, handleLogout = f => f }) => {
+  const [show, setShow] = useState(0); 
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-        setHover(prev => !prev);
-      }
+    if (show === 0) {
+      // first render
+      setShow(2);
+    } else {
+      setShow(hover ? 1 : -1);
     }
-
-    // Bind the event listener
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      // Unbind the event listener on clean up
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [wrapperRef]);
+  }, [hover]);
   return (
-    <div className="absolute top-7 right-0 bg-white w-44 text-black font-black p-1 shadow-md rounded-md flex flex-col items-start">
+    <div className={show===1 ? styles.slideout : show===-1 ? styles.slidein : 'absolute invisible'}>
+    <div className="bg-white w-44 text-black font-black p-1 shadow-md rounded-md flex flex-col items-start">
       <div className="w-full">
 
         <Link to="/user">
@@ -340,6 +353,7 @@ const DropdownItem = ({ hover = null, setHover = f => f, wrapperRef = null, hand
       >
         Đăng xuất
       </button>
+    </div>
     </div>
   );
 };

@@ -223,17 +223,13 @@ const ListInsurance = () => {
               </div>
               <div className="max-w-xl mb-6">
                 <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                  <a href="/">Let us handle</a>
-                  <br className="hidden md:block" />
-                  your next{" "}
+                  Bạn muốn trở thành một 
                   <span className="inline-block text-indigo-700">
-                    destination
+                    &nbsp;đối tác ?
                   </span>
                 </h2>
                 <p className="text-base text-gray-700 md:text-lg">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam, eaque
-                  ipsa quae. explicabo.
+                  S-market cung cấp các dịch vụ tích hợp sản phẩm, quảng bá sản phẩm với một mức phí phải chăng. Hãy đưa sản phẩm của bạn lên sàn thương mại điện tử thông minh với một nút bấm !
                 </p>
               </div>
               <div>
@@ -242,7 +238,7 @@ const ListInsurance = () => {
                   aria-label=""
                   className="inline-flex items-center text-indigo-500 font-semibold transition-colors duration-200 text-deep-purple-accent-400  hover:text-deep-purple-800"
                 >
-                  Learn more
+                  Tìm hiểu thêm
                   <svg
                     className="inline-block w-3 ml-2"
                     fill="currentColor"
@@ -285,13 +281,13 @@ const ListInsurance = () => {
             ripple="light"
             className="mx-auto"
           >
-            Show more
+            Liên hệ
           </Button>
 
           <Popover placement="top" ref={buttonRef}>
             <PopoverContainer>
               <PopoverHeader></PopoverHeader>
-              <PopoverBody>You are at the end of this page!</PopoverBody>
+              <PopoverBody>BLACKPINK in your area!</PopoverBody>
             </PopoverContainer>
           </Popover>
         </div>
