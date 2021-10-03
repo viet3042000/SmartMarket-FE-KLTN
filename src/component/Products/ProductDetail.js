@@ -10,9 +10,9 @@ const ProductDetail = ({ match }) => {
     // console.log(match.params.productName);
   }, []);
   return (
-    <div className=" h-screen" >
-      <div className=" w-screen h-screen px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <div className=" grid gap-12 row-gap-8 lg:grid-cols-6 ">
+    <div className="" >
+      <div className=" w-full px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 lg:mb-20">
+        <div className=" grid row-gap-8 lg:grid-cols-6 ">
           <div name="leftCard" className="flex flex-col lg:col-span-4 ">
             <div className="bg-white border rounded p-4">
               <div className="max-w-2xl mb-6 bg-white rounded-lg w-3/5">

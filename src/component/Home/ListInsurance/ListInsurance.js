@@ -4,7 +4,6 @@ import Popover from "@material-tailwind/react/Popover";
 import PopoverContainer from "@material-tailwind/react/PopoverContainer";
 import PopoverHeader from "@material-tailwind/react/PopoverHeader";
 import PopoverBody from "@material-tailwind/react/PopoverBody";
-import products from '../../data/InsuranceData';
 import { Link } from "react-router-dom";
 import TravelInsuranceProduct from "./TravelInsuranceData";
 import HealthInsuranceProduct from "./HealthInsuranceData";
@@ -53,7 +52,7 @@ const ListInsurance = () => {
   return (
     <div className="bg-white mx-auto ">
       <div className="max-w-xl mx-auto py-8 mt-10  px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <section>
+        <section id="san_pham">
         {/* <iframe className= "mx-auto" width="560" height="315" src="https://www.youtube.com/embed/IAuRoAUV19o" title="YouTube video player" border="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen ="true" ></iframe> */}
           {/* travel insurance products */}
           <div className="justify-between">
@@ -221,7 +220,7 @@ const ListInsurance = () => {
                   />
                 </svg>
               </div>
-              <div className="max-w-xl mb-6">
+              <div className="max-w-xl mb-6" id="doi_tac">
                 <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
                   Bạn muốn trở thành một 
                   <span className="inline-block text-indigo-700">

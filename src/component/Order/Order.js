@@ -40,7 +40,7 @@ export function Order() {
       <section className=" py-8 mt-0">
         <div className="container mx-auto flex items-center flex-wrap pt-4 pb-12">
 
-          <a className="uppercase tracking-wide underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
+          <a className="uppercase tracking-wide underline hover:no-underline font-bold text-gray-800 text-xl ml-5" href="#">
             ĐƠN HÀNG
           </a>
           <div className="w-full md:w-full p-6 flex flex-col items-center space-y-5">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import products from '../ListInsurance/InsuranceData';
+import products from '../Home/ListInsurance/InsuranceData';
 import PurchaseHeader from './PurchaseHeader';
 import PurchaseBody from './PurchaseBody/PurchaseBody';
 

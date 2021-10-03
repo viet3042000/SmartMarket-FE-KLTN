@@ -264,8 +264,7 @@ const RightDisp = ({ state = null, handleLogout = f => f }) => {
           <Link to="/login">
 
             <button
-              className="px-6 py-1 rounded-md border border-black text-lg font-semibold text-black md:block dark:text-gray-200 dark:hover:text-gray-400 hover:text-gray-700 hover:bg-gray-50 dark:focus:text-gray-400 focus:outline-none"
-              aria-label="show notifications"
+              className="px-5 py-2 border border-black rounded-lg text-md font-medium bg-white text-black md:block dark:text-gray-200 dark:hover:text-gray-400 hover:text-gray-700 hover:bg-gray-50 dark:focus:text-gray-400 focus:outline-none"
             >
               Đăng nhập
             </button>
@@ -326,7 +325,7 @@ const DropdownItem = ({ hover = null, setHover = f => f, handleLogout = f => f }
 
         <Link to="/user">
           <button
-            className="py-3 w-full md:block hover:text-gray-700 hover:bg-gray-100 focus:text-gray-700 focus:outline-none"
+            className="border-b py-3 w-full md:block hover:text-gray-700 hover:bg-gray-100 focus:text-gray-700 focus:outline-none"
             aria-label="show notifications"
             onClick={() => setHover(prev => !prev)}
           >
@@ -338,7 +337,7 @@ const DropdownItem = ({ hover = null, setHover = f => f, handleLogout = f => f }
 
         <Link to="/orders">
           <button
-            className="py-3 w-full md:block hover:text-gray-700 hover:bg-gray-100 focus:text-gray-700 focus:outline-none"
+            className="border-b py-3 w-full md:block hover:text-gray-700 hover:bg-gray-100 focus:text-gray-700 focus:outline-none"
             aria-label="show notifications"
             onClick={() => setHover(prev => !prev)}
           >
