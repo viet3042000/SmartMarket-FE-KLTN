@@ -66,6 +66,10 @@ const Hero = () => {
             </div>
             <div className="absolute rounded-lg bg-scroll top-60 left-72 h-full w-96 bg-left-top bg-no-repeat bg-contain" style={{ backgroundImage: `url(${img4})` }}>
             </div>
+            <div className="absolute mt-3 ml-3 top-2 -left-32 w-96 h-64 border-b-4  border-white"></div>
+            <div className="absolute mt-1 -ml-5 -top-14 left-72 w-96 h-72 border-b-4 border-l-4 border-white"></div>
+            <div className="absolute -mt-3 ml-3 top-72 -left-16 w-80 h-80 border-white"></div>
+            <div className="absolute -mt-2 -ml-5 top-60 left-72 w-80 h-80 border-t-4 border-l-4 border-white"></div>
           </div>
 
 
