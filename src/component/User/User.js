@@ -1,17 +1,10 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-const User = ({ name, username, email, history }) => {
-  const handleClick = () => {
-    history.push(`/${username}`, {
-      name,
-      email,
-      username
-    });
-  };
+const User = () => {
   return (
-    <div style={{ padding: '5px 0' }}>
-      <div style={{ fontSize: '1.5rem', width: 'min-content', cursor: 'pointer' }} onClick={handleClick}>{username}</div>
-      <div style={{ fontSize: '0.8rem', color: 'silver' }}>{name}</div>
+    <div className="h-screen grid grid-cols-2 max-w-full">
+      <p>chipu</p>
+      <p>eric</p>
     </div>
   );
 };

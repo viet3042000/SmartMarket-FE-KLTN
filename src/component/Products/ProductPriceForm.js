@@ -10,7 +10,7 @@ const ProductPriceForm = ({ match = null, setSuccessDisp = f => f }) => {
   const prodImgLink = products.find((item) => item.name === match.params.productName).imageSrc;
 
   return (
-    <div className="bg-white flex flex-col shadow-lg rounded w-3/4 m-auto gap-y-3 p-4 ">
+    <div className=" bg-white flex flex-col shadow-lg rounded w-full m-auto gap-y-3 p-4 lg:max-w-xs sm: my-12 lg:my-0">
       <img
         className="object-cover w-full h-52 rounded border"
         src={prodImgLink}
