@@ -53,6 +53,7 @@
     "operator-linebreak": ["off", "after"],
     "react/prop-types": "off",
     "brace-style": "off",
-    "no-trailing-spaces": "off"
+    "no-trailing-spaces": "off",
+    "block-spacing": "off"
   }
 }

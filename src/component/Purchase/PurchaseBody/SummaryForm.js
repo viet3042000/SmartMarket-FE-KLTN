@@ -12,7 +12,7 @@ const getDateDisp = (dateStr) => {
 
 const SummaryForm = ({ prodName=null, orderForm = null, toDate = null, prodPriceDisp = null }) => {
   return (
-    <section className="mt-6 bg-white rounded-md border-2 border-gray-200">
+    <section className="mt-6 bg-white rounded-md border-2 border-gray-200 w-96">
       <h2 className="p-5 text-2xl font-semibold capitalize dark:text-white border-b-2">{`Bảo hiểm ${prodName}`}</h2>
 
       <div className="flex flex-col divide-y-2">

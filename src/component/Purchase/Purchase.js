@@ -10,7 +10,7 @@ const Purchase = () => {
 
   return (
     <>
-      <div className="px-4 mt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+      <div className=" mt-16 mx-auto lg:max-w-screen-xl md:px-24 lg:px-8">
         <PurchaseBody prodName={prodName} />
         <PurchaseHeader prodImgLink={prodImgLink} />
       </div>

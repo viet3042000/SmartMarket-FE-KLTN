@@ -44,15 +44,15 @@ const PurchaseBody = ({ prodName = null }) => {
 
   return (
     <>
-    <div className="px-8">
+    <div className="px-4">
       <Steps currentStep={currentStep} setCurrentStep={setCurrentStep} />
-      <div className="grid gap-4 grid-cols-9">
-        <div className="col-span-6">
+      <div className="flex gap-4 ">
+        <div className="flex-1">
           <OrderForm currentStep={currentStep} orderForm={orderForm} changeOrderForm={changeOrderForm} toDate={toDate} submit={orderSubmit} />
           <PeopleForm currentStep={currentStep} setCurrentStep={setCurrentStep} peopleForm={peopleForm} changePeopleForm={changePeopleForm} peopleErrors={peopleErrors} submit={peopleSubmit} />
           <PaymentForm currentStep={currentStep} setCurrentStep={setCurrentStep} paymentForm={paymentForm} changePaymentForm={changePaymentForm} paymentError={paymentError} submit={paymentSubmit} posting={posting} errorDisp={errorDisp}/>
         </div>
-        <div className="col-span-3">
+        <div className="hidden lg:block">
           <SummaryForm prodName={prodName} orderForm={orderForm} toDate={toDate} prodPriceDisp={prodPriceDisp}/>
         </div>
       </div>

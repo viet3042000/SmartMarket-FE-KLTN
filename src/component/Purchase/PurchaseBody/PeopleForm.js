@@ -5,6 +5,7 @@ const size = 3;
 const PeopleForm = ({ currentStep = null, setCurrentStep = f => f, peopleForm = null, changePeopleForm = f => f, peopleErrors = null, submit = f => f }) => {
   const [page, setPage] = useState(1);
   if (currentStep !== 2) return (<></>);
+  window.scrollTo(0, 0);
   return (
     <>
       <section className="mt-6 p-6 bg-white rounded-md border-2 border-gray-200">
@@ -20,7 +21,7 @@ const PeopleForm = ({ currentStep = null, setCurrentStep = f => f, peopleForm = 
         </div>
       </section>
       <div className="flex justify-between mt-6">
-        <button onClick={() => {setPage(1); setCurrentStep(prev => prev - 1);}} className="mr-6 px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+        <button onClick={() => { setPage(1); setCurrentStep(prev => prev - 1); }} className="mr-6 px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
           </svg>
@@ -60,8 +61,8 @@ const FormInput = ({ obj = null, page = null, index = null, error = null, change
 
         <div>
           <label className="text-gray-900 font-medium" htmlFor="dateOfBirth">Ngày sinh</label>
-          <input value={obj.dateOfBirth} onChange={e => changePeopleForm(e, index)} name="dateOfBirth" id="dateOfBirth" type="date" required 
-          className={`block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring ${error && error.dateOfBirth && 'border-red-500'}`} />
+          <input value={obj.dateOfBirth} onChange={e => changePeopleForm(e, index)} name="dateOfBirth" id="dateOfBirth" type="date" required
+            className={`block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring ${error && error.dateOfBirth && 'border-red-500'}`} />
           {error && error.dateOfBirth && <ErrorMessage message={error.dateOfBirth} />}
         </div>
 
@@ -88,7 +89,7 @@ const Page = ({ index = null, page = null, peopleErrors = null, setPage = null }
         <button className="absolute flex items-center px-4 py-2 mx-1 text-black text-bold bg-gray-400 rounded-md focus:outline-none mt-2">
           {index + 1}
         </button>
-          {/* {!noError && <svg xmlns="http://www.w3.org/2000/svg" className="animate-bounce absolute h-6 w-6 z-10 ml-3 mt-14 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        {/* {!noError && <svg xmlns="http://www.w3.org/2000/svg" className="animate-bounce absolute h-6 w-6 z-10 ml-3 mt-14 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
           </svg>} */}
       </div>
@@ -97,12 +98,12 @@ const Page = ({ index = null, page = null, peopleErrors = null, setPage = null }
   return (
     <div className="flex flex-col relative w-6 h-6 mr-6 mb-6">
       <button className={`absolute flex items-center px-4 py-2 mx-1 text-gray-700 transition-colors duration-200 transform bg-white rounded-md hover:bg-indigo-600 hover:text-white focus:outline-none mt-2 ${!noError && 'text-red-500 border border-red-500'}`}
-        onClick={() => setPage(index + 1)}>
+        onClick={() => { setPage(index + 1); window.scrollTo(0, 0); }}>
         {index + 1}
       </button>
-        {!noError && <svg xmlns="http://www.w3.org/2000/svg" className="animate-bounce absolute h-6 w-6 z-10 ml-3 mt-14 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>}
+      {!noError && <svg xmlns="http://www.w3.org/2000/svg" className="animate-bounce absolute h-6 w-6 z-10 ml-3 mt-14 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+      </svg>}
     </div>
   );
 };

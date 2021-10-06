@@ -15,7 +15,7 @@ const ProductDetail = ({ match }) => {
         <div name="leftCard" className="flex flex-col lg:col-span-4">
           <div className="bg-white rounded p-4 lg:border">
             <div className="max-w-2xl mb-6 bg-white rounded-lg">
-              <h2 className="mb-6 font-sans underline text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+              <h2 className="mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
                 Gói bảo hiểm bao gồm
               </h2>
               {/* <p className="text-base text-gray-700 md:text-lg">
@@ -133,7 +133,7 @@ const ProductDetail = ({ match }) => {
             </div>
           </div>
           <div className="pl-4">
-            <h4 className="text-2xl mt-6 mb-6 font-bold underline">Yêu cầu giấy tờ</h4>
+            <h4 className="text-2xl mt-6 mb-6 font-bold ">Yêu cầu giấy tờ</h4>
             <ul className="list-disc list-inside leading-relaxed bg-white rounded-lg">
               <li>
                 <p className={`inline pl-3 ${contentTextStyle}`}>CMND/CCCD</p>

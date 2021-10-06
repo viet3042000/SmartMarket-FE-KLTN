@@ -2,6 +2,7 @@ import React from 'react';
 
 const OrderForm = ({ currentStep=null, orderForm=null, changeOrderForm=f=>f, toDate=null, submit=f=>f }) => {
   if (currentStep !== 1) return (<></>);
+  window.scrollTo(0, 0);
   return (
     <>
       <section className="mt-6 p-6 bg-white rounded-md border-2 border-gray-200">

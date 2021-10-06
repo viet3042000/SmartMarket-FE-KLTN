@@ -3,18 +3,16 @@ import React from 'react';
 const PurchaseHeader = ({prodImgLink=null}) => {
   return (
     <div className="p-8 mt-24 mb-12 border-t-2 rounded">
-      <div className="lg:w-1/2 lg:pr-5 col-span-4">
         <h2 className="font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
           Bảo hiểm nhân thọ
         </h2>
-      </div>
-      <div className="flex">
+      <div className="sm:flex">
         <img
-          className="object-cover w-52 h-52 rounded border mr-12"
+          className="object-contain w-52 h-52 rounded border mr-12 mb-3"
           src={prodImgLink}
           alt=""
         />
-        <div className="relative grid gap-5 grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
           <div className="flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
             <div className="p-5">
               <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-indigo-50">

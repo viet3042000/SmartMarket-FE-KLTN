@@ -11,6 +11,7 @@ import ErrorPopup from '../../Login/ErrorPopup';
 
 const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, paymentForm = null, changePaymentForm = f => f, paymentError = null, submit = f => f, posting = null, errorDisp = null }) => {
   if (currentStep !== 3) return (<></>);
+  window.scrollTo(0, 0);
   return (
     <>
       {errorDisp && <ErrorPopup />}

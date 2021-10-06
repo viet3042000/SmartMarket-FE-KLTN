@@ -18,7 +18,7 @@ export function Order() {
   const getPage = async (page) => {
     setLoading(true);
     await getAllOrder(page, size)
-      .then((data) => {setOrders(data); setPages({ page: data.page, totalPage: data.totalPage, total: data.total });})
+      .then((data) => { setOrders(data); setPages({ page: data.page, totalPage: data.totalPage, total: data.total }); })
       .catch(error => console.log(error));
     setLoading(false);
   };
@@ -26,7 +26,7 @@ export function Order() {
   // return (
   //   <FetchPost uri="http://103.9.0.239:31441/dev/order/order-service/v1/get-all-orders" renderSuccess={OrderRender} requestBody={requestBody} />
   // );
-  if (loading) { 
+  if (loading) {
     return (
       <div className="w-screen h-screen flex justify-center items-center">
         <div className="animate-spin w-24 h-24 text-gray-600 opacity-40 -mt-40">
@@ -36,17 +36,17 @@ export function Order() {
     );
   }
   return (
-    <div className="w-screen" >
-      <section className=" py-8 mt-0">
-        <div className="container mx-auto flex items-center flex-wrap pt-4 pb-12">
+    <div className="w-screen " >
+      <section className="mt-8">
+        <div className="uppercase tracking-wide font-bold text-gray-800 text-xl px-6 mx-auto w-full max-w-7xl mb-2" >
+          ĐƠN HÀNG
+        </div>
+        <div className="container mx-auto">
 
-          <a className="uppercase tracking-wide underline hover:no-underline font-bold text-gray-800 text-xl ml-5" href="#">
-            ĐƠN HÀNG
-          </a>
-          <div className="w-full md:w-full p-6 flex flex-col items-center space-y-5">
+          <div className="w-full p-6 flex flex-col items-center space-y-5" style={{ minHeight: 450 }}>
             {orders.detail.map((obj, index) => <OrderData key={index} {...obj} />)}
           </div>
-          <div className="flex justify-center w-full mt-12">
+          <div className="flex justify-center w-full my-12">
             <ChevLeft {...pages} getPage={getPage} />
 
             {[...Array(4)].map((item, index) => <Page key={index} index={index} {...pages} getPage={getPage} />)}
@@ -65,7 +65,7 @@ const ChevLeft = ({ page = null, getPage = f => f }) => {
   }
   return (
     <button className="flex items-center px-4 py-2 mx-1 text-gray-500 bg-white rounded-md transition-colors duration-200 transform hover:bg-indigo-600 hover:text-white focus:outline-none"
-      onClick={() => getPage(4 * (Math.ceil(page / 4) - 1))}>
+      onClick={() => { getPage(4 * (Math.ceil(page / 4) - 1)); window.scrollTo(0, 0); }}>
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
       </svg>
@@ -79,7 +79,7 @@ const ChevRight = ({ page = null, totalPage = null, getPage = f => f }) => {
   }
   return (
     <button className="flex items-center px-4 py-2 mx-1 text-gray-500 transition-colors duration-200 transform bg-white rounded-md hover:bg-indigo-600 hover:text-white focus:outline-none"
-      onClick={() => getPage(4 * (Math.ceil(page / 4)) + 1)}>
+      onClick={() => { getPage(4 * (Math.ceil(page / 4)) + 1); window.scrollTo(0, 0); }}>
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
       </svg>
@@ -103,7 +103,7 @@ const Page = ({ index = null, page = null, totalPage = null, total = null, getPa
   return (
     <>
       <button className="flex items-center px-4 py-2 mx-1 text-gray-700 transition-colors duration-200 transform bg-white rounded-md hover:bg-indigo-600 hover:text-white focus:outline-none"
-        onClick={() => getPage(minRange + index)}>
+        onClick={() => { getPage(minRange + index); window.scrollTo(0, 0); }}>
         {minRange + index}
       </button>
     </>
