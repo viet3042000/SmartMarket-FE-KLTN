@@ -3,6 +3,7 @@ import { BsCaretLeftFill, BsCaretDownFill } from "react-icons/bs";
 
 
 export default function OrderDataBrief({type=null, state=null, createAt=null, paidAmount=null, show=null, setShow=f=>f}) {
+  const mediaQuery = window.matchMedia('(max-width: 640px)');
   const formatter = new Intl.NumberFormat(undefined, {
     style: 'currency',
     currency: 'VND',
@@ -26,22 +27,36 @@ export default function OrderDataBrief({type=null, state=null, createAt=null, pa
       {state}
     </p>
   );
+  if (mediaQuery.matches) {
+    return (
+      <div name="orderBrief" className="flex relative">
+      <span name="type" className="mr-7">
+        <h6 className="font-medium"> { type } </h6>
+        <p className="text-gray-500 text-opacity-75">{createDate}</p>
+      </span>
+      <span name="status" className="absolute order-3 right-8 self-center">
+        {stateDisp}
+      </span>
+      <span name="expand" className="absolute order-3 w-5 right-0 self-center">
+        {expandButton}
+      </span>
+    </div>
+    );
+  }
   return (
     <div name="orderBrief" className="flex relative">
       <span name="type" className="mr-7">
-        <h6 className="font-medium">Tên sản phẩm</h6>
+        <h6 className="font-medium"> { mediaQuery.matches ? type : 'Tên sản phẩm' } </h6>
         <p className="text-gray-500 text-opacity-75">{type}</p>
       </span>
       <span className="mr-7">
         <h6 className="font-medium">Ngày đặt</h6>
         <p className="text-gray-500 text-opacity-75">{createDate}</p>
       </span>
-      <div className="">
-      <span className="invisible sm:visible">
+      <span className="">
         <h6 className="font-medium">Tổng tiền</h6>
         <p className="text-gray-500 text-opacity-75">{formatter.format(paidAmount)}</p>
       </span>
-      </div>
       <span name="status" className="absolute order-3 right-8 self-center">
         {stateDisp}
       </span>

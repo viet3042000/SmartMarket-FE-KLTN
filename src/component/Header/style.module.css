@@ -1,7 +1,7 @@
 .slideout {
   position: absolute;
   top: 1.75rem;
-  left: -5.5rem;
+  left: -8.5rem;
   animation-name: example;
   animation-duration: 0.5s;
   /* animation-iteration-count: 1; */
@@ -15,7 +15,7 @@
 .slidein {
   position: absolute;
   top: 1.75rem;
-  left: -5.5rem;
+  left: -8.5rem;
   visibility: hidden;
   animation-name: example2;
   animation-duration: 0.5s;

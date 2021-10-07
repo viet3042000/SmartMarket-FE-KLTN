@@ -81,6 +81,7 @@ const Header = () => {
 const RightDisp = ({ state = null, handleLogout = f => f }) => {
   const [hover, setHover] = useState(false);
   const wrapperRef = useRef(null);
+  const mediaQuery = window.matchMedia('(max-width: 640px)');
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -112,9 +113,9 @@ const RightDisp = ({ state = null, handleLogout = f => f }) => {
     );
   }
   return (
-    <div className=" flex text-black font-medium p-3" >
+    <div className="flex text-black font-medium " >
 
-      <div ref={wrapperRef} className="mr-2 flex text-gray-700 relative">
+      <div ref={wrapperRef} className="flex text-gray-700 relative">
         <button
           className=" text-gray-700 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
           onClick={() => setHover(prev => !prev)}
@@ -138,9 +139,12 @@ const RightDisp = ({ state = null, handleLogout = f => f }) => {
         <DropdownItem hover={hover} setHover={setHover} handleLogout={handleLogout} />
 
       </div>
-      <p>
-        nxlong42
-      </p>
+      {mediaQuery.matches ? null :
+        (
+          <p className="ml-2">
+            nxlong42
+          </p>
+        )}
     </div >
   );
 };
@@ -185,7 +189,7 @@ const DropdownItem = ({ hover = null, setHover = f => f, handleLogout = f => f }
         <button
           className="py-3 w-full md:block hover:text-gray-700 hover:bg-gray-100 focus:text-gray-700 focus:outline-none"
           aria-label="show notifications"
-          onClick={(e) => {setHover(prev => !prev); handleLogout(e);}}
+          onClick={(e) => { setHover(prev => !prev); handleLogout(e); }}
         >
           Đăng xuất
         </button>

@@ -6,13 +6,12 @@ const PurchaseHeader = ({prodImgLink=null}) => {
         <h2 className="font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
           Bảo hiểm nhân thọ
         </h2>
-      <div className="sm:flex">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <img
-          className="object-contain w-52 h-52 rounded border mr-12 mb-3"
+          className="object-contain w-72 h-52 rounded border mr-12 mb-3"
           src={prodImgLink}
           alt=""
         />
-        <div className="grid gap-5 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
           <div className="flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
             <div className="p-5">
               <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-indigo-50">
@@ -87,7 +86,6 @@ const PurchaseHeader = ({prodImgLink=null}) => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

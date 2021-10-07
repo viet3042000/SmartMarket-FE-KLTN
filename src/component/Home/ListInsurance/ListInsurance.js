@@ -47,132 +47,48 @@ import CarInsuranceProduct from "./CarInsuranceData";
 // // }
 //     // More products...
 //   ];
+
+const Items = ({ name = null, data = null }) => {
+  return (
+    <section className="px-6 lg:-ml-6">
+      <h2 className="text-2xl mx-auto font-bold tracking-tight text-gray-800">
+        {name}
+      </h2>
+      <div className="mt-6 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {data.map((product) => (
+          <Link key={product.id} to={`../products/${product.name}`}>
+            <div key={product.id} className="flex flex-col group shadow-lg rounded-lg bg-white transition duration-200 ease-in-out transform hover:-translate-y-3 hover:scale-105 hover:opacity-70">
+              <div className="">
+                <img
+                  src={product.imageSrc}
+                  alt={product.imageAlt}
+                  className="object-top object-contain w-full sm:h-40 lg:h-52 xl:h-72"
+                />
+              </div>
+              <div className="mx-auto my-4 ">
+                <h3 className="sm:text-base md:text-lg xl:text-xl text-black font-medium font-sans subpixel-antialiased">
+                  {product.name}
+                </h3>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+};
+
 const ListInsurance = () => {
   const buttonRef = useRef();
   return (
-    <div className="bg-white mx-auto ">
-      <div className="max-w-xl mx-auto py-8 mt-10  px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <section id="san_pham">
-        {/* <iframe className= "mx-auto" width="560" height="315" src="https://www.youtube.com/embed/IAuRoAUV19o" title="YouTube video player" border="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen ="true" ></iframe> */}
-          {/* travel insurance products */}
-          <div className="justify-between">
-            <h2 className="text-2xl mx-auto font-bold tracking-tight text-gray-800">
-              Travel Insurance
-            </h2>
-            <div className="lg:pl-20 pl-14 mt-6 grid grid-cols-1 gap-y-24 gap-x-6 lg:grid-cols-3 xl:gap-x-8 ">
-              {TravelInsuranceProduct.map((product) => (
-                <div key={product.id} className="group relative">
-                <div className="w-80 min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none shadow-xl transform hover:scale-110 hover:opacity-50 transition ease-out duration-100 ">
-                    <Link to={`../products/${product.name}`}>
-                      <img
-                        src={product.imageSrc}
-                        alt={product.imageAlt}
-                        className="object-center object-cover lg:w-full lg:h-full "
-                      />
-                    </Link>
-                  </div>
-                  <div className="mt-4 flex justify-between w-72 transform hover:scale-110 hover:opacity-50 transition ease-out duration-100">
-                    <div className="mx-auto">
-                      <h3 className="text-lg text-gray-700 font-bold ">
-                        <Link to={`../products/${product.name}`}>
-                          <span aria-hidden="true" className=" inset-0 " />
-                          {product.name}
-                        </Link>
-                      </h3>
-                      <p className=" hidden mx-auto text-md text-gray-500">
-                        {product.color}
-                      </p>
-                    </div>
-                    <p className=" hidden text-sm  font-medium text-gray-900">
-                      {product.price}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-        <br/>
-        <section>
-          {/* Health insurance products */}
-          <div className="justify-between">
-            <h2 className="text-2xl mx-auto font-bold tracking-tight text-gray-800">
-              Health Insurance
-            </h2>
-            <div className="lg:pl-20 pl-14 mt-6 grid grid-cols-1 gap-y-24 gap-x-6 lg:grid-cols-3 xl:gap-x-8 ">
-              {HealthInsuranceProduct.map((product) => (
-                <div key={product.id} className="group relative">
-                <div className="w-80 min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none shadow-xl transform hover:scale-110 hover:opacity-50 transition ease-out duration-100">
-                    <Link to={`../products/${product.name}`}>
-                      <img
-                        src={product.imageSrc}
-                        alt={product.imageAlt}
-                        className=" object-center object-cover lg:w-full lg:h-full"
-                      />
-                    </Link>
-                  </div>
-                  <div className="mt-4 flex justify-between w-72 transform hover:scale-110 hover:opacity-50 transition ease-out duration-100">
-                    <div className="mx-auto">
-                      <h3 className="text-lg text-gray-700 font-bold ">
-                        <Link to={`../products/${product.name}`}>
-                          <span aria-hidden="true" className=" inset-0 " />
-                          {product.name}
-                        </Link>
-                      </h3>
-                      <p className=" hidden mx-auto text-md text-gray-500">
-                        {product.color}
-                      </p>
-                    </div>
-                    <p className=" hidden text-sm  font-medium text-gray-900">
-                      {product.price}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-        <br/>
-        <section>
-          {/* Car insurance products */}
-          <div className="justify-between">
-            <h2 className="text-2xl mx-auto font-bold tracking-tight text-gray-800">
-              Car Insurance
-            </h2>
-            <div className="lg:pl-20 pl-14 mt-6 grid grid-cols-1 gap-y-24 gap-x-6 lg:grid-cols-3 xl:gap-x-8 ">
-              {CarInsuranceProduct.map((product) => (
-                <div key={product.id} className="group relative">
-                <div className="w-80 min-h-80 bg-white aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none shadow-xl transform hover:scale-110 hover:opacity-50 transition ease-out duration-100">
-                    <Link to={`../products/${product.name}`}>
-                      <img
-                        src={product.imageSrc}
-                        alt={product.imageAlt}
-                        className=" object-center object-cover lg:w-full lg:h-full"
-                      />
-                    </Link>
-                  </div>
-                  <div className="mt-4 flex justify-between w-72 transform hover:scale-110 hover:opacity-50 transition ease-out duration-100 ">
-                    <div className="mx-auto">
-                      <h3 className="text-lg text-gray-700 font-bold ">
-                        <Link to={`../products/${product.name}`}>
-                          <span aria-hidden="true" className=" inset-0 " />
-                          {product.name}
-                        </Link>
-                      </h3>
-                      <p className=" hidden mx-auto text-md text-gray-500">
-                        {product.color}
-                      </p>
-                    </div>
-                    <p className=" hidden text-sm  font-medium text-gray-900">
-                      {product.price}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-        <br/>
+    <div className="bg-gray-50 mx-auto -mt-10 ">
+      <div className="mx-auto py-8 mt-10 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <Items name="Travel Insurance" data={TravelInsuranceProduct}/>
+        <br />
+        <Items name="Health Insurance" data={HealthInsuranceProduct}/>
+        <br />
+        <Items name="Car Insurance" data={CarInsuranceProduct}/>
+        <br />
         {/* content */}
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
           <div className="grid  gap-10 lg:grid-cols-2">
@@ -222,7 +138,7 @@ const ListInsurance = () => {
               </div>
               <div className="max-w-xl mb-6" id="doi_tac">
                 <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                  Bạn muốn trở thành một 
+                  Bạn muốn trở thành một
                   <span className="inline-block text-indigo-700">
                     &nbsp;đối tác ?
                   </span>

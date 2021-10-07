@@ -19,8 +19,8 @@ const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, paymentForm 
         <form id="paymentForm" onSubmit={submit}>
           <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Thanh toán</h2>
 
-          <div className="mt-8 mb-6 flex -mx-2">
-            <div className="px-2">
+          <div className="mt-8 mb-6 grid grid-cols-2 sm:grid-cols-4 gap-4 -mx-2">
+            <div className="">
               <label htmlFor="payment-method1" className="flex items-center cursor-pointer">
                 <input type="radio" className="form-radio h-5 w-5 text-indigo-500"
                   name="payment-method"
@@ -34,7 +34,7 @@ const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, paymentForm 
                 <img src={napas} className="h-8 ml-3" />
               </label>
             </div>
-            <div className="px-2">
+            <div className="">
               <label htmlFor="payment-method2" className="flex items-center cursor-pointer">
                 <input type="radio" className="form-radio h-5 w-5 text-indigo-500"
                   name="payment-method"
@@ -45,7 +45,7 @@ const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, paymentForm 
                 <img src={paypal} className="h-8 ml-3" />
               </label>
             </div>
-            <div className="px-2">
+            <div className="">
               <label htmlFor="payment-method3" className="flex items-center cursor-pointer">
                 <input type="radio" className="form-radio h-5 w-5 text-indigo-500"
                   name="payment-method"
@@ -56,7 +56,7 @@ const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, paymentForm 
                 <img src={momo} className="h-8 ml-3" />
               </label>
             </div>
-            <div className="px-2">
+            <div className="">
               <label htmlFor="payment-method4" className="flex items-center cursor-pointer">
                 <input type="radio" className="form-radio h-5 w-5 text-indigo-500"
                   name="payment-method"

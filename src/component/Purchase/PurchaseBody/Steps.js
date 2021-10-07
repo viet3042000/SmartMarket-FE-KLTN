@@ -12,6 +12,7 @@ const Steps = ({ currentStep=null, setCurrentStep=f=>f }) => {
 
 
 const StepDisp = ({item=null, step=null, currentStep=null, setCurrentStep=f=>f}) => {
+  const mediaQuery = window.matchMedia('(max-width: 640px)');
   let svg;
   let button;
   if (step !== 3) {
@@ -23,19 +24,19 @@ const StepDisp = ({item=null, step=null, currentStep=null, setCurrentStep=f=>f})
   }
   if (step < currentStep) {
     button = (
-      <button className="mr-2 text-lg text-gray-600 text-opacity-60 focus:outline-none" onClick={() => setCurrentStep(step)}>
+      <button className={`mr-2 text-gray-600 text-opacity-60 focus:outline-none ${mediaQuery.matches ? 'text-base' : 'text-lg'}`} onClick={() => setCurrentStep(step)}>
         {item}
       </button>
     );
   } else if (step === currentStep) {
     button = (
-      <button className="mr-2 text-lg font-medium focus:outline-none cursor-default">
+      <button className={`mr-2 text-lg font-medium focus:outline-none cursor-default ${mediaQuery.matches ? 'text-base' : 'text-lg'}`}>
         {item}
       </button>
     );
   } else {
     button = (
-      <button className="mr-2 text-lg text-gray-600 text-opacity-60 focus:outline-none cursor-not-allowed">
+      <button className={`mr-2 text-lg text-gray-600 text-opacity-60 focus:outline-none cursor-not-allowed ${mediaQuery.matches ? 'text-base' : 'text-lg'}`}>
         {item}
       </button>
     );

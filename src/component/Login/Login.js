@@ -43,7 +43,7 @@ const Login = () => {
   return (
     <>
       {errorDisp && <ErrorPopup />}
-      <div className="w-full mb-52 mt-24 max-w-sm p-6 m-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+      <div className="w-full mb-52 mt-24 sm:max-w-sm p-6 sm:mx-auto bg-white rounded-md sm:shadow-md dark:bg-gray-800">
         <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">S-Market</h1>
 
         <form onSubmit={handleLogin} className="mt-6">
