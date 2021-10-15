@@ -82,7 +82,7 @@ const ListInsurance = () => {
   const buttonRef = useRef();
   return (
     <div className="bg-gray-50 mx-auto -mt-10 ">
-      <div className="mx-auto py-8 mt-10 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto py-8 mt-10 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8" id="san_pham">
         <Items name="Travel Insurance" data={TravelInsuranceProduct}/>
         <br />
         <Items name="Health Insurance" data={HealthInsuranceProduct}/>
