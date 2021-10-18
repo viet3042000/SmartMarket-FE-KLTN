@@ -5,6 +5,7 @@ import { Redirect, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { BiLoaderAlt } from "react-icons/bi";
 import ErrorPopup from './ErrorPopup';
+import { Link} from 'react-router-dom';
 
 const Login = () => {
   const search = useLocation().search;
@@ -48,7 +49,7 @@ const Login = () => {
 
         <form onSubmit={handleLogin} className="mt-6">
           <div>
-            <label htmlFor="username" className="block text-sm text-gray-800 dark:text-gray-200">Username</label>
+            <label htmlFor="username" className="block text-sm text-gray-800 dark:text-gray-200">Tên tài khoản</label>
             <input type="text"
               required
               value={userName}
@@ -58,8 +59,8 @@ const Login = () => {
           </div>
           <div className="mt-4">
             <div className="flex items-center justify-between">
-              <label htmlFor="password" className="block text-sm text-gray-800 dark:text-gray-200">Password</label>
-              <a href="#" className="text-xs text-gray-600 dark:text-gray-400 hover:underline">Forget Password?</a>
+              <label htmlFor="password" className="block text-sm text-gray-800 dark:text-gray-200">Mật khẩu</label>
+              <a href="#" className="text-xs text-gray-600 dark:text-gray-400 hover:underline">Quên mật khẩu?</a>
             </div>
 
             <input type="password"
@@ -79,7 +80,7 @@ const Login = () => {
                     <BiLoaderAlt size={24} />
                   </div>
                   :
-                  'Submit'
+                  'Đăng nhập'
               }
               {/* {errorDisp ? 'posting' : 'Submit'} */}
             </button>
@@ -89,7 +90,7 @@ const Login = () => {
         <div className="flex items-center justify-between mt-4">
           <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
 
-          <a href="#" className="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">or login with Social Media</a>
+          <a href="#" className="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">Social Media</a>
 
           <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/5"></span>
         </div>
@@ -103,7 +104,7 @@ const Login = () => {
               </path>
             </svg>
 
-            <span className="hidden mx-2 sm:inline">Sign in with Google</span>
+            <span className="hidden mx-2 sm:inline">Đăng nhập với Google</span>
           </button>
 
           <a href="#"
@@ -115,8 +116,11 @@ const Login = () => {
             </svg>
           </a>
         </div>
-        <p className="mt-8 text-xs font-light text-center text-gray-400"> Do not have an account? <a href="#"
-          className="font-medium text-gray-800 dark:text-gray-200 hover:underline">Create One</a></p>
+        <p className="mt-8 text-xs font-light text-center text-gray-400"> Bạn chưa có tài khoản?
+        <Link to={`/user`}> 
+          <a className="font-medium text-gray-800 dark:text-gray-200 hover:underline">Tạo ngay</a>
+        </Link>
+        </p>
       </div>
     </>
   );

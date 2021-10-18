@@ -1,11 +1,14 @@
 import React from 'react';
+import bic from '../img/bic-healthcare.jpg';
+import baoviet from '../img/baoviet-healthcare.jpg';
+import vbi from '../img/vbi-healthcare.png';
 
 const HealthInsuranceProduct = [
     {
       id: 1,
-      name: "BSH Care",
+      name: "VBI Care",
       href: "../Product/Product.js",
-      imageSrc: 'https://bshc.com.vn/wp-content/uploads/2020/08/BSH-An-tam.png',
+      imageSrc: vbi,
       // imageSrc: 'https://image.freepik.com/free-vector/illustration-life-insurance_53876-5309.jpg',
       // imageSrc: 'https://image.freepik.com/free-vector/group-medical-staff-carrying-health-related-icons_53876-43071.jpg',
       // imageSrc: "http://logok.org/wp-content/uploads/2016/10/MetLife-Logo-logotype.png",
@@ -17,9 +20,9 @@ const HealthInsuranceProduct = [
     },
     {
       id: 2,
-      name: "Chubb Care",
+      name: "Bảo Việt An Gia",
       href: "https://www.chubb.com/vn-en/personal/travel-insurance.html",
-     imageSrc: "https://scontent.fhan5-4.fna.fbcdn.net/v/t1.6435-9/194815805_4395183690492795_1483260663875587215_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=730e14&_nc_ohc=6PCu61vt6u8AX_FIs_k&_nc_ht=scontent.fhan5-4.fna&oh=a790b355a4c30999655e03b4847b0415&oe=616C895A",
+     imageSrc: baoviet,
       // imageSrc: 'https://image.freepik.com/free-vector/illustration-healthy-lifestyle_53876-28533.jpg',
       // imageSrc: 'https://image.freepik.com/free-vector/illustration-healthy-lifestyle_53876-28533.jpg',
       // imageSrc: 'https://www.intelligentinsurer.com/media/image/chubb-tempest-re.jpg',
@@ -33,7 +36,7 @@ const HealthInsuranceProduct = [
       id: 3,
       name: "BIC HealthCare",
       href: "https://www.hsbc.com.vn/en-vn/insurance/products/travel-care/",
-      imageSrc: 'https://scontent.fhan5-7.fna.fbcdn.net/v/t31.18172-8/18319258_1316491325087032_8739729540167265510_o.jpg?_nc_cat=100&ccb=1-5&_nc_sid=9267fe&_nc_ohc=i2luGh8TYdsAX-uE_MQ&_nc_ht=scontent.fhan5-7.fna&oh=071895c9c868ff774d47b20d0a5eb1e5&oe=616A371E',
+      imageSrc: bic,
       // imageSrc: 'https://image.freepik.com/free-vector/characters-people-holding-healthcare-icons-illustration_53876-26831.jpg',
       // imageSrc: 'https://image.freepik.com/free-vector/flat-hand-drawn-patient-taking-medical-examination_52683-57829.jpg',
       // imageSrc: "https://www.asifma.org/wp-content/uploads/2019/09/hsbc_website.png",

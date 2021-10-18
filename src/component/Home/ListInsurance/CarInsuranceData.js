@@ -1,4 +1,5 @@
 import React from 'react';
+import bic from '../img/bic-car.jpg';
 const CarInsuranceProduct = [
     {
       id: 1,
@@ -31,7 +32,7 @@ const CarInsuranceProduct = [
       id: 3,
     name: 'BIC Cars Insurance',
     href: 'https://www.hsbc.com.vn/en-vn/insurance/products/travel-care/',
-    imageSrc: 'https://scontent.fhan5-6.fna.fbcdn.net/v/t31.18172-8/17390767_1271408379595327_1816312004701253460_o.jpg?_nc_cat=107&ccb=1-5&_nc_sid=9267fe&_nc_ohc=6JXktJEnYbAAX-SsHUo&_nc_ht=scontent.fhan5-6.fna&oh=c3c6dca33398a7b6f85631650767033f&oe=616A55C9',
+    imageSrc: bic,
     // imageSrc: 'https://image.freepik.com/free-vector/insurance-contract-document-shield-icon-protection-vector-stock-illustration_100456-2225.jpg',
     //  imageSrc: 'https://image.freepik.com/free-vector/people-with-icons-related-car-insurance_53876-43023.jpg',
     // imageSrc: "https://www.asifma.org/wp-content/uploads/2019/09/hsbc_website.png",
