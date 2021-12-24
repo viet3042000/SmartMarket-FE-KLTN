@@ -12,8 +12,7 @@ class AuthService {
             username: username,
             password: password
           }
-      }
-      )
+      })
       .then((response) => {
         console.log(response.data);
         if (response.data.access_token) {
