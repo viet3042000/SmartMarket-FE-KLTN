@@ -6,3 +6,9 @@ export const LOGOUT = "LOGOUT";
 
 export const SET_MESSAGE = "SET_MESSAGE";
 export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
+
+export const ADD_TO_CART = 'ADD_CART';
+export const DELETE_FROM_CART = 'DELETE_FROM_CART';
+export const IS_DELETE_FROM_CART = 'IS_DELETE_FROM_CART';
+
+

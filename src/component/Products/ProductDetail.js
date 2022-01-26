@@ -132,22 +132,16 @@ const ProductDetail = ({ match }) => {
               </div>
             </div>
           </div>
+
           <div className="pl-4">
             <h4 className="text-2xl mt-6 mb-6 font-bold ">Yêu cầu giấy tờ</h4>
-            <ul className="list-disc list-inside leading-relaxed bg-white rounded-lg">
-              <li>
-                <p className={`inline pl-3 ${contentTextStyle}`}>CMND/CCCD</p>
-              </li>
-              <li>
-                <p className={`inline pl-3 ${contentTextStyle}`}>
-                  Lịch trình chuyến đi
-                </p>
-              </li>
-              <li>
-                <p className={`inline pl-3 ${contentTextStyle}`}>Vé tàu xe</p>
-              </li>
+            <ul className="divide-y-2 divide-gray-100">
+                <li className="p-3">CMND/CCCD</li>
+                <li className="p-3">Lịch trình chuyến đi</li>
+                <li className="p-3">Vé tàu xe</li>
             </ul>
           </div>
+
         </div>
         <div className="lg:col-span-2">
           <ProductPriceForm match={match} setSuccessDisp={setSuccessDisp} />

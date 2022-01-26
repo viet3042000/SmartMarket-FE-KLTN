@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import styles from './style.module.css';
 
+// const ErrorPopup = ({ error }) => {
 const ErrorPopup = () => {
   return (
     <div className={styles.popup}>

@@ -5,7 +5,7 @@ import OrderData from "./OrderData.js";
 import FetchPost from '../../hooks/Fetch/FetchPost';
 import getAllOrder from '../../api/Order/getAllOrder';
 
-const size = 4;
+const size = 2;
 
 export function Order() {
   const [orders, setOrders] = useState();
@@ -23,9 +23,6 @@ export function Order() {
     setLoading(false);
   };
 
-  // return (
-  //   <FetchPost uri="http://103.9.0.239:31441/dev/order/order-service/v1/get-all-orders" renderSuccess={OrderRender} requestBody={requestBody} />
-  // );
   if (loading) {
     return (
       <div className="w-screen h-screen flex justify-center items-center">
@@ -41,15 +38,14 @@ export function Order() {
         <div className="uppercase tracking-wide font-bold text-gray-800 text-xl px-6 mx-auto w-full max-w-7xl mb-2" >
           ĐƠN HÀNG
         </div>
-        <div className="container mx-auto">
 
-          <div className="w-full p-6 flex flex-col items-center space-y-5" style={{ minHeight: 450 }}>
-            {orders.detail.map((obj, index) => <OrderData key={index} {...obj} />)}
-          </div>
+        <div className="container mx-auto">
+          <Detail orders={orders}/>
+
           <div className="flex justify-center w-full my-12">
             <ChevLeft {...pages} getPage={getPage} />
 
-            {[...Array(4)].map((item, index) => <Page key={index} index={index} {...pages} getPage={getPage} />)}
+            {[...Array(size)].map((item, index) => <Page key={index} index={index} {...pages} getPage={getPage} />)}
 
             <ChevRight {...pages} getPage={getPage} />
           </div>
@@ -59,7 +55,7 @@ export function Order() {
   );
 }
 
-const ChevLeft = ({ page = null, getPage = f => f }) => {
+export const ChevLeft = ({ page = null, getPage = f => f }) => {
   if (page < 5) {
     return null;
   }
@@ -73,7 +69,7 @@ const ChevLeft = ({ page = null, getPage = f => f }) => {
   );
 };
 
-const ChevRight = ({ page = null, totalPage = null, getPage = f => f }) => {
+export const ChevRight = ({ page = null, totalPage = null, getPage = f => f }) => {
   if (page >= 4 * (Math.ceil(totalPage / 4) - 1) + 1) {
     return null;
   }
@@ -87,7 +83,7 @@ const ChevRight = ({ page = null, totalPage = null, getPage = f => f }) => {
   );
 };
 
-const Page = ({ index = null, page = null, totalPage = null, total = null, getPage = f => f }) => {
+export const Page = ({ index = null, page = null, totalPage = null, getPage = f => f }) => {
   const maxRange = ((4 * Math.ceil(page / 4)) > totalPage) ? totalPage : 4 * Math.ceil(page / 4);
   const minRange = 4 * (Math.ceil(page / 4) - 1) + 1;
   if ((minRange + index) > maxRange) return null;
@@ -109,6 +105,21 @@ const Page = ({ index = null, page = null, totalPage = null, total = null, getPa
     </>
   );
 };
+
+const Detail = ({ orders }) => {
+  if (orders.detail) {
+    return (
+      <>
+        <div className="w-full p-6 flex flex-col items-center space-y-5" style={{ minHeight: 450 }}>
+          {orders.detail.map((obj, index) => <OrderData key={index} {...obj} />)}
+        </div>
+      </>
+    );
+  } else {
+    return (<></>);
+  }
+};
+
 
 // function OrderRender({data=null}) {
 //   return (

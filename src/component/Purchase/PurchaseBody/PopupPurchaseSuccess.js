@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import styles from './style/style.module.css';
 
-export default function PopupSuccess({ popupSuccess = null, setPopupSuccess = f => f }) {
-  if (!popupSuccess) {
+export default function PopupPurchaseSuccess({ PopupPurchaseSuccess = null, setPopupPurchaseSuccess = f => f }) {
+  if (!PopupPurchaseSuccess) {
     return (<></>);
   }
-  if (popupSuccess.goHome) {
+  if (PopupPurchaseSuccess.goHome) {
     return (<Redirect to="/" />);
   }
+  
   return (
     <>
       <div className={styles.bgPopup} /*  onClick={() => setPopupSuccess()} 'goHome': true */>
@@ -26,20 +27,20 @@ export default function PopupSuccess({ popupSuccess = null, setPopupSuccess = f 
                   </svg>
                 </Link>
               </div>
-              <svg className="w-36 h-36" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-36 h-28" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <div className="h-56 w-full flex flex-col justify-between items-center">
+            <div className="h-48 w-full flex flex-col justify-between items-center">
               <p className="text-4xl font-thin text-green-600">Đặt hàng thành công</p>
               <div className="grid grid-rows-2 gap-0">
                 <div className="border-2 border-black border-b-0 p-2 text-2xl font-semibold text-green-600 w-full flex">
                   <p className=" m-auto">Mã đơn hàng</p>
                 </div>
-                <p className="border-2 border-black border-t p-2">{popupSuccess.orderId}</p>
+                <p className="border-2 border-black border-t p-2">{PopupPurchaseSuccess.orderId}</p>
               </div>
             </div>
-            <div className="text-sm h-40 w-10/12 flex justify-between items-end">
+            <div className="text-sm h-24 w-10/12 flex justify-between items-end">
               <Link to={`/`}>
                 <button
                   className="-ml-2 mb-6 px-4 py-2 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-gray-700 hover:bg-gray-600 focus:shadow-outline focus:outline-none"

@@ -1,13 +1,9 @@
-import { v4 } from "uuid";
 import ApiClient from "../ApiClient";
+import { v4 } from "uuid";
 
-// export default class CreateOrder {
+// export class CreateProductDetail {
 //   constructor() {
 //     this.requestBody = {
-//       "requestId": v4(),
-//       "requestTime": Date.now(),
-//       "targetId": "BIC",
-//       "type": "BICTravelInsurance",
 //       "detail": {
 //         "orders": {
 //           "ordBillFirstName": "Nguyen Anh Chin",
@@ -50,29 +46,39 @@ import ApiClient from "../ApiClient";
 //   }
 // }
 
-// export default function CreateOrder {
-//   constructor(orderItem, orderPrice) {
-//     this.requestBody = {
-//       "requestId": v4(),
-//       "requestTime": Date.now(),
-//       "targetId": "Order Service",
-//     };
-//     this.orderItem = orderItem;
-//     this.orderPrice = orderPrice;
-//   }
-// }
+export function createProductDetail( trv, peopleForm ) {
+  const orders = {
+    "ordBillFirstName": "Nguyen Anh Chin",
+    "ordBillMobile": "097453686312",
+    "ordBillStreet1": "TTP, Đn Phượng, Hà Nội",
+    "ordBillEmail": "test@gmail.com",
+    "ordDate": "2020-02-17T10:37:22",
+    "ordStatus": "1",
+    "ordTotalQty": 4,
+    "orderPaymentMethod": 11,
+    "ordPaidMoney": 10000,
+    "ordDiscountAmount": 0,
+    "ordSource": "DSVN"
+  };
 
-export default function createOrder( listOrderItems, priceNumber ) {
-    const detail = {
-      "orderItems": listOrderItems,
-      "orderPrice": priceNumber
-    };
+  const productDetail = {
+    "orders": orders,
+    "trv": trv,
+    "trvDetails": [...peopleForm]
+  };
 
-    const requestBody = {
-      "requestId": v4(),
-      "requestTime": Date.now(),
-      "targetId": "Order Service",
-      "detail": detail,
-    };
-    return requestBody;
+  return productDetail;
+}
+
+export function createTrv( amountPersons, amountDays, fromDate, toDate ) {
+  const trv = {
+    amountPersons,
+    amountDays,
+    "promotion": 0,
+    "promotionAddress": "",
+    "fromDate": (new Date(fromDate)).toISOString().replace(".000Z", ""),
+    "toDate": (new Date(toDate)).toISOString().replace(".000Z", ""),
+    "issueDate": null
+  };
+  return trv;
 }

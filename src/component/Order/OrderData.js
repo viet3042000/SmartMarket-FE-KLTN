@@ -11,8 +11,10 @@ export default function OrderData({type=null, orderId=null, state=null, createdL
   //  onClick={()=>{setShow(!show);}}
   return (
     <div className="flex flex-col w-full xl:max-w-5xl p-6 bg-white border-2 rounded-xl shadow-md border-gray-200 overflow-hidden">
-      <OrderDataBrief type={type} state={state} createAt={createdLogtimestamp} paidAmount={obj.detail.orders.ordPaidMoney} show={show} setShow={setShow}/>
-      <OrderDataDetail show={show} obj={obj} />
+      {/* <OrderDataBrief type={type} state={state} createAt={createdLogtimestamp} paidAmount={obj.detail.orders.ordPaidMoney} show={show} setShow={setShow}/> */}
+      <OrderDataBrief orderId={orderId} state={state} createAt={createdLogtimestamp} paidAmount={obj.detail.orderPrice} show={show} setShow={setShow}/>
+      {/* <OrderDataDetail show={show} obj={obj} /> */}
+      <OrderDataDetail orderId={orderId} state={state} show={show} orderItems={obj.detail.orderItems} />
     </div>
   );
 }

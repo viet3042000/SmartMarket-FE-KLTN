@@ -16,6 +16,13 @@ const ProductPriceForm = ({ match = null, setSuccessDisp = f => f }) => {
         src={prodImgLink}
         alt=""
       />
+
+      <div className="mx-auto my-4 ">
+        <h3 className="sm:text-base md:text-lg xl:text-xl text-black font-medium font-sans subpixel-antialiased">
+          {match.params.productName}
+        </h3>
+      </div>
+      
       <p className="text-2xl font-semibold mb-2">Chỉ từ 10,000 đồng</p>
       <div className="flex">
         <img src={napas} className="h-8" />

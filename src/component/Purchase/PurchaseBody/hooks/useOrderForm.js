@@ -3,8 +3,8 @@ import useFormObj from '../../../../hooks/Form/useFormObj';
 import calcPrice from '../../../../common/calcPrice';
 
 const orderFormInitial = {
-  "amountPersons": 1,
-  "amountDays": 1,
+  "amountPersons": "",
+  "amountDays": "",
   "fromDate": "", // yyyy-mm-dd
   "toDate": "", // yyyy-mm-dd
 };
@@ -13,6 +13,7 @@ const useOrderForm = (setCurrentStep) => {
   const [orderForm, changeForm, resetOrderForm] = useFormObj(orderFormInitial);
   const [toDate, setToDate] = useState("");
   const [prodPriceDisp, setProdPriceDisp] = useState("");
+  const [priceNumber, setPriceNumber] = useState(0);
 
   const formatter = new Intl.NumberFormat(undefined, {
     style: 'currency',
@@ -34,6 +35,7 @@ const useOrderForm = (setCurrentStep) => {
   };
 
   useEffect(() => {
+    setPriceNumber(calcPrice(Number(orderForm.amountDays), Number(orderForm.amountPersons)));
     setProdPriceDisp(formatter.format(calcPrice(Number(orderForm.amountDays), Number(orderForm.amountPersons))));
   }, [orderForm.amountPersons, orderForm.amountDays]);
 
@@ -51,7 +53,7 @@ const useOrderForm = (setCurrentStep) => {
     // setToDate("");
     setCurrentStep(prev => prev + 1);
   };
-  return {orderForm, changeOrderForm, toDate, prodPriceDisp, orderSubmit};
+  return {orderForm, changeOrderForm, toDate, prodPriceDisp, priceNumber, orderSubmit};
 };
 
 export default useOrderForm;

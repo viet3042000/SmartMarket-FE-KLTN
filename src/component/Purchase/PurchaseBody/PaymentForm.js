@@ -9,12 +9,12 @@ import { BiLoaderAlt } from "react-icons/bi";
 import ErrorPopup from '../../Login/ErrorPopup';
 
 
-const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, paymentForm = null, changePaymentForm = f => f, paymentError = null, submit = f => f, posting = null, errorDisp = null }) => {
+const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, paymentForm = null, changePaymentForm = f => f, paymentError = null, submit = f => f, posting = null, errorDisp = null, error }) => {
   if (currentStep !== 3) return (<></>);
   window.scrollTo(0, 0);
   return (
     <>
-      {errorDisp && <ErrorPopup />}
+      {errorDisp && <ErrorPopup error={error}/>}
       <section className="mt-6 p-6 bg-white rounded-md border-2 border-gray-200">
         <form id="paymentForm" onSubmit={submit}>
           <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Thanh toán</h2>
@@ -147,7 +147,8 @@ const PaymentForm = ({ currentStep = null, setCurrentStep = f => f, paymentForm 
         <button
           type={`${posting || errorDisp ? 'button' : 'submit'}`}
           form="paymentForm"
-          className={`w-28 h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none ${posting || errorDisp ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+          // className={`w-28 h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none ${posting || errorDisp ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded ${posting || errorDisp ? 'cursor-not-allowed' : 'cursor-pointer'}"
         >
           {
             posting ?

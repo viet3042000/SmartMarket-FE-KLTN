@@ -29,9 +29,11 @@ const PeopleForm = ({ currentStep = null, setCurrentStep = f => f, peopleForm = 
         <button
           type="submit"
           form="peopleForm"
-          className="inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+          // className="inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
         >
-          Tiếp theo
+          {/* Tiếp theo */}
+          Mua hàng
         </button>
       </div>
     </>

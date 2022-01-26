@@ -35,7 +35,8 @@ const usePeopleForm = (number, setCurrentStep) => {
     // updateTrv(orderForm.amountPersons, orderForm.amountDays, orderForm.fromDate, toDate);
     // resetOrderForm();
     // setToDate("");
-    setCurrentStep(prev => prev + 1);
+
+    // setCurrentStep(prev => prev + 1);
   };
 
   const validatePeopleFormArr = () => {

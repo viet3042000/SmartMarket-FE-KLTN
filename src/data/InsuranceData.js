@@ -3,6 +3,7 @@ const products = [
     {
       id: 1,
       name: 'Metlife',
+      // name: 'PVI TripCare',
       href: '../Product/Product.js',
       imageSrc: 'http://www.metlife.com/content/dam/metlifecom/us/social-share/metlife-logo-share.jpg',
       imageAlt: "Front of men's Basic Tee in black.",

@@ -1,11 +1,12 @@
 import axios from "axios";
-import { useSelector } from 'react-redux';
 import { store } from "..";
 
-const domainUrl = 'http://103.9.0.239:31441/dev/';
+// const domainUrl = 'http://103.9.0.239:31441/';
+const domainUrl = 'http://10.14.101.202:31441/';
+
 
 export default class ApiClient {
-  static async get(requestUrl = null, queryParams = null) {
+  static async get(domainUrl, requestUrl = null, queryParams = null) {
     const response = await axios.get(domainUrl + requestUrl, {
       params: queryParams,
       headers: this.getHeaders()
@@ -14,7 +15,7 @@ export default class ApiClient {
     return response;
   }
 
-  static async post(requestUrl = null, queryParams = null, body = null) {
+  static async post(domainUrl, requestUrl = null, queryParams = null, body = null) {
     const response = await axios.post(domainUrl + requestUrl, body, {
       params: queryParams,
       headers: this.getHeaders()

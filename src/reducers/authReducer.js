@@ -5,12 +5,17 @@ import {
   LOGIN_FAIL,
   LOGOUT,
 } from "../const/types";
+import { useSelector } from "react-redux";
 
 const user = JSON.parse(localStorage.getItem("user"));
 
-const initialState = user
-  ? { isLoggedIn: true, user }
-  : { isLoggedIn: false, user: null };
+// if (user) {
+//   { isLoggedIn: true, user };
+// } else {
+//   { isLoggedIn: false, user: null };
+// }
+
+const initialState = user ? { isLoggedIn: true, user } : { isLoggedIn: false, user: null };
 
 const authReducer = (state = initialState, action) => {
   const { type, payload } = action;

@@ -72,10 +72,12 @@ export const login = (username, password) => (dispatch) => {
   );
 };
 
-export const logout = () => (dispatch) => {
-  AuthService.logout();
+// export const logout = () => (dispatch) => {
+export const logout = (username) => (dispatch) => {
+  // AuthService.logout();
+  AuthService.logout(username);
 
   dispatch({
-    type: LOGOUT
+    type: LOGOUT,
   });
 };
