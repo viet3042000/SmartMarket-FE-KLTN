@@ -7,7 +7,8 @@ class OrderService {
 
   async postOrder(requestBody) {
     // const response = await ApiClient.post('/dev/order/order-service/v1/create-order', null, requestBody);
-    const response = await ApiClient.post('http://localhost:8083/', 'order/order-service/v1/create-order', null, requestBody);
+    // const response = await ApiClient.post('http://localhost:8083/', 'order/order-service/v1/create-order', null, requestBody);
+    const response = await ApiClient.post('http://localhost:80/', 'order/order-service/v1/create-order', null, requestBody);
     return response.data;
   }
 }

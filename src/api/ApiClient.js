@@ -23,6 +23,14 @@ export default class ApiClient {
     return response;
   }
 
+  static async postNoToken(domainUrl, requestUrl = null, queryParams = null, body = null) {
+    const response = await axios.post(domainUrl + requestUrl, body, {
+      params: queryParams,
+      // headers: this.getHeaders()
+    });
+    return response;
+  }
+
   static getHeaders(contentType = 'application/json') {
     return {
       'Content-Type': contentType,

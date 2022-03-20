@@ -5,7 +5,7 @@ import OrderData from "./OrderData.js";
 import FetchPost from '../../hooks/Fetch/FetchPost';
 import getAllOrder from '../../api/Order/getAllOrder';
 
-const size = 2;
+const size = 4;
 
 export function Order() {
   const [orders, setOrders] = useState();

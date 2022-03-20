@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { VscLoading } from 'react-icons/vsc';
 import changePassword from '../../api/User/changePassword';
+import PopUpSuccess from './PopUp/PopUpSuccess';
+
 
 const ChangePasswordForm = () => {
   const [loading, setLoading] = useState(false);
@@ -8,13 +10,16 @@ const ChangePasswordForm = () => {
   const [newPassword, setNewPassword] = useState("");
   const [secondNewPassword, setSecondNewPassword] = useState("");
   const [message, setMessage] = useState('');
+  const [popupRegisterSuccess, setPopupRegisterSuccess] = useState(false);
 
-  const setPassword = async (currentPassword, newPassword, secondNewPassword) => {
+  const setPassword = async e => {
+    e.preventDefault();
     setLoading(true);
     await changePassword( currentPassword, newPassword )
       // .then((data) => { setMessage(data.detail); })
       .catch(error => console.log(error));
     setLoading(false);
+    setPopupRegisterSuccess(true);
     setCurrentPassword('');
     setNewPassword('');
     setSecondNewPassword('');
@@ -52,7 +57,9 @@ const ChangePasswordForm = () => {
 
   return (
     <section className="h-full bg-white bg-opacity-50 border-gray-800">
-      <form className="container max-w-2xl mx-auto border-gray-300  md:w-6/12" >
+      <form className="container max-w-2xl mx-auto border-gray-300  md:w-6/12" 
+        onSubmit={setPassword}
+      >
 
         <div className="p-4 bg-white  border-gray-300 rounded-lg bg-opacity-5">
             <div className="px-18">
@@ -70,7 +77,7 @@ const ChangePasswordForm = () => {
                 <div className=" relative md:w-4/5">
                   <input
                     type="text"
-                    id="user-info-name"
+                    id="currentPassword"
                     className="  rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
                     placeholder="Current Password"
                     onChange={onCurrentPasswordChanged}
@@ -83,7 +90,7 @@ const ChangePasswordForm = () => {
                 <div className=" relative md:w-4/5">
                   <input
                     type="text"
-                    id="user-info-Date-of-Birth"
+                    id="newPassword"
                     className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
                     placeholder="New Password"
                     onChange={onNewPasswordChanged}
@@ -92,11 +99,11 @@ const ChangePasswordForm = () => {
                 </div>
               </div>
               <div className="flex">
-                 <h2 label="gender" className="max-w-sm  text-left py-2 md:w-1/5">Nhập lại kật khẩu</h2>
+                 <h2 label="gender" className="max-w-sm  text-left py-2 md:w-1/5">Nhập lại mật khẩu</h2>
                 <div className=" relative md:w-4/5">
                   <input
                     type="text"
-                    id="user-info-gender"
+                    id="secondNewPassword"
                     className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
                     placeholder="ReType New Password"
                     onChange={onSecondNewPasswordChanged}
@@ -112,12 +119,15 @@ const ChangePasswordForm = () => {
           <div className=" px-4 mx-auto pb-5 text-gray-500 md:w-3/12">
             <button
               type="submit"
+              id="submit"
               className="py-2 px-4 bg-gray-500 hover:bg-gray-600 focus:ring-gray-400 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
-              onClick={() =>setPassword( currentPassword, newPassword )}
+              // onClick={() =>setPassword( currentPassword, newPassword )}
             >
               Lưu mật khẩu
             </button>
           </div>
+
+          <PopUpSuccess popupRegisterSuccess={popupRegisterSuccess} message="Đổi mật khẩu thành công" />
         </div>
       </form>
     </section>

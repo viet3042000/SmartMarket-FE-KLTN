@@ -100,6 +100,15 @@ const RightDisp = ({ state = null, handleLogout = f => f }) => {
             Đăng nhập
           </button>
         </Link>
+
+        <Link to="/register">
+          <button
+            // className="px-5 py-2 border border-black rounded-lg text-md font-medium bg-white text-black md:block dark:text-gray-200 dark:hover:text-gray-400 hover:text-gray-700 hover:bg-gray-50 dark:focus:text-gray-400 focus:outline-none"
+            className="px-5 py-2 ml-4 rounded-lg text-md font-medium bg-white text-black md:block dark:text-gray-200 dark:hover:text-gray-400 hover:text-gray-700 hover:bg-gray-50 dark:focus:text-gray-400 focus:outline-none"
+          >
+            Đăng ký
+          </button>
+        </Link>
       </div>
     );
   }

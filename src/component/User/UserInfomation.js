@@ -97,7 +97,7 @@ const UserInformation = () => {
                 <h2 label="birthday" className="max-w-sm  text-left py-2 md:w-1/5">Ngày sinh</h2>
                 <div className=" relative md:w-4/5">
                   <input
-                    type="text"
+                    type="date"
                     id="user-info-Date-of-Birth"
                     className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
                     placeholder="Date of birth"
@@ -109,7 +109,7 @@ const UserInformation = () => {
                  <h2 label="gender" className="max-w-sm  text-left py-2 md:w-1/5">Giới tính</h2>
                 <div className=" relative md:w-4/5">
                   <input
-                    type="text"
+                    type="number"
                     id="user-info-gender"
                     className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
                     placeholder="Gender"

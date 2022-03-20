@@ -14,6 +14,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import ChangePasswordForm from './component/User/ChangePasswordForm';
 import FilteredProducts from './component/Products/FilteredProducts';
 import Cart from './component/Purchase/Cart';
+import RegisterUser from './component/User/RegisterUser';
 
 function App() {
   const state = useSelector(state=>state.auth);
@@ -46,6 +47,9 @@ function App() {
           </Route>
           <Route path='/user'>
             {state.user ? <UserInformation /> : <Redirect to="/login" />}
+          </Route>
+          <Route path='/register'>
+            {!state.user ? <RegisterUser /> : <Redirect to="/" />}
           </Route>
           <Route path='/change-password'>
             {state.user ? <ChangePasswordForm /> : <Redirect to="/login" />}
