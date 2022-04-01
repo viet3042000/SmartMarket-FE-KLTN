@@ -200,14 +200,14 @@ const UserInformation = () => {
           </div>
           <hr /> */}
 
-          <div className=" px-4 mx-auto pb-5 text-gray-500 md:w-3/12">
+          {/* <div className=" px-4 mx-auto pb-5 text-gray-500 md:w-3/12">
             <button
               type="submit"
               className="py-2 px-4 bg-gray-500 hover:bg-gray-600 focus:ring-gray-400 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
             >
               Lưu thông tin
             </button>
-          </div>
+          </div> */}
         </div>
       </form>
     </section>

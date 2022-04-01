@@ -22,11 +22,17 @@ export default function OrderDataBrief({type=null, orderId=null, state=null, cre
     </button>
   );
 
-  const stateDisp = (state==='Succeeded') ? (
-    <p className="border-1 rounded-lg p-1 text-green-500 bg-gray-400 bg-opacity-20">
-      Thành công
-    </p>
-  ) : (
+  // const stateDisp = (state==='Succeeded') ? (
+  //   <p className="border-1 rounded-lg p-1 text-green-500 bg-gray-400 bg-opacity-20">
+  //     Thành công
+  //   </p>
+  // ) : (
+  //   <p className="border-1 rounded-lg p-1 text-red-500 bg-gray-400 bg-opacity-20">
+  //     {state}
+  //   </p>
+  // );
+
+  const stateDisp = (
     <p className="border-1 rounded-lg p-1 text-red-500 bg-gray-400 bg-opacity-20">
       {state}
     </p>
