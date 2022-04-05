@@ -5,7 +5,7 @@ import { Redirect, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { BiLoaderAlt } from "react-icons/bi";
 import ErrorPopup from './ErrorPopup';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const search = useLocation().search;
@@ -55,7 +55,6 @@ const Login = () => {
               value={userName}
               onChange={event => setUserName(event.target.value)}
               className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" />
-
           </div>
           <div className="mt-4">
             <div className="flex items-center justify-between">

@@ -50,7 +50,7 @@ const Hero = () => {
                     </button>
                   </a>
                 </div>
-                <div>
+                {/* <div>
                   <a href="#doi_tac">
                     <button
                       className="px-5 py-3 w-full sm:w-auto rounded-lg text-md font-medium bg-white text-black md:block dark:text-gray-200 dark:hover:text-gray-400 hover:text-gray-700 hover:bg-gray-50 dark:focus:text-gray-400 focus:outline-none"
@@ -59,7 +59,7 @@ const Hero = () => {
                       Thông tin đối tác
                     </button>
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

@@ -5,38 +5,48 @@ import PopupPurchaseSuccess from './PurchaseBody/PopupPurchaseSuccess';
 import { deleteFromCart } from '../../actions/cart';
 import { useDispatch, useSelector } from 'react-redux';
 import CartData from './CartData';
+import PopupPayment from './PurchaseBody/PaymentPopup';
+import PopupPaymentSuccess from './PurchaseBody/PopupPaymentSuccess';
+import ErrorCreateOrderPopup from './PurchaseBody/ErrorCreateOrderPopup';
 
 const Cart = () => {
     const [popupPurchaseSuccess, setPopupPurchaseSuccess] = useState();
+    const [popupPaymentSuccess, setPopupPaymentSuccess] = useState(false);
+    const [popupPayment, setPopupPayment] = useState(false);
     const requestBodyState = useSelector(state => state.requestBody);
     const dispatch = useDispatch();
 
     const [errorDisp, setErrorDisp] = useState(false);
-    const [posting, setPosting] = useState(false);
+    // const [posting, setPosting] = useState(false);
     const [error, setError] = useState("");
 
     const checkoutSubmit = event => {
         event.preventDefault();
-        const currentRequestBody = requestBodyState.requestBody;
-        postProductDetail(currentRequestBody);
+        // const currentRequestBody = requestBodyState.requestBody;
+        // postProductDetail(currentRequestBody);
+        setPopupPayment(true);
     };
 
-    const postProductDetail = async (requestBody) => {
-        setPosting(true);
-        try {
-          const data = await orderService.postOrder(requestBody);
-          localStorage.removeItem("requestBody");
-          dispatch(deleteFromCart(null));
-          setPosting(false);
-          setPopupPurchaseSuccess(data);
-        } catch (err) {
-          setError(err);
-          setErrorDisp(true);
-          setPosting(false);
-          console.log(err);
-          setTimeout(() => setErrorDisp(false), 3000);
-        }
-    };
+    // const postProductDetail = async (requestBody) => {
+    //     try {
+    //       setPopupPayment(true);
+
+    //       setPosting(true);
+
+    //       const data = await orderService.postOrder(requestBody);
+    //       localStorage.removeItem("requestBody");
+    //       dispatch(deleteFromCart(null));
+    //       setPopupPurchaseSuccess(data);
+
+    //       setPosting(false);
+    //     } catch (err) {
+    //        setError(err);
+    //        setErrorDisp(true);
+    //     //    setPosting(false);
+    //        console.log(err);
+    //        setTimeout(() => setErrorDisp(false), 3000);
+    //     }
+    // };
 
     if (requestBodyState.requestBody) {
         const currentRequestBody = requestBodyState.requestBody;
@@ -146,16 +156,18 @@ const Cart = () => {
             //     </div>
             // </section>
 
-
+            
             <div className="w-screen " >
+                {errorDisp && <ErrorCreateOrderPopup />}
                 <section className="mt-8">
+                    {/* {errorDisp && <ErrorCreateOrderPopup />} */}
                     <div className="uppercase tracking-wide font-bold text-gray-800 text-xl px-6 mx-auto w-full max-w-7xl mb-2" >
                         GIỎ HÀNG
                     </div>
 
                     <div className="container mx-auto">
-                        
                         {/* <Detail orderItems={orderItems}/> */}
+
                         <div className="flex w-full p-6 flex flex-col items-center space-y-5" style={{ minHeight: 450 }}>
                             {orderItems.map((item, index) => <CartData key={index} item={item} index={index}/>)}
 
@@ -174,6 +186,12 @@ const Cart = () => {
                                 </div>
                             </div>
                         </div>
+
+                        <PopupPayment popupPayment={popupPayment} setPopupPayment={setPopupPayment} 
+                            setPopupPaymentSuccess={setPopupPaymentSuccess} setPopupPurchaseSuccess={setPopupPurchaseSuccess}
+                            setError={setError} setErrorDisp={setErrorDisp}/>
+
+                        <PopupPaymentSuccess popupPaymentSuccess={popupPaymentSuccess}/>
 
                         {/* <div className="flex justify-center w-full my-12">
                             <ChevLeft {...pages} getPage={getPage} />
@@ -208,7 +226,7 @@ const Cart = () => {
                     </div>
                 </div>
                 if (popupPurchaseSuccess !== null) {
-                    <PopupPurchaseSuccess PopupPurchaseSuccess={popupPurchaseSuccess} setPopupPurchaseSuccess={setPopupPurchaseSuccess}/>
+                    <PopupPurchaseSuccess PopupPurchaseSuccess={popupPurchaseSuccess} />
                 }
             </section>
         );

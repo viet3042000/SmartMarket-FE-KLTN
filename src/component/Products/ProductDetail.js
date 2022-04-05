@@ -41,10 +41,10 @@ const ProductDetail = ({ match }) => {
                 </div>
                 <div className="">
                   <h6 className="mb-2 font-semibold leading-5">
-                    Miễn phí đổi giờ, huỷ chuyến
+                    Hoàn tiền nếu huỷ chuyến
                   </h6>
                   <p className={contentTextStyle}>
-                    Miễn phí đổi giờ, huỷ chuyến trong vòng 48 tiếng thông báo
+                    Hoàn tiền nếu huỷ chuyến trong vòng 24 tiếng thông báo
                     với hãng. Chúng tôi cam kết chi trả các loại phí phát sinh
                     cho vấn đề này
                   </p>
@@ -100,7 +100,6 @@ const ProductDetail = ({ match }) => {
                   <p className={contentTextStyle}>
                     Hãy yên tâm khởi hành. Nếu không may gặp phải bất kỳ tai nạn nào trong suốt hành trình, chúng tôi sẽ luôn ở bên bạn và
                     thực hiện chi trả phí khám chữa bệnh theo đúng quy định
-
                   </p>
                 </div>
               </div>
@@ -136,9 +135,9 @@ const ProductDetail = ({ match }) => {
           <div className="pl-4">
             <h4 className="text-2xl mt-6 mb-6 font-bold ">Yêu cầu giấy tờ</h4>
             <ul className="divide-y-2 divide-gray-100">
-                <li className="p-3">CMND/CCCD</li>
-                <li className="p-3">Lịch trình chuyến đi</li>
-                <li className="p-3">Vé tàu xe</li>
+                <li className="p-3 font-medium text-lg">CMND/CCCD</li>
+                <li className="p-3 font-medium text-lg">Lịch trình chuyến đi</li>
+                <li className="p-3 font-medium text-lg">Vé tàu xe</li>
             </ul>
           </div>
 

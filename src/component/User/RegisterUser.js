@@ -12,7 +12,8 @@ const RegisterUser = () => {
 
   let detail= {
     enabled: 1,
-    role: "CUSTOMER"
+    role: "CUSTOMER",
+    gender: 1,
   };
 
   // function checkPass() {
@@ -26,11 +27,32 @@ const RegisterUser = () => {
   //   }
   // }
 
+  // const setGender = async e => {
+  //   e.preventDefault();
+  //   const gender = document.getElementById("selectGender").value;
+  //   if (gender==='Nữ') {
+  //     detail.gender = 2;
+  //   } else if (gender ==='Nam') {
+  //     detail.gender = 1;
+  //   } else {
+  //     detail.gender = 0;
+  //   }
+  // };
+
   const register = async e => {
     e.preventDefault();
     setLoading(true);
 
     // checkPass();
+
+    const gender = document.getElementById("selectGender").value;
+    if (gender==='Nữ') {
+      detail.gender = 2;
+    } else if (gender ==='Nam') {
+      detail.gender = 1;
+    } else {
+      detail.gender = 0;
+    }
     
     await registerUser( detail )
       .then((data) => {
@@ -64,6 +86,8 @@ const RegisterUser = () => {
     );
   }
 
+  const currentDate = new Date().toISOString().slice(0, 10);
+
   return (
     <section className="h-full bg-white bg-opacity-50 border-gray-800">
       <form className="container max-w-2xl mx-auto border-gray-300  md:w-6/12" 
@@ -80,7 +104,7 @@ const RegisterUser = () => {
           <div className="items-center w-full p-4 space-y-4 text-gray-700 md:inline-flex md:space-y-0 border-gray-300">
 
             <div className="max-w-sm mx-auto space-y-5 md:min-w-full">
-            <div className="flex">
+              <div className="flex">
                 <h2 label="fullName" className="max-w-sm  text-left py-2 md:w-1/5">Họ và tên</h2>
                 <div className=" relative md:w-4/5">
                   <input
@@ -184,20 +208,40 @@ const RegisterUser = () => {
               <div className="flex">
                 <h2 label="gender" className="max-w-sm  text-left py-2 md:w-1/5">Giới tính</h2>
                 <div className=" relative md:w-4/5">
-                  <input
-                    type="number"
-                    id="gender"
-                    min="0" max="1"
-                    value="0"
-                    className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent"
-                    onChange={event => {
-                        detail.gender = event.target.value;
-                      } 
-                    }
-                    required
-                  />
+                  <select id="selectGender"
+                    className="rounded-lg border-transparent flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-transparent">
+                    <option selected value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                    <option value="Khác">Khác</option>
+                  </select>
                 </div>
               </div>
+
+              {/* <div className="flex justify-center">
+                <div className="mb-3 xl:w-96">
+                  <select className="form-select appearance-none
+                    block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding bg-no-repeat
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                      <option selected>Open this select menu</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                  </select>
+                </div>
+              </div> */}
+
               <div className="flex">
                 <h2 label="identifyNumber" className="max-w-sm  text-left py-2 md:w-1/5">Số CMND/CCCD</h2>
                 <div className=" relative md:w-4/5">
@@ -224,6 +268,7 @@ const RegisterUser = () => {
                         detail.birthDate = event.target.value;
                       } 
                     }
+                    max={currentDate}
                     required
                   />
                 </div>

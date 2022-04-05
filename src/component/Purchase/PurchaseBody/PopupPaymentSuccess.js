@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import styles from './style/style.module.css';
 
-export default function PopupPurchaseSuccess({ PopupPurchaseSuccess = null }) {
-  if (!PopupPurchaseSuccess) {
+export default function PopupPaymentSuccess({ popupPaymentSuccess = null }) {
+  if (!popupPaymentSuccess) {
     return (<></>);
   }
-  if (PopupPurchaseSuccess.goHome) {
-    return (<Redirect to="/" />);
-  }
+//   if (PopupPurchaseSuccess.goHome) {
+//     return (<Redirect to="/" />);
+//   }
   
   return (
     <>
@@ -31,14 +31,10 @@ export default function PopupPurchaseSuccess({ PopupPurchaseSuccess = null }) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <div className="h-48 w-full flex flex-col justify-between items-center">
-              <p className="text-4xl font-thin text-green-600">Đặt hàng thành công</p>
-              <div className="grid grid-rows-2 gap-0">
-                <div className="border-2 border-black border-b-0 p-2 text-2xl font-semibold text-green-600 w-full flex">
-                  <p className=" m-auto">Mã đơn hàng</p>
-                </div>
-                <p className="border-2 border-black border-t p-2">{PopupPurchaseSuccess.orderId}</p>
-              </div>
+
+            <div className="h-28 w-full flex flex-col justify-between items-center">
+              <p className="text-4xl font-normal text-green-600">Thanh toán thành công</p>
+              <p className="text-2xl font-normal m-6 text-green-600">Đang tạo đơn hàng ...</p>
             </div>
             <div className="text-sm h-24 w-10/12 flex justify-between items-end">
               <Link to={`/`}>

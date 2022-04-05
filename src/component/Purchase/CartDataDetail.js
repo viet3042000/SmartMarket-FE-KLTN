@@ -119,11 +119,29 @@ export default function CartDataDetail({ item=null, index, show = null, setShow=
             </span>
             <span>
               <p className={textGrayStyle}>Khuyễn mãi</p>
-              <p className={dataStyleMobile}>{item.productDetailCreateRequest.trv.promotion === 0 ? 'None' : item.productDetailCreateRequest.trv.promotion}</p>
+              <p className={dataStyleMobile}>{item.productDetailCreateRequest.trv.promotion === 0 ? 'Không có' : item.productDetailCreateRequest.trv.promotion}</p>
             </span>
-            <span>
+
+            {/* <span>
               <p className={textGrayStyle}>Địa chỉ Sales</p>
               <p className={dataStyleMobile}>{item.productDetailCreateRequest.trv.promotionAddress === '' ? 'None' : item.productDetailCreateRequest.trv.promotionAddress}</p>
+            </span> */}
+
+            <span>
+              <p className={textGrayStyle}>Họ và tên người đặt</p>
+              <p className={dataStyleMobile}>{item.productDetailCreateRequest.trv.amountPersons}</p>
+            </span>
+            <span>
+              <p className={textGrayStyle}>Số điện thoại người đặt</p>
+              <p className={dataStyleMobile}>{item.productDetailCreateRequest.trv.amountPersons}</p>
+            </span>
+            <span>
+              <p className={textGrayStyle}>Email người đặt</p>
+              <p className={dataStyleMobile}>{item.productDetailCreateRequest.trv.amountPersons}</p>
+            </span>
+            <span>
+              <p className={textGrayStyle}>Địa chỉ người đặt</p>
+              <p className={dataStyleMobile}>{item.productDetailCreateRequest.trv.amountPersons}</p>
             </span>
           </div>
           {item.productDetailCreateRequest.trvDetails.map((detail, index) => <PersonDetail key={index} {...detail} index={index} />)}
@@ -132,38 +150,78 @@ export default function CartDataDetail({ item=null, index, show = null, setShow=
     }
     return (
       <>
-        <div className="grid grid-cols-2 gap-6">
-          <span>
-            <p className={textGrayStyle}>Ngày bắt đầu</p>
-            {/* <p className={dataStyle}>{obj.detail.trv.fromDate.split('T')[0]}</p> */}
-            <p className={dataStyle}>{item.productDetailCreateRequest.trv.fromDate.split('T')[0]}</p>
-          </span>
-          <span>
-            <p className={textGrayStyle}>Ngày kết thúc</p>
-            {/* <p className={dataStyle}>{obj.detail.trv.toDate.split('T')[0]}</p> */}
-            <p className={dataStyle}>{item.productDetailCreateRequest.trv.toDate.split('T')[0]}</p>
-          </span>
-          <span>
-            <p className={textGrayStyle}>Số ngày</p>
-            {/* <p className={dataStyle}>{obj.detail.trv.amountDays}</p> */}
-            <p className={dataStyle}>{item.productDetailCreateRequest.trv.amountDays}</p>
-          </span>
-          <span>
-            <p className={textGrayStyle}>Số người</p>
-            {/* <p className={dataStyle}>{obj.detail.trv.amountPersons}</p> */}
-            <p className={dataStyle}>{item.productDetailCreateRequest.trv.amountPersons}</p>
-          </span>
-          <span>
-            <p className={textGrayStyle}>Khuyễn mãi</p>
-            {/* <p className={dataStyle}>{obj.detail.trv.promotion === 0 ? 'None' : obj.detail.trv.promotion}</p> */}
-            <p className={dataStyle}>{item.productDetailCreateRequest.trv.promotion === 0 ? 'None' : item.productDetailCreateRequest.trv.promotion}</p>
-          </span>
-          <span>
-            <p className={textGrayStyle}>Địa chỉ Sales</p>
-            {/* <p className={dataStyle}>{obj.detail.trv.promotionAddress === '' ? 'None' : obj.detail.trv.promotionAddress}</p> */}
-            <p className={dataStyle}>{item.productDetailCreateRequest.trv.promotionAddress === '' ? 'None' : item.productDetailCreateRequest.trv.promotionAddress}</p>
-          </span>
+        <div className="mt-3 pt-3 border-t">
+          <div className="flex">
+            <h5 className="text-lg font-semibold text-gray-700 capitalize mb-3">
+              {`Đơn hàng`}
+            </h5>
+          </div>
+          <div className="grid grid-cols-2 gap-6">
+            <span>
+              <p className={textGrayStyle}>Ngày đặt hàng</p>
+              {/* <p className={dataStyle}>{obj.detail.trv.toDate.split('T')[0]}</p> */}
+              <p className={dataStyle}>{item.productDetailCreateRequest.orders.ordDate.split('T')[0]}</p>
+            </span>
+
+            <span>
+              <p className={textGrayStyle}>Ngày bắt đầu</p>
+              {/* <p className={dataStyle}>{obj.detail.trv.fromDate.split('T')[0]}</p> */}
+              <p className={dataStyle}>{item.productDetailCreateRequest.trv.fromDate.split('T')[0]}</p>
+            </span>
+
+            <span>
+              <p className={textGrayStyle}>Ngày kết thúc</p>
+              {/* <p className={dataStyle}>{obj.detail.trv.toDate.split('T')[0]}</p> */}
+              <p className={dataStyle}>{item.productDetailCreateRequest.trv.toDate.split('T')[0]}</p>
+            </span>
+            <span>
+              <p className={textGrayStyle}>Số ngày</p>
+              {/* <p className={dataStyle}>{obj.detail.trv.amountDays}</p> */}
+              <p className={dataStyle}>{item.productDetailCreateRequest.trv.amountDays}</p>
+            </span>
+            <span>
+              <p className={textGrayStyle}>Số người</p>
+              {/* <p className={dataStyle}>{obj.detail.trv.amountPersons}</p> */}
+              <p className={dataStyle}>{item.productDetailCreateRequest.trv.amountPersons}</p>
+            </span>
+            <span>
+              <p className={textGrayStyle}>Khuyễn mãi</p>
+              <p className={dataStyle}>{item.productDetailCreateRequest.trv.promotion === 0 ? 'Không có' : item.productDetailCreateRequest.trv.promotion}</p>
+            </span>
+
+            {/* <span>
+              <p className={textGrayStyle}>Địa chỉ Sales</p>
+              <p className={dataStyleMobile}>{item.productDetailCreateRequest.trv.promotionAddress === '' ? 'None' : item.productDetailCreateRequest.trv.promotionAddress}</p>
+            </span> */}
+          </div>
         </div>
+
+        <div className="mt-3 pt-3 border-t">
+          <div className="flex">
+            <h5 className="text-lg font-semibold text-gray-700 capitalize mb-3">
+              {`Người đặt`}
+            </h5>
+          </div>
+          <div className="grid grid-cols-2 gap-6">
+          <span>
+            <p className={textGrayStyle}>Họ và tên</p>
+            <p className={dataStyle}>{item.productDetailCreateRequest.orders.ordBillFirstName}</p>
+          </span>
+          <span>
+            <p className={textGrayStyle}>Số điện thoại</p>
+            <p className={dataStyle}>{item.productDetailCreateRequest.orders.ordBillMobile}</p>
+          </span>
+          <span>
+            <p className={textGrayStyle}>Email</p>
+            <p className={dataStyle}>{item.productDetailCreateRequest.orders.ordBillEmail}</p>
+          </span>
+          <span>
+            <p className={textGrayStyle}>Địa chỉ</p>
+            <p className={dataStyle}>{item.productDetailCreateRequest.orders.ordBillStreet1}</p>
+          </span>
+          </div>
+        </div>
+
         {item.productDetailCreateRequest.trvDetails.map((detail, index) => <PersonDetail key={index} {...detail} index={index} />)}
       </>
     );
@@ -182,10 +240,11 @@ export default function CartDataDetail({ item=null, index, show = null, setShow=
           <div className="grid grid-cols-2 gap-6">
             <span>
               <p className={textGrayStyle}>Giới tính</p>
-              <p className={dataStyleMobile}>{gender}</p>
+              {/* {gender === 0 ? 'Nữ' : 'Nam'} */}
+              <p className={dataStyleMobile}>{gender === 0 ? 'Nữ' : 'Nam'}</p>
             </span>
             <span>
-              <p className={textGrayStyle}>Tên đầy đủ</p>
+              <p className={textGrayStyle}>Họ và tên</p>
               <p className={dataStyleMobile}>{fullName}</p>
             </span>
             <span>
@@ -209,12 +268,12 @@ export default function CartDataDetail({ item=null, index, show = null, setShow=
         </div>
         <div className="grid grid-cols-2 gap-6">
           <span>
-            <p className={textGrayStyle}>Giới tính</p>
-            <p className={dataStyle}>{gender}</p>
+            <p className={textGrayStyle}>Họ và tên</p>
+            <p className={dataStyle}>{fullName}</p>
           </span>
           <span>
-            <p className={textGrayStyle}>Tên đầy đủ</p>
-            <p className={dataStyle}>{fullName}</p>
+            <p className={textGrayStyle}>Giới tính</p>
+            <p className={dataStyle}>{gender === 0 ? 'Nữ' : 'Nam'}</p>
           </span>
           <span>
             <p className={textGrayStyle}>Ngày sinh</p>

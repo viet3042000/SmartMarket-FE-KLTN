@@ -46,17 +46,34 @@ import { v4 } from "uuid";
 //   }
 // }
 
-export function createProductDetail( trv, peopleForm ) {
+export function createProductDetail( trv, peopleForm, orderForm, priceNumber ) {
+  const currentDate = new Date();
+  const ordDate = currentDate.toISOString().slice(0, 19);
+  // console.log(ordDate.toISOString().slice(0,19));
+
   const orders = {
-    "ordBillFirstName": "Nguyen Anh Chin",
-    "ordBillMobile": "097453686312",
-    "ordBillStreet1": "TTP, Đn Phượng, Hà Nội",
-    "ordBillEmail": "test@gmail.com",
-    "ordDate": "2020-02-17T10:37:22",
+    // Tên khách hàng thực hiện
+    "ordBillFirstName": orderForm.ordBillFirstName,
+    "ordBillMobile": orderForm.ordBillMobile,
+    "ordBillStreet1": orderForm.ordBillStreet1,
+    // bic tự gửi thông báo về email sau
+    "ordBillEmail": orderForm.ordBillEmail,
+
+    // Ngày đặt hàng (lấy ngày hiện tại) (YYYY-MM-DD'T'HH:mm:ss)
+    // "2020-02-17T10:37:22"
+    "ordDate": ordDate,
+
+    // Trạng thái thanh toán (1= chưa thanh toán, 2 = đã thanh toán)
     "ordStatus": "1",
-    "ordTotalQty": 4,
+
+    // Tổng số đơn hàng
+    "ordTotalQty": 1,
+
+    // Phương thức thanh toán (General case = 11)
     "orderPaymentMethod": 11,
-    "ordPaidMoney": 10000,
+
+    "ordPaidMoney": priceNumber,
+
     "ordDiscountAmount": 0,
     "ordSource": "DSVN"
   };

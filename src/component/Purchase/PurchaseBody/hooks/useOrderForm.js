@@ -2,11 +2,16 @@ import React, { useState, useEffect } from 'react';
 import useFormObj from '../../../../hooks/Form/useFormObj';
 import calcPrice from '../../../../common/calcPrice';
 
+
 const orderFormInitial = {
   "amountPersons": "",
   "amountDays": "",
   "fromDate": "", // yyyy-mm-dd
   "toDate": "", // yyyy-mm-dd
+  "ordBillFirstName": "",
+  "ordBillMobile": "",
+  "ordBillStreet1": "",
+  "ordBillEmail": "",
 };
 
 const useOrderForm = (setCurrentStep) => {

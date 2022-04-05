@@ -32,7 +32,7 @@ const PurchaseBody = ({ prodName = null }) => {
     event.preventDefault();
     // if (!validatePaymentForm()) return;
     const trv = createTrv( orderForm.amountPersons, orderForm.amountDays, orderForm.fromDate, toDate );
-    const productDetail = createProductDetail( trv, peopleForm );
+    const productDetail = createProductDetail( trv, peopleForm, orderForm, priceNumber );
 
     const orderItem = {
       // "productName": prodName, 

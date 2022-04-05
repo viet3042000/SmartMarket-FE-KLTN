@@ -41,6 +41,7 @@ const PeopleForm = ({ currentStep = null, setCurrentStep = f => f, peopleForm = 
 };
 
 const FormInput = ({ obj = null, page = null, index = null, error = null, changePeopleForm = f => f }) => {
+  const currentDate = new Date().toISOString().slice(0, 10);
   if ((index + 1) <= (page - 1) * size || (index + 1) > (page) * size) return null;
   return (
     <>
@@ -63,7 +64,7 @@ const FormInput = ({ obj = null, page = null, index = null, error = null, change
 
         <div>
           <label className="text-gray-900 font-medium" htmlFor="dateOfBirth">Ngày sinh</label>
-          <input value={obj.dateOfBirth} onChange={e => changePeopleForm(e, index)} name="dateOfBirth" id="dateOfBirth" type="date" required
+          <input value={obj.dateOfBirth} onChange={e => changePeopleForm(e, index)} name="dateOfBirth" id="dateOfBirth" type="date" max={currentDate} required
             className={`block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring ${error && error.dateOfBirth && 'border-red-500'}`} />
           {error && error.dateOfBirth && <ErrorMessage message={error.dateOfBirth} />}
         </div>
