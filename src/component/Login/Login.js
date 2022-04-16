@@ -59,7 +59,7 @@ const Login = () => {
           <div className="mt-4">
             <div className="flex items-center justify-between">
               <label htmlFor="password" className="block text-sm text-gray-800 dark:text-gray-200">Mật khẩu</label>
-              <a href="#" className="text-xs text-gray-600 dark:text-gray-400 hover:underline">Quên mật khẩu?</a>
+              {/* <a href="#" className="text-xs text-gray-600 dark:text-gray-400 hover:underline">Quên mật khẩu?</a> */}
             </div>
 
             <input type="password"
