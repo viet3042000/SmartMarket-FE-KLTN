@@ -6,7 +6,10 @@ import { VscLoading } from 'react-icons/vsc';
 const OrderForm = ({ currentStep=null, orderForm=null, changeOrderForm=f=>f, toDate=null, submit=f=>f }) => {
   if (currentStep !== 1) return (<></>);
   window.scrollTo(0, 0);
-  const currentDate = new Date().toISOString().slice(0, 10);
+  const date = new Date();
+  date.setDate(date.getDate() + 1);
+  const currentDate = date.toISOString().slice(0, 10);
+  // const currentDate = new Date().toISOString().slice(0, 10);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

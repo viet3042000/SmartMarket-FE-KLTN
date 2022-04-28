@@ -207,7 +207,7 @@ const DropdownItem = ({ hover = null, setHover = f => f, handleLogout = f => f }
           </Link>
         </div>
 
-        <div className="w-full">
+        {/* <div className="w-full">
           <Link to="/change-password">
             <button
               className="border-b py-3 w-full md:block hover:text-gray-700 hover:bg-gray-100 focus:text-gray-700 focus:outline-none"
@@ -217,7 +217,7 @@ const DropdownItem = ({ hover = null, setHover = f => f, handleLogout = f => f }
               Đổi mật khẩu
             </button>
           </Link>
-        </div>
+        </div> */}
 
         <button
           className="py-3 w-full md:block hover:text-gray-700 hover:bg-gray-100 focus:text-gray-700 focus:outline-none"
