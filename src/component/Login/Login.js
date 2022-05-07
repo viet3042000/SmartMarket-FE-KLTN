@@ -44,7 +44,9 @@ const Login = () => {
   return (
     <>
       {errorDisp && <ErrorPopup />}
+      <div className="relative w-full mx-auto pt-40 pb-80 -mt-20 px-6 bg-gradient-to-b from-blue-300 to-indigo-50 overflow-hidden">
       <div className="w-full mb-52 mt-24 sm:max-w-sm p-6 sm:mx-auto bg-white rounded-md sm:shadow-md dark:bg-gray-800">
+      {/* <div className="w-full mb-52 mt-24 sm:max-w-sm p-6 sm:mx-auto bg-gradient-to-b from-blue-300 rounded-md sm:shadow-md dark:bg-gray-800"> */}
         <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">S-Market</h1>
 
         <form onSubmit={handleLogin} className="mt-6">
@@ -84,6 +86,7 @@ const Login = () => {
               {/* {errorDisp ? 'posting' : 'Submit'} */}
             </button>
           </div>
+          
         </form>
 
         {/* <div className="flex items-center justify-between mt-4">
@@ -121,6 +124,7 @@ const Login = () => {
             <a className="font-medium text-gray-800 dark:text-gray-200 hover:underline">Tạo ngay</a>
           </Link>
         </p>
+      </div>
       </div>
     </>
   );
